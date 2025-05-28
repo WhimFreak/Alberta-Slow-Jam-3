@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bradfh71c233e" path="res://UI/main_menu.gd" id="1_tk8dj"]
 [ext_resource type="Texture2D" uid="uid://yo1d15wkyjx1" path="res://icon.svg" id="2_d8nwk"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" groups=["nonpausablemenus"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

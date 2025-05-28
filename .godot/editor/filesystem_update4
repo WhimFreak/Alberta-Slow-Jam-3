@@ -1,5 +1,8 @@
-res://UI/main_menu.gd
 res://UI/main_menu.tscn
 res://test_level.tscn
 res://UI/options_menu.tscn
-res://UI/options_menu.gd
+res://UI/pause_menu.tscn
+res://global.gd
+res://UI/pause_menu.gd
+res://UI/main_menu.gd
+res://Player/player.gd
