@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6vy56cix2v5a"]
+
+[ext_resource type="Script" uid="uid://de1bc6ylt0a8i" path="res://UI/options_menu.gd" id="1_xf62s"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xf62s")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.5
+offset_top = -131.0
+offset_right = 20.5
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "EXIT"
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
