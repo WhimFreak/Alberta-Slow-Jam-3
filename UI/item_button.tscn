@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckunp41lu06su"]
+
+[ext_resource type="Script" uid="uid://3pnrpvhj58jj" path="res://UI/item_button.gd" id="1_j6xwt"]
+
+[node name="ItemButton" type="PanelContainer"]
+custom_minimum_size = Vector2(108, 108)
+offset_right = 108.0
+offset_bottom = 108.0
+script = ExtResource("1_j6xwt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/TextureRect"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 1

@@ -32,8 +32,8 @@ func _unhandled_input(event: InputEvent) -> void: # Camera controls
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		camera_pivot.rotation_degrees.y -= event.relative.x * mouse_sensitivity
-		camera_pivot.rotation_degrees.x -= event.relative.y * mouse_sensitivity
+		camera_pivot.rotation_degrees.y -= event.relative.x * Global.mouse_sens
+		camera_pivot.rotation_degrees.x -= event.relative.y * Global.mouse_sens
 		camera_pivot.rotation_degrees.x = clamp(camera_pivot.rotation_degrees.x, -80, 90)
 		arms.rotation_degrees = camera_pivot.rotation_degrees
 		

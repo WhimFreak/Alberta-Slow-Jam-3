@@ -1,3 +1,12 @@
+VBoxContainer
+Control
+OptionButton
+Label
+HSlider
 Button
-Panel
 TextureRect
+HBoxContainer
+RichTextLabel
+MarginContainer
+PanelContainer
+Panel

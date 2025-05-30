@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Trade Roots"
-run/main_scene="uid://dqsf6li5hocku"
+run/main_scene="uid://cvr3xqmsh61vx"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

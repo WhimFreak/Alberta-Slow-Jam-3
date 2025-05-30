@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://rhupc66qg010"]
+
+[ext_resource type="Script" uid="uid://b2cs0xhm8krq0" path="res://UI/ItemResource.gd" id="1_kjwbi"]
+[ext_resource type="Texture2D" uid="uid://ckixv27bh288a" path="res://Assets/appleicon.png" id="2_vri2b"]
+
+[resource]
+script = ExtResource("1_kjwbi")
+name = "Apple"
+texture = ExtResource("2_vri2b")
+metadata/_custom_type_script = "uid://b2cs0xhm8krq0"

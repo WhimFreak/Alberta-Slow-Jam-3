@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk7toec6nc6vh"]
+
+[ext_resource type="PackedScene" uid="uid://ckunp41lu06su" path="res://UI/item_button.tscn" id="1_yixhe"]
+[ext_resource type="Texture2D" uid="uid://yo1d15wkyjx1" path="res://icon.svg" id="2_ijstf"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InventoryContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_right = 474.0
+offset_bottom = 108.0
+
+[node name="ItemButton" parent="InventoryContainer" instance=ExtResource("1_yixhe")]
+layout_mode = 2
+
+[node name="ItemButton2" parent="InventoryContainer" instance=ExtResource("1_yixhe")]
+layout_mode = 2
+
+[node name="ItemButton3" parent="InventoryContainer" instance=ExtResource("1_yixhe")]
+layout_mode = 2
+
+[node name="ItemButton4" parent="InventoryContainer" instance=ExtResource("1_yixhe")]
+layout_mode = 2
+
+[node name="TradingContainer" type="HBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 108)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -388.0
+offset_right = -168.0
+offset_bottom = 108.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="ItemButton" parent="TradingContainer" instance=ExtResource("1_yixhe")]
+layout_mode = 2
+
+[node name="ItemButton2" parent="TradingContainer" instance=ExtResource("1_yixhe")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(108, 108)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_right = 54.0
+offset_bottom = 108.0
+grow_horizontal = 2
+texture = ExtResource("2_ijstf")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqsf6li5hocku"]
+[gd_scene load_steps=9 format=3 uid="uid://dqsf6li5hocku"]
 
+[ext_resource type="PackedScene" uid="uid://bk7toec6nc6vh" path="res://UI/HUD.tscn" id="1_1c2mv"]
 [ext_resource type="PackedScene" uid="uid://jjbfuydf4hki" path="res://Player/player.tscn" id="1_gojnm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gojnm"]
@@ -408,3 +409,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
 use_collision = true
 size = Vector3(10, 150, 10)
 material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Hud" parent="." instance=ExtResource("1_1c2mv")]

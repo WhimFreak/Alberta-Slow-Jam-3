@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6vy56cix2v5a"]
+[gd_scene load_steps=3 format=3 uid="uid://c6vy56cix2v5a"]
 
 [ext_resource type="Script" uid="uid://de1bc6ylt0a8i" path="res://UI/options_menu.gd" id="1_xf62s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf62s"]
+bg_color = Color(0.230315, 0.230315, 0.230315, 1)
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -18,20 +21,176 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xf62s")
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(350, 500)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.5
-offset_top = -131.0
-offset_right = 20.5
-offset_bottom = -100.0
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+
+[node name="WindowModeButton" type="OptionButton" parent="VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 350.0
 grow_vertical = 0
+selected = 0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_right = 23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Window Mode"
+horizontal_alignment = 1
+
+[node name="Control4" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+
+[node name="ResolutionButton" type="OptionButton" parent="VBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 350.0
+grow_vertical = 0
+selected = 0
+item_count = 4
+popup/item_0/text = "1152x648"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+popup/item_3/text = "1920x1200"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_right = 23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Resolution"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 350.0
+grow_vertical = 0
+value = 100.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_right = 23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 350.0
+grow_vertical = 0
+value = 100.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_right = 23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Sound Effects Volume"
+horizontal_alignment = 1
+
+[node name="Control5" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+
+[node name="MouseSensSlider" type="HSlider" parent="VBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 350.0
+grow_vertical = 0
+value = 25.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Control5"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_right = 23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Mouse Sensitivity"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 text = "EXIT"
 
-[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="item_selected" from="VBoxContainer/Control3/WindowModeButton" to="." method="_on_window_mode_button_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/Control4/ResolutionButton" to="." method="_on_resolution_button_item_selected"]
+[connection signal="drag_ended" from="VBoxContainer/Control/MusicSlider" to="." method="_on_music_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/Control2/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/Control5/MouseSensSlider" to="." method="_on_mouse_sens_slider_drag_ended"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
