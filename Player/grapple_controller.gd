@@ -9,12 +9,15 @@ extends Node3D
 
 @onready var player: CharacterBody3D = get_parent()
 @onready var arms: Node3D = %Arms
+@onready var camera_3d: Camera3D = %Camera3D
 
 @onready var left_arm: Node3D = %LeftArm
-@onready var left_arm_cast: RayCast3D = %LeftArmCast
+@onready var left_arm_cast: ShapeCast3D = %LeftArmCast
+@onready var left_arm_marker: Marker3D = %LeftArmMarker
 
 @onready var right_arm: Node3D = %RightArm
-@onready var right_arm_cast: RayCast3D = %RightArmCast
+@onready var right_arm_cast: ShapeCast3D = %RightArmCast
+@onready var right_arm_marker: Marker3D = %RightArmMarker
 
 var left_target: Vector3 = Vector3.ZERO
 var left_last_target: Vector3 = Vector3.ZERO
@@ -32,6 +35,10 @@ var right_arm_connected: bool = false
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("left_mouse") and !left_arm_launched and !left_arm_retracting:
 		left_arm_launched = true
+		# Arm doesn't rotate with player while thrown
+		left_arm_marker.global_position = left_arm.global_position
+		left_arm.top_level = true
+		
 	if Input.is_action_just_released("left_mouse"):
 		retract(true)
 		
@@ -46,12 +53,15 @@ func _physics_process(delta: float) -> void:
 	# 'Animating 'throwing' the arm
 	if left_arm_launched and not left_arm_connected:
 		left_arm.scale.z = min(left_arm.scale.z + delta * arm_extend_speed, arm_max_length)
+		left_arm.global_position = left_arm_marker.global_position
 		
 		# On collision, set target variable and attach to it
 		if left_arm_cast.is_colliding():
-			if left_arm_cast.get_collider().get_collision_layer_value(3) == true: # Branches will have collision layer 3
-				left_target = left_arm_cast.get_collision_point()
+			if left_arm_cast.get_collider(0).get_collision_layer_value(3) == true: # Branches will have collision layer 3
+				left_target = left_arm_cast.get_collision_point(0)
 				left_last_target = left_target
+				left_arm.top_level = false
+				left_arm.global_position = left_arm_marker.global_position
 				left_arm_connected = true
 			else: # Retract automatically if it hits a wall
 				retract(true)
@@ -61,17 +71,22 @@ func _physics_process(delta: float) -> void:
 			
 	elif left_arm_retracting:
 		left_arm.scale.z = max(left_arm.scale.z - delta * arm_extend_speed, 0.001) # Animate the arm returning
+		left_arm.global_position = left_arm_marker.global_position
 		if left_arm.scale.z <= 0.002: # Reset arm's state once returned
 			left_arm_retracting = false
+			left_arm.top_level = false
+			left_arm.global_position = left_arm_marker.global_position
 			left_last_target = Vector3.ZERO
 			left_arm.rotation = Vector3.ZERO
 	
 	# Duplicated for right arm
 	if Input.is_action_just_pressed("right_mouse") and !right_arm_launched and !right_arm_retracting:
 		right_arm_launched = true
+		right_arm_marker.global_position = right_arm.global_position
+		right_arm.top_level = true
+		
 	if Input.is_action_just_released("right_mouse"):
 		retract(false)
-	
 	if right_arm_connected and right_target.length() != 0:
 		update_arm(false)
 		update_swing(delta)
@@ -80,22 +95,28 @@ func _physics_process(delta: float) -> void:
 		
 	if right_arm_launched and not right_arm_connected:
 		right_arm.scale.z = min(right_arm.scale.z + delta * arm_extend_speed, arm_max_length)
+		right_arm.global_position = right_arm_marker.global_position
 		
 		if right_arm_cast.is_colliding():
-			if right_arm_cast.get_collider().get_collision_layer_value(3) == true:
-				right_target = right_arm_cast.get_collision_point()
+			if right_arm_cast.get_collider(0).get_collision_layer_value(3) == true:
+				right_target = right_arm_cast.get_collision_point(0)
 				right_last_target = right_target
+				right_arm.top_level = false
+				right_arm.global_position = right_arm_marker.global_position
 				right_arm_connected = true
 			else:
 				retract(false)
-			
+				
 		if right_arm.scale.z >= arm_max_length:
 			retract(false)
 			
 	elif right_arm_retracting:
 		right_arm.scale.z = max(right_arm.scale.z - delta * arm_extend_speed, 0.001)
+		right_arm.global_position = right_arm_marker.global_position
 		if right_arm.scale.z <= 0.002:
 			right_arm_retracting = false
+			right_arm.top_level = false
+			right_arm.global_position = right_arm_marker.global_position
 			right_last_target = Vector3.ZERO
 			right_arm.rotation = Vector3.ZERO
 	

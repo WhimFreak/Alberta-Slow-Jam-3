@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://jjbfuydf4hki"]
+[gd_scene load_steps=8 format=3 uid="uid://jjbfuydf4hki"]
 
 [ext_resource type="Script" uid="uid://b2dv4h1fw8hlw" path="res://Player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://dcuy4es408t82" path="res://Player/grapple_controller.gd" id="2_onrkg"]
@@ -10,13 +10,19 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_onrkg"]
-top_radius = 0.1
-bottom_radius = 0.1
+top_radius = 0.15
+bottom_radius = 0.15
 height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ntmi"]
+size = Vector3(0.8, 0.8, 0.15)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_4flbx")
+
+[node name="ClimbCooldown" type="Timer" parent="."]
+wait_time = 0.6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_sh265")
@@ -26,6 +32,30 @@ shape = SubResource("CapsuleShape3D_sh265")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
 mesh = SubResource("CapsuleMesh_sh265")
 skeleton = NodePath("../..")
+
+[node name="ClimbChecks" type="Node3D" parent="Model"]
+
+[node name="ClimbCast" type="RayCast3D" parent="Model/ClimbChecks"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111683, 0)
+target_position = Vector3(0, 0, -1)
+debug_shape_custom_color = Color(0, 0, 1, 1)
+debug_shape_thickness = 5
+
+[node name="PullUpCast" type="RayCast3D" parent="Model/ClimbChecks"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.549827, 0)
+target_position = Vector3(0, 0, -1)
+debug_shape_custom_color = Color(0, 0, 1, 1)
+debug_shape_thickness = 5
+
+[node name="StickHolder" type="Marker3D" parent="Model/ClimbChecks"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="StickPoint" type="Marker3D" parent="Model/ClimbChecks/StickHolder"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 
 [node name="CameraPivot" type="Node3D" parent="."]
 
@@ -47,25 +77,35 @@ debug_shape_thickness = 5
 
 [node name="SwingController" type="Node3D" parent="."]
 script = ExtResource("2_onrkg")
+arm_max_length = 70.0
+arm_extend_speed = 160.0
 
 [node name="Arms" type="Node3D" parent="SwingController"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0.35, 0)
+
+[node name="LeftArmMarker" type="Marker3D" parent="SwingController/Arms"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, -0.3, 0, 0)
+
+[node name="RightArmMarker" type="Marker3D" parent="SwingController/Arms"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, -0.3, 0, 0)
 
 [node name="LeftArm" type="Node3D" parent="SwingController/Arms"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.001, -0.3, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SwingController/Arms/LeftArm"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.001, 0, -0.5)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.000999987, 0, -0.5)
 mesh = SubResource("CylinderMesh_onrkg")
 
-[node name="LeftArmCast" type="RayCast3D" parent="SwingController/Arms/LeftArm"]
+[node name="LeftArmCast" type="ShapeCast3D" parent="SwingController/Arms/LeftArm"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, -1.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0.014, -0.05)
+shape = SubResource("BoxShape3D_4ntmi")
+target_position = Vector3(0, 0, -1)
 collision_mask = 5
-debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [node name="RightArm" type="Node3D" parent="SwingController/Arms"]
 unique_name_in_owner = true
@@ -75,9 +115,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.001, 0.3, 0, 0)
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.001, 0, -0.5)
 mesh = SubResource("CylinderMesh_onrkg")
 
-[node name="RightArmCast" type="RayCast3D" parent="SwingController/Arms/RightArm"]
+[node name="RightArmCast" type="ShapeCast3D" parent="SwingController/Arms/RightArm"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, -1.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 3.04878e-05, 0, -3.0525e-05, 1, 0, 0.022, -0.05)
+shape = SubResource("BoxShape3D_4ntmi")
+target_position = Vector3(0, 0, -1)
 collision_mask = 5
-debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[connection signal="timeout" from="ClimbCooldown" to="." method="_on_climb_cooldown_timeout"]
