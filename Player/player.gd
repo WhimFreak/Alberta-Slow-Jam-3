@@ -46,8 +46,6 @@ func _unhandled_input(event: InputEvent) -> void: # Camera controls
 		arms.rotation_degrees = camera_pivot.rotation_degrees
 		
 func _physics_process(delta: float) -> void:
-	#print("Climb: %s, Pull: %s" % [climb_cast.is_colliding(), pull_up_cast.is_colliding()])
-	
 	camera_direction = Vector3.ZERO
 	var input := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	
