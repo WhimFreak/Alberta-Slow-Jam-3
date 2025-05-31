@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxubuiyr6ceb8"]
+
+[ext_resource type="Script" uid="uid://bidaj3k27igyj" path="res://NPCs/npc_base.gd" id="1_32r8c"]
+[ext_resource type="Resource" uid="uid://d3aa0ovvrrdly" path="res://NPCs/test_table.tres" id="2_hta5i"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qh4cs"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 3.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qh4cs"]
+height = 3.0
+radius = 1.0
+
+[node name="NpcBase" type="CharacterBody3D"]
+collision_layer = 24
+collision_mask = 0
+script = ExtResource("1_32r8c")
+trade_table = ExtResource("2_hta5i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41541, 0)
+mesh = SubResource("CylinderMesh_qh4cs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45965, 0)
+shape = SubResource("CylinderShape3D_qh4cs")

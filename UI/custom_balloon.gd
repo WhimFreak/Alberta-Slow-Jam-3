@@ -1,4 +1,4 @@
-class_name DialogueManagerExampleBalloon extends CanvasLayer
+class_name DialogueManagerCustomBalloon extends CanvasLayer # Changed class name because its shadowing an existing class
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 ## The action to use for advancing the dialogue

@@ -1,5 +1,5 @@
 extends PanelContainer
-var item_resource : Resource
+var item_resource : Resource = preload("res://UI/banana.tres")
 var item_number : int = 0:
 	get:
 		return item_number

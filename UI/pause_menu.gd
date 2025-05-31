@@ -2,9 +2,11 @@ extends Control
 var main_menu_scene = preload("res://UI/main_menu.tscn")
 var options_menu = preload("res://UI/options_menu.tscn")
 #get rid of pause menu on pressing escape
-func _input(event):
+
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		get_tree().paused = false
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		self.queue_free()
 
 #get rid of game scene and pause menu when hitting main menu button

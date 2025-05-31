@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://jjbfuydf4hki"]
+[gd_scene load_steps=9 format=3 uid="uid://jjbfuydf4hki"]
 
 [ext_resource type="Script" uid="uid://b2dv4h1fw8hlw" path="res://Player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://dcuy4es408t82" path="res://Player/grapple_controller.gd" id="2_onrkg"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btcbx"]
+size = Vector3(3, 2, 5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
@@ -19,6 +22,7 @@ size = Vector3(0.8, 0.8, 0.15)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_4flbx")
 
 [node name="ClimbCooldown" type="Timer" parent="."]
@@ -56,6 +60,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 [node name="StickPoint" type="Marker3D" parent="Model/ClimbChecks/StickHolder"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="InteractableCheck" type="Node3D" parent="Model"]
+
+[node name="InteractCast" type="ShapeCast3D" parent="Model/InteractableCheck"]
+shape = SubResource("BoxShape3D_btcbx")
+target_position = Vector3(0, 0, -3)
+collision_mask = 16
+debug_shape_custom_color = Color(0, 1, 0, 1)
 
 [node name="CameraPivot" type="Node3D" parent="."]
 
@@ -121,5 +133,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.04878e-05, 0, -3.0525e-05, 1, 0, 0.022,
 shape = SubResource("BoxShape3D_4ntmi")
 target_position = Vector3(0, 0, -1)
 collision_mask = 5
+
+[node name="InteractUI" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="InteractLabel" type="Label" parent="InteractUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "[E] to interact"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="ClimbCooldown" to="." method="_on_climb_cooldown_timeout"]

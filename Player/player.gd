@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var mouse_sensitivity: float = 0.25
-@export var walk_speed: float = 15
+@export var walk_speed: float = 13
 @export var acceleration: float = 70
 @export var launched_deceleration: float = 15
 @export var rotation_speed: float = 8
@@ -22,11 +22,15 @@ extends CharacterBody3D
 @onready var climb_cooldown: Timer = $ClimbCooldown
 @onready var stick_holder: Marker3D = %StickHolder 
 @onready var stick_point: Marker3D = %StickPoint
+@onready var interact_cast: ShapeCast3D = $Model/InteractableCheck/InteractCast
+@onready var interact_label: Label = $InteractUI/InteractLabel
 
 var camera_direction: Vector3 = Vector3.ZERO
 var last_move_direction: Vector3 = Vector3.ZERO
 var has_swung: bool = false
 var can_climb: bool = true
+var is_interacting: bool = false
+var current_interactable
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -35,11 +39,26 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void: # Camera controls
 	if event.is_action_pressed("left_mouse"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
+	
 	if event.is_action_pressed("escape"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if is_interacting:
+			stop_interacting()
+		else:
+			Global.pause()
+		
+	if interact_cast.is_colliding():
+		if Input.is_action_just_pressed("interact"):
+			is_interacting = true
+			current_interactable = interact_cast.get_collider(0)
 			
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			var cam_tween := create_tween().set_parallel(true)
+			cam_tween.tween_property(camera_3d, "fov", 65, 0.3)
+			
+			# Starts dialogue. Placeholder code for now
+			Global.start_dialogue(preload("res://Assets/Dialogue/test.dialogue"))
+			DialogueManager.dialogue_ended.connect(func(_dialogue): stop_interacting())
+			
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and not is_interacting:
 		camera_pivot.rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		camera_pivot.rotation_degrees.x -= event.relative.y * mouse_sensitivity
 		camera_pivot.rotation_degrees.x = clamp(camera_pivot.rotation_degrees.x, -80, 90)
@@ -49,6 +68,11 @@ func _physics_process(delta: float) -> void:
 	camera_direction = Vector3.ZERO
 	var input := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	
+	if interact_cast.is_colliding() and not is_interacting:
+		interact_label.show()
+	else:
+		interact_label.hide()
+		
 	# Make input directions depend on camera
 	var camera_forward := camera_3d.global_basis.z
 	var camera_right := camera_3d.global_basis.x
@@ -56,13 +80,21 @@ func _physics_process(delta: float) -> void:
 	move_direction.y = 0
 	move_direction = move_direction.normalized()
 	
-	if swing_controller.left_arm_connected or swing_controller.right_arm_connected: # Movement while swinging
-		velocity.x += move_direction.x * 30 * delta
-		velocity.z += move_direction.z * 30 * delta
-		if Input.is_action_just_pressed("jump"): # Player can jump while swinging for a slight vertical boost
-			velocity.y += jump_height
-			swing_controller.retract(true)
-			swing_controller.retract(false)
+	if is_interacting:
+		# Rotate player to interactable
+		var target_dir = (camera_pivot.global_position - current_interactable.global_position)
+		camera_pivot.global_rotation.y = lerp_angle(camera_pivot.global_rotation.y, atan2(target_dir.x, target_dir.z), 5 * delta)
+		camera_pivot.global_rotation.x = lerp_angle(camera_pivot.global_rotation.x, 0, 5 * delta)
+		model.global_rotation.y = lerp_angle(camera_pivot.global_rotation.y, atan2(target_dir.x, target_dir.z), 5 * delta)
+		arms.global_rotation.y = lerp_angle(camera_pivot.global_rotation.y, atan2(target_dir.x, target_dir.z), 5 * delta)
+		arms.global_rotation.x = lerp_angle(camera_pivot.global_rotation.x, 0, 5 * delta)
+		
+		velocity.x = move_toward(velocity.x, 0, acceleration * delta)
+		velocity.z = move_toward(velocity.z, 0, acceleration * delta)
+		velocity.y += gravity * delta
+		
+	elif swing_controller.left_arm_connected or swing_controller.right_arm_connected: # Movement while swinging
+		swinging_movement(move_direction, delta)
 	elif climb_cast.is_colliding() and can_climb:
 		climb(delta)
 	elif has_swung:
@@ -77,8 +109,16 @@ func _physics_process(delta: float) -> void:
 	
 	if move_direction.length() != 0:
 		last_move_direction = move_direction
+
+func swinging_movement(move_dir: Vector3, delta: float):
+	velocity.x += move_dir.x * 30 * delta
+	velocity.z += move_dir.z * 30 * delta
+	if Input.is_action_just_pressed("jump"): # Player can jump while swinging for a slight vertical boost
+		velocity.y += jump_height
+		swing_controller.retract(true)
+		swing_controller.retract(false)
 		
-func normal_movement(move_dir: Vector3, delta):
+func normal_movement(move_dir: Vector3, delta: float):
 	velocity.x = move_toward(velocity.x, move_dir.x * walk_speed, acceleration * delta)
 	velocity.z = move_toward(velocity.z, move_dir.z * walk_speed, acceleration * delta)
 	velocity.y += gravity * delta
@@ -90,7 +130,7 @@ func normal_movement(move_dir: Vector3, delta):
 	var facing_angle := Vector3.FORWARD.signed_angle_to(last_move_direction, Vector3.UP)	
 	model.global_rotation.y = lerp_angle(model.global_rotation.y, facing_angle, rotation_speed * delta)
 
-func post_swing_movement(move_dir: Vector3, delta):
+func post_swing_movement(move_dir: Vector3, delta: float):
 	velocity.x += move_dir.x * air_control * delta
 	velocity.z += move_dir.z * air_control * delta
 	
@@ -102,7 +142,7 @@ func post_swing_movement(move_dir: Vector3, delta):
 	var facing_angle := Vector3.FORWARD.signed_angle_to(last_move_direction, Vector3.UP)	
 	model.global_rotation.y = lerp_angle(model.global_rotation.y, facing_angle, rotation_speed * delta)
 	
-func climb(delta):
+func climb(delta: float):
 	# Sticks player to the wall to prevent falling off
 	stick_holder.global_transform.origin = climb_cast.get_collision_point()
 	global_transform.origin.x = stick_point.global_transform.origin.x
@@ -124,3 +164,9 @@ func climb(delta):
 
 func _on_climb_cooldown_timeout() -> void:
 	can_climb = true
+
+func stop_interacting():
+	is_interacting = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	var cam_tween := create_tween()
+	cam_tween.tween_property(camera_3d, "fov", 75, 0.2)

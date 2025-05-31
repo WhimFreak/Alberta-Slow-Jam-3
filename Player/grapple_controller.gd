@@ -33,7 +33,7 @@ var right_arm_retracting: bool = false
 var right_arm_connected: bool = false
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("left_mouse") and !left_arm_launched and !left_arm_retracting:
+	if Input.is_action_just_pressed("left_mouse") and !left_arm_launched and !left_arm_retracting and !player.is_interacting:
 		left_arm_launched = true
 		# Arm doesn't rotate with player while thrown
 		left_arm_marker.global_position = left_arm.global_position
@@ -80,7 +80,7 @@ func _physics_process(delta: float) -> void:
 			left_arm.rotation = Vector3.ZERO
 	
 	# Duplicated for right arm
-	if Input.is_action_just_pressed("right_mouse") and !right_arm_launched and !right_arm_retracting:
+	if Input.is_action_just_pressed("right_mouse") and !right_arm_launched and !right_arm_retracting and !player.is_interacting:
 		right_arm_launched = true
 		right_arm_marker.global_position = right_arm.global_position
 		right_arm.top_level = true
