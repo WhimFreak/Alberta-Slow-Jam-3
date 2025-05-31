@@ -7,6 +7,7 @@ var current_window_mode : int
 var music_volume : float = 100
 var sfx_volume : float = 100
 var mouse_sens : float = 0.25
+var resource: DialogueResource = preload("res://Assets/Dialogue/test.dialogue")
 #handles opening the pause menu from anywhere in the game, except when there are 'nonpausablemenus' (like the main menu) open
 func _input(event):
 	if event.is_action_pressed("escape"):
@@ -15,3 +16,11 @@ func _input(event):
 			get_tree().paused = true
 			var pause_menu_node = pause_menu_scene.instantiate()
 			self.add_child(pause_menu_node) 
+
+func _ready() -> void:
+	pass
+
+
+func start_dialogue(dialogue_resource):
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_resource.first_title)

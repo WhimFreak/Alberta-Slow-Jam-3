@@ -31,7 +31,7 @@ var can_climb: bool = true
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.game_scene = get_parent()
-
+	
 func _unhandled_input(event: InputEvent) -> void: # Camera controls
 	if event.is_action_pressed("left_mouse"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
