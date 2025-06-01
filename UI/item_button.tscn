@@ -1,19 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckunp41lu06su"]
+[gd_scene load_steps=3 format=3 uid="uid://ckunp41lu06su"]
 
 [ext_resource type="Script" uid="uid://3pnrpvhj58jj" path="res://UI/item_button.gd" id="1_j6xwt"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7f54p"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="ItemButton" type="PanelContainer"]
-custom_minimum_size = Vector2(108, 108)
-offset_right = 108.0
-offset_bottom = 108.0
+custom_minimum_size = Vector2(80, 80)
+offset_right = 80.0
+offset_bottom = 80.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_7f54p")
 script = ExtResource("1_j6xwt")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
@@ -34,3 +40,7 @@ grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 horizontal_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

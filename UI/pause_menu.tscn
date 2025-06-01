@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cc6qfxsao5tdg" path="res://UI/pause_menu.gd" id="1_ltd3m"]
 
-[node name="PauseMenu" type="Control" groups=["nonpausablemenus"]]
+[node name="PauseLayer" type="CanvasLayer"]
+layer = 3
+
+[node name="PauseMenu" type="Control" parent="." groups=["nonpausablemenus"]]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 15
@@ -12,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ltd3m")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="PauseMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,13 +37,13 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 text = "MAIN MENU"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 text = "OPTIONS"
 
-[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/MainMenuButton" to="PauseMenu" method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsButton" to="PauseMenu" method="_on_options_button_pressed"]

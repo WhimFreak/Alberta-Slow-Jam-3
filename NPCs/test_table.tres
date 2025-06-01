@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="TradeTable" load_steps=5 format=3 uid="uid://d3aa0ovvrrdly"]
+[gd_resource type="Resource" script_class="TradeTable" load_steps=6 format=3 uid="uid://d3aa0ovvrrdly"]
 
+[ext_resource type="Resource" uid="uid://bauyjg6sid8s" path="res://UI/fishbone.tres" id="1_0gkvq"]
 [ext_resource type="Script" uid="uid://bn6tnnpvlj63x" path="res://NPCs/trade_table.gd" id="1_cd646"]
 [ext_resource type="Script" uid="uid://b2cs0xhm8krq0" path="res://UI/ItemResource.gd" id="2_fy56u"]
 [ext_resource type="Resource" uid="uid://cvevh31ogvoc4" path="res://UI/acorn.tres" id="3_vv3am"]
@@ -7,8 +8,9 @@
 
 [resource]
 script = ExtResource("1_cd646")
+resource_output = ExtResource("1_0gkvq")
 trade_rate_dict = Dictionary[ExtResource("2_fy56u"), float]({
-ExtResource("3_vv3am"): 3.0,
+ExtResource("3_vv3am"): 1.5,
 ExtResource("4_f4phf"): 2.0
 })
 metadata/_custom_type_script = "uid://bn6tnnpvlj63x"

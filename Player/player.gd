@@ -37,9 +37,6 @@ func _ready() -> void:
 	Global.game_scene = get_parent()
 	
 func _unhandled_input(event: InputEvent) -> void: # Camera controls
-	if event.is_action_pressed("left_mouse"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
 	if event.is_action_pressed("escape"):
 		if is_interacting:
 			stop_interacting()
@@ -56,7 +53,11 @@ func _unhandled_input(event: InputEvent) -> void: # Camera controls
 			
 			# Starts dialogue. Placeholder code for now
 			Global.start_dialogue(preload("res://Assets/Dialogue/test.dialogue"))
-			DialogueManager.dialogue_ended.connect(func(_dialogue): stop_interacting())
+			DialogueManager.dialogue_ended.connect(
+				func(_dialogue):
+				if interact_cast.get_collider(0).has_method("start_trading"):
+					interact_cast.get_collider(0).start_trading()
+				)
 			
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and not is_interacting:
 		camera_pivot.rotation_degrees.y -= event.relative.x * mouse_sensitivity
@@ -168,5 +169,12 @@ func _on_climb_cooldown_timeout() -> void:
 func stop_interacting():
 	is_interacting = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	var hud = get_tree().get_first_node_in_group("hud")
+	if hud:
+		hud.stop_trading()
 	var cam_tween := create_tween()
 	cam_tween.tween_property(camera_3d, "fov", 75, 0.2)
+	
+func start_interaction(interactable):
+	if interactable.has_method("on_interact"):
+		interactable.on_interact()
