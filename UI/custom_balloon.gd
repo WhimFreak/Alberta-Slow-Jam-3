@@ -55,6 +55,7 @@ var mutation_cooldown: Timer = Timer.new()
 func _ready() -> void:
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+	Global.connect("trading_stopped", _on_trading_stopped)
 
 	# If the responses menu doesn't have a next action set, use this one
 	if responses_menu.next_action.is_empty():
@@ -66,7 +67,12 @@ func _ready() -> void:
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
+	if _event.is_action_pressed("escape"):
+		var hud = get_tree().get_first_node_in_group("hud")
+		if hud:
+			hud.stop_trading()
 	get_viewport().set_input_as_handled()
+	pass
 
 
 func _notification(what: int) -> void:
@@ -133,6 +139,11 @@ func next(next_id: String) -> void:
 
 
 #region Signals
+
+func _on_trading_stopped() -> void:
+	show()
+	pass
+
 
 
 func _on_mutation_cooldown_timeout() -> void:

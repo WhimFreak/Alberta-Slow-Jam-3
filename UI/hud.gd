@@ -121,6 +121,7 @@ func stop_trading():
 	selected_button = null
 	selected_resource = null
 	selected_amount = 0
+	Global.emit_signal("trading_stopped")
 	
 func _on_gui_input(event: InputEvent) -> void:
 	if not trading:

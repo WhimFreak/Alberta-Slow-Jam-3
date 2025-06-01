@@ -47,16 +47,16 @@ func _unhandled_input(event: InputEvent) -> void: # Camera controls
 		if Input.is_action_just_pressed("interact"):
 			is_interacting = true
 			current_interactable = interact_cast.get_collider(0)
+			Global.current_interacting_npc = current_interactable
 			
 			var cam_tween := create_tween().set_parallel(true)
 			cam_tween.tween_property(camera_3d, "fov", 65, 0.3)
 			
 			# Starts dialogue. Placeholder code for now
-			Global.start_dialogue(preload("res://Assets/Dialogue/test.dialogue"))
+			start_interaction(current_interactable)
 			DialogueManager.dialogue_ended.connect(
 				func(_dialogue):
-				if interact_cast.get_collider(0).has_method("start_trading"):
-					interact_cast.get_collider(0).start_trading()
+				stop_interacting()
 				)
 			
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and not is_interacting:
