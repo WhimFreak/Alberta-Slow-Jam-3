@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bk7toec6nc6vh"]
+[gd_scene load_steps=14 format=3 uid="uid://bk7toec6nc6vh"]
 
 [ext_resource type="Script" uid="uid://bnjhfi7ji5uig" path="res://UI/hud.gd" id="1_4n7mi"]
 [ext_resource type="PackedScene" uid="uid://ckunp41lu06su" path="res://UI/item_button.tscn" id="1_yixhe"]
@@ -7,6 +7,27 @@
 [ext_resource type="Resource" uid="uid://cvevh31ogvoc4" path="res://UI/acorn.tres" id="3_2ptjp"]
 [ext_resource type="Resource" uid="uid://rhupc66qg010" path="res://UI/apple.tres" id="3_gppie"]
 [ext_resource type="Resource" uid="uid://bookakbwnn7be" path="res://UI/banana.tres" id="5_md4fy"]
+[ext_resource type="Texture2D" uid="uid://bj3yaaiprus8a" path="res://Assets/bored.png" id="8_md4fy"]
+[ext_resource type="PackedScene" uid="uid://l3gabhmaetni" path="res://UI/event_popup.tscn" id="9_7i7fj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbci0"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am7sw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_md4fy"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7i7fj"]
+bg_color = Color(0.211796, 0.641566, 0.878467, 1)
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -20,7 +41,7 @@ script = ExtResource("1_4n7mi")
 inventory = Dictionary[ExtResource("2_md4fy"), int]({
 ExtResource("3_gppie"): 2,
 ExtResource("5_md4fy"): 5,
-ExtResource("3_2ptjp"): 4
+ExtResource("3_2ptjp"): 40
 })
 
 [node name="InventoryContainer" type="HBoxContainer" parent="."]
@@ -68,6 +89,62 @@ offset_right = 64.0
 offset_bottom = 128.0
 grow_horizontal = 2
 texture = ExtResource("2_ijstf")
+
+[node name="RelationshipUI" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -81.0
+offset_right = 268.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="RelationshipUI"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rbci0")
+
+[node name="RelationshipIcon" type="TextureRect" parent="RelationshipUI/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_md4fy")
+
+[node name="PanelContainer2" type="PanelContainer" parent="RelationshipUI"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_am7sw")
+
+[node name="RelationshipBar" type="ProgressBar" parent="RelationshipUI/PanelContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_md4fy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7i7fj")
+value = 50.0
+show_percentage = false
+
+[node name="EventPopup" parent="." instance=ExtResource("9_7i7fj")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 156.0
+offset_right = 150.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="TradingContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]

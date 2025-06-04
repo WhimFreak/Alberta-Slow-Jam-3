@@ -5,10 +5,8 @@ extends CharacterBody3D
 
 # Code for the dialogue goes here? 
 func on_interact():
-	Global.start_dialogue(preload("res://Assets/Dialogue/test.dialogue"))
-	pass
+	Global.start_dialogue(dialogue_file)
 	
 func start_trading():
 	var hud: Hud = get_tree().get_first_node_in_group("hud") as Hud
-	hud.current_trade_table = trade_table
-	hud.start_trading()
+	hud.start_trading(trade_table)

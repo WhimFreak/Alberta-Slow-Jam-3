@@ -10,6 +10,10 @@ const ITEM_BUTTON = preload("res://UI/item_button.tscn")
 @onready var input_panel: ItemButton = %InputPanel
 @onready var output_panel: ItemButton = %OutputPanel
 @onready var confirm_button: Button = %ConfirmButton
+@onready var event_popup: EventPopup = $EventPopup
+@onready var relationship_ui: HBoxContainer = %RelationshipUI
+@onready var relationship_icon: TextureRect = %RelationshipIcon
+@onready var relationship_bar: ProgressBar = %RelationshipBar
 
 var selected_button: ItemButton:
 	set(value):
@@ -66,8 +70,10 @@ var trading: bool = false:
 		trading = value
 		if trading:
 			trading_container.show()
+			relationship_ui.show()
 		else:
 			trading_container.hide()
+			relationship_ui.hide()
 
 func _ready() -> void:
 	update_inventory()
@@ -112,8 +118,10 @@ func on_inventory_item_click(item: ItemButton, is_left_click: bool):
 			selected_resource_max_amount = item.item_number
 		selected_amount = selected_resource_max_amount
 
-func start_trading():
+func start_trading(trade_table: TradeTable):
+	current_trade_table = trade_table
 	trading = true
+	update_relationship()
 	
 func stop_trading():
 	trading = false
@@ -137,12 +145,19 @@ func _on_confirm_button_pressed() -> void:
 	
 	inventory[selected_resource] -= selected_amount
 	add_to_inventory(output_resource, output_amount)
+	gain_exp(selected_amount)
 	
 	selected_button = null
 	selected_resource = null
 	selected_amount = 0
 	
 	update_inventory()
+	update_relationship()
+
+func gain_exp(amount: float):
+	if current_trade_table.gain_exp(amount):
+		add_to_notification_queue("[wave][rainbow]+50%[/rainbow] Trade Value[/wave]")
+		gain_exp(0)
 	
 func add_to_inventory(item: ItemResource, amount: int):
 	if inventory.has(item):
@@ -150,3 +165,14 @@ func add_to_inventory(item: ItemResource, amount: int):
 	else:
 		inventory[item] = amount
 	update_inventory()
+
+func add_to_notification_queue(text: String = ""):
+	event_popup.add_notification(text)
+	
+func update_relationship():
+	if not current_trade_table:
+		return
+	
+	relationship_bar.max_value = current_trade_table.get_exp_req()
+	relationship_bar.value = current_trade_table.relationship_exp
+	relationship_icon.texture = current_trade_table.get_icon()
