@@ -1,0 +1,584 @@
+[gd_scene load_steps=5 format=3 uid="uid://qalwrnryrhu0"]
+
+[ext_resource type="Material" uid="uid://56218r1rk0jc" path="res://Hub.tres" id="1_3sms2"]
+[ext_resource type="Material" uid="uid://hmi406a5vn0a" path="res://Water.tres" id="1_lke2v"]
+[ext_resource type="Material" uid="uid://duwvw3cxulbcp" path="res://Props.tres" id="2_3ri0g"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3ri0g"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="CSGTree" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(4.33141, 0, 0, 0, 3.94084, 0, 0, 0, 4.33141, 0.052928, 3.8768, 8.01953)
+
+[node name="CSGTree2" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -83.7439, 47.3632, -59.1749)
+
+[node name="CSGTree3" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 38.7126, 47.3632, -133.595)
+
+[node name="CSGTree4" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -278.531, 47.3632, -146.386)
+
+[node name="CSGTree5" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -159.59, 47.3632, -160.053)
+
+[node name="CSGTree6" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -296.013, 47.3632, -38.9276)
+
+[node name="CSGTree7" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -208.345, 47.3632, -81.4365)
+
+[node name="CSGTree8" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 136.853, 47.3632, -30.9712)
+
+[node name="CSGTree9" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 145.045, 47.3632, -128.526)
+
+[node name="CSGTree10" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -116.948, 47.3632, -244.647)
+
+[node name="CSGTree11" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -293.168, 47.3632, -241.023)
+
+[node name="CSGTree12" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -424.306, 47.3632, -143.823)
+
+[node name="CSGTree13" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -394.69, 47.3632, -215.741)
+
+[node name="CSGTree14" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 51.3707, 47.3632, -46.8839)
+
+[node name="CSGTree15" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -30.7141, 47.3632, 0.348225)
+
+[node name="CSGTree16" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -50.4526, 47.3632, -148.853)
+
+[node name="CSGTree17" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -154.643, 47.3632, -8.9356)
+
+[node name="CSGTree18" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 103.891, 47.3632, -176.066)
+
+[node name="CSGTree19" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 64.0846, 47.3632, -241.454)
+
+[node name="CSGTree20" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -58.1932, 47.3632, -295.809)
+
+[node name="CSGTree21" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 240.145, 47.3632, -48.573)
+
+[node name="CSGTree22" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 215.054, 47.3632, -198.182)
+
+[node name="CSGTree23" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 281.413, 47.3631, -148.897)
+
+[node name="CSGTree24" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 139.779, 47.3632, -274.446)
+
+[node name="CSGTree25" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 338.962, 47.3632, -52.9332)
+
+[node name="CSGTree26" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -57.7244, 47.3632, -455.573)
+
+[node name="CSGTree27" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 84.2102, 47.3632, -422.461)
+
+[node name="CSGTree28" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 202.246, 47.3632, -476.583)
+
+[node name="CSGTree29" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -312.281, 47.3632, -524.03)
+
+[node name="CSGTree30" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -192.842, 47.3632, -431.829)
+
+[node name="CSGTree31" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -382.314, 47.3632, -377.508)
+
+[node name="CSGTree32" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -216.008, 47.3632, -310.156)
+
+[node name="CSGTree33" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 263.055, 47.3632, -360.789)
+
+[node name="CSGTree34" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 388.861, 47.3632, -161.283)
+
+[node name="CSGTree35" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 342.58, 47.3632, -270.291)
+
+[node name="CSGTree36" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 467.548, 47.3631, -48.3213)
+
+[node name="CSGTree37" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 491.822, 47.3631, -252.253)
+
+[node name="CSGTree38" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 415.091, 47.3631, -413.042)
+
+[node name="CSGTree39" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 330.787, 47.3632, -501.157)
+
+[node name="CSGTree40" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 506.52, 47.3632, -128.234)
+
+[node name="CSGTree41" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 170.664, 47.3632, -354.087)
+
+[node name="CSGTree42" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 263.77, 47.3632, -255.876)
+
+[node name="CSGTree44" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -465.762, 47.3632, -48.8101)
+
+[node name="CSGTree45" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -483.826, 47.3632, -282.427)
+
+[node name="CSGTree46" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -542.792, 47.3632, -177.334)
+
+[node name="CSGTree47" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -517.875, 47.3632, -481.169)
+
+[node name="CSGTree48" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -444.261, 47.3632, -610.943)
+
+[node name="CSGTree49" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -292.288, 47.3632, -373.576)
+
+[node name="CSGTree50" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -244.621, 47.3632, -622.005)
+
+[node name="CSGTree51" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 511.409, 47.3632, -403.724)
+
+[node name="CSGTree52" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 477.688, 47.3632, -528.787)
+
+[node name="CSGTree53" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 446.493, 47.3632, -335.407)
+
+[node name="CSGTree54" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 22.0324, 47.3632, -354.488)
+
+[node name="CSGTree55" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 508.011, 47.3632, -646.284)
+
+[node name="CSGTree56" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 396.184, 47.3632, -622.634)
+
+[node name="CSGTree57" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -104.273, 47.3632, -583.064)
+
+[node name="CSGTree58" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -83.7439, 47.3632, -59.1749)
+
+[node name="CSGTree59" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.309, 0, 6.64218, 0, 47.7926, 0, -6.64218, 0, -10.309, -417.252, 47.3632, -768.678)
+
+[node name="CSGTree60" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.309, 0, 6.64218, 0, 47.7926, 0, -6.64218, 0, -10.309, -221.211, 47.3632, -693.354)
+
+[node name="CSGTree61" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.309, 0, 6.64218, 0, 47.7926, 0, -6.64218, 0, -10.309, -353.38, 47.3632, -624.134)
+
+[node name="CSGTree62" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.309, 0, 6.64218, 0, 47.7926, 0, -6.64218, 0, -10.309, -527.194, 47.3632, -722.964)
+
+[node name="CSGTree63" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-7.45385, 0, 9.73831, 0, 47.7926, 0, -9.73831, 0, -7.45385, 151.129, 47.3632, -777.447)
+
+[node name="CSGTree64" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-7.45385, 0, 9.73831, 0, 47.7926, 0, -9.73831, 0, -7.45385, 310.125, 47.3632, -640.239)
+
+[node name="CSGTree65" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-7.45385, 0, 9.73831, 0, 47.7926, 0, -9.73831, 0, -7.45385, 162.33, 47.3632, -619.818)
+
+[node name="CSGTree66" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-7.45385, 0, 9.73831, 0, 47.7926, 0, -9.73831, 0, -7.45385, 32.2033, 47.3632, -771.625)
+
+[node name="CSGBase1" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(60.1487, 0, 0, 0, 29.0593, 0, 0, 0, 60.1487, 0, 26.6989, 49.9798)
+material = ExtResource("1_3sms2")
+
+[node name="CSGBase4" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(36.0669, 0, 0, 0, 13.0587, 0, 0, 0, 36.0669, -245.385, 12.7609, -1153.59)
+material = ExtResource("1_3sms2")
+
+[node name="CSGTree67" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, -162.055, 47.3632, -483.017)
+
+[node name="CSGTree68" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, -44.1849, 47.3632, -577.215)
+
+[node name="CSGTree69" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, -36.2936, 47.3632, -380.268)
+
+[node name="CSGTree70" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, 68.5376, 47.3632, -525.886)
+
+[node name="CSGTree71" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, 132.83, 47.3632, -1003.31)
+
+[node name="CSGTree73" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, 239.591, 47.3632, -1059.13)
+
+[node name="CSGTree74" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, 484.846, 47.3631, -1127.96)
+
+[node name="CSGTree75" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, 292.469, 47.3631, -1199.85)
+
+[node name="CSGTree76" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, 118.08, 47.3631, -1163.39)
+
+[node name="CSGTree77" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, 12.5022, 47.3632, -1102.36)
+
+[node name="CSGTree78" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, 416.44, 47.3632, -1184.75)
+
+[node name="CSGTree79" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, 117.455, 47.3632, -911.959)
+
+[node name="CSGTree80" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, 234.926, 47.3632, -979.149)
+
+[node name="CSGTree81" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, -113.636, 47.3632, -910.597)
+
+[node name="CSGTree82" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.1393, 0, -1.74109, 0, 47.7926, 0, 1.74109, 0, 12.1393, 395.416, 47.3632, -787.157)
+
+[node name="CSGTree83" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.1393, 0, -1.74109, 0, 47.7926, 0, 1.74109, 0, 12.1393, 365.08, 47.3632, -901.632)
+
+[node name="CSGTree84" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.1393, 0, -1.74109, 0, 47.7926, 0, 1.74109, 0, 12.1393, 457.268, 47.3631, -664.169)
+
+[node name="CSGTree85" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.1393, 0, -1.74109, 0, 47.7926, 0, 1.74109, 0, 12.1393, 510.249, 47.3631, -862.589)
+
+[node name="CSGTree86" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.1393, 0, -1.74109, 0, 47.7926, 0, 1.74109, 0, 12.1393, 457.123, 47.3631, -1032.64)
+
+[node name="CSGTree88" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.1393, 0, -1.74109, 0, 47.7926, 0, 1.74109, 0, 12.1393, 507.191, 47.3632, -737.739)
+
+[node name="CSGTree89" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -331.544, 47.3632, -1065.18)
+
+[node name="CSGTree90" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -243.739, 47.3632, -985.712)
+
+[node name="CSGTree91" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -450.415, 47.3632, -1134.62)
+
+[node name="CSGTree92" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -386.744, 47.3632, -939.363)
+
+[node name="CSGTree93" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -249.549, 47.3632, -825.705)
+
+[node name="CSGTree94" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -136.022, 47.3632, -781.174)
+
+[node name="CSGTree95" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -452.197, 47.3632, -1045.72)
+
+[node name="CSGTree96" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -259.956, 47.3632, -1170.33)
+
+[node name="CSGTree97" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -259.956, 47.3632, -1138.42)
+
+[node name="CSGTree98" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -230.603, 47.3632, -1170.33)
+
+[node name="CSGTree99" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, -230.603, 47.3632, -1138.42)
+
+[node name="CSGTree100" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, 272.901, 47.3632, -758.376)
+
+[node name="CSGTree101" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-11.1282, 0, -5.15349, 0, 47.7926, 0, 5.15349, 0, -11.1282, 245.84, 47.3632, -874.033)
+
+[node name="CSGTree102" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 379.712, 47.3632, -1320.65)
+
+[node name="CSGTree103" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 502.169, 47.3632, -1395.07)
+
+[node name="CSGTree104" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 184.925, 47.3632, -1407.86)
+
+[node name="CSGTree105" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 303.867, 47.3632, -1421.53)
+
+[node name="CSGTree106" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 167.443, 47.3632, -1300.41)
+
+[node name="CSGTree107" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 255.111, 47.3632, -1342.91)
+
+[node name="CSGTree108" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.3835, 0, 6.52517, 0, 47.7926, 0, -6.52517, 0, -10.3835, 307.243, 47.3632, -1602.1)
+
+[node name="CSGTree109" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.3835, 0, 6.52517, 0, 47.7926, 0, -6.52517, 0, -10.3835, 163.962, 47.3632, -1604.24)
+
+[node name="CSGTree110" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.3835, 0, 6.52517, 0, 47.7926, 0, -6.52517, 0, -10.3835, 425.765, 47.3632, -1424.61)
+
+[node name="CSGTree111" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.3835, 0, 6.52517, 0, 47.7926, 0, -6.52517, 0, -10.3835, 317.786, 47.3632, -1476.33)
+
+[node name="CSGTree112" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.3835, 0, 6.52517, 0, 47.7926, 0, -6.52517, 0, -10.3835, 497.743, 47.3632, -1506.3)
+
+[node name="CSGTree113" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.3835, 0, 6.52517, 0, 47.7926, 0, -6.52517, 0, -10.3835, 400.897, 47.3632, -1516.95)
+
+[node name="CSGTree114" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(7.29773, 0, 9.85584, 0, 47.7926, 0, -9.85584, 0, 7.29773, 88.435, 47.3632, -1387.06)
+
+[node name="CSGTree115" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(7.29773, 0, 9.85584, 0, 47.7926, 0, -9.85584, 0, 7.29773, 101.497, 47.3632, -1529.76)
+
+[node name="CSGTree116" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(7.29773, 0, 9.85584, 0, 47.7926, 0, -9.85584, 0, 7.29773, -97.5668, 47.3632, -1282.41)
+
+[node name="CSGTree117" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(7.29773, 0, 9.85584, 0, 47.7926, 0, -9.85584, 0, 7.29773, -37.7715, 47.3632, -1386.13)
+
+[node name="CSGTree118" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(7.29773, 0, 9.85584, 0, 47.7926, 0, -9.85584, 0, 7.29773, -21.609, 47.3632, -1204.42)
+
+[node name="CSGTree119" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(7.29773, 0, 9.85584, 0, 47.7926, 0, -9.85584, 0, 7.29773, -3.60283, 47.3632, -1300.17)
+
+[node name="CSGTree120" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.9872, 0, -5.44763, 0, 47.7926, 0, 5.44763, 0, -10.9872, -341.605, 44.6565, -1331.4)
+
+[node name="CSGTree121" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.9872, 0, -5.44763, 0, 47.7926, 0, 5.44763, 0, -10.9872, -418.258, 79.9052, -1210.32)
+
+[node name="CSGTree122" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.9872, 0, -5.44763, 0, 47.7926, 0, 5.44763, 0, -10.9872, -128.351, 41.1727, -1339.79)
+
+[node name="CSGTree123" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.9872, 0, -5.44763, 0, 47.7926, 0, 5.44763, 0, -10.9872, -229.031, 55.5816, -1274.47)
+height = 2.41748
+
+[node name="CSGTree124" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.9872, 0, -5.44763, 0, 47.7926, 0, 5.44763, 0, -10.9872, -160.422, 45.1474, -1443.83)
+
+[node name="CSGTree125" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-10.9872, 0, -5.44763, 0, 47.7926, 0, 5.44763, 0, -10.9872, -220.083, 44.8662, -1366.8)
+
+[node name="CSGTree126" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -328.944, 47.3632, -1486.87)
+
+[node name="CSGTree127" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -206.487, 47.3632, -1561.29)
+
+[node name="CSGTree128" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -523.731, 47.3632, -1574.08)
+
+[node name="CSGTree129" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -404.789, 47.3632, -1587.75)
+
+[node name="CSGTree130" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -541.213, 47.3632, -1466.62)
+
+[node name="CSGTree131" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -453.545, 47.3632, -1509.13)
+
+[node name="CSGTree132" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -98.2501, 47.3632, -1574.08)
+
+[node name="CSGTree133" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, 20.6913, 47.3632, -1587.75)
+
+[node name="CSGTree134" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -115.732, 47.3632, -1466.62)
+
+[node name="CSGTree135" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -28.0641, 47.3632, -1509.13)
+
+[node name="CSGTree136" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -523.731, 47.3632, -1350.38)
+
+[node name="CSGTree137" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -404.789, 47.3632, -1364.05)
+
+[node name="CSGTree138" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(12.2635, 0, 0, 0, 47.7926, 0, 0, 0, 12.2635, -541.213, 47.3632, -1242.92)
+
+[node name="CSGTree87" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, -28.261, 47.3632, -910.597)
+
+[node name="CSGTree72" type="CSGCylinder3D" parent="Trees"]
+transform = Transform3D(-7.45385, 0, 9.73831, 0, 47.7926, 0, -9.73831, 0, -7.45385, -81.0998, 47.3632, -691.509)
+
+[node name="Water" type="Node3D" parent="."]
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Water"]
+transform = Transform3D(322.866, 0, -33.5712, 0, 16.1952, 0, 134.482, 0, 80.5981, -450.556, -3.05176e-05, -851.224)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Water"]
+transform = Transform3D(198.681, 0, -22.0416, 0, 16.1952, 0, 82.7559, 0, 52.9177, -198.642, -0.96563, -722.338)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Water"]
+transform = Transform3D(209.289, 0, 13.3724, 0, 16.1952, 0, -50.2073, 0, 55.7431, -0.982285, -0.96563, -699.129)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Water"]
+transform = Transform3D(158.938, 0, -38.6534, 0, 16.1952, 0, 145.125, 0, 42.3323, 81.98, -0.96563, -627.462)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Water"]
+transform = Transform3D(213.645, 0, -6.93844, 0, 16.1952, 0, 26.0506, 0, 56.9032, 198.512, -0.96563, -705.507)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Water"]
+transform = Transform3D(68.257, 0, 54.3655, 0, 16.1952, 0, -204.117, 0, 18.1799, -55.1455, -1.18749, -796.2)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Water"]
+transform = Transform3D(-58.3491, 0, 55.1778, 0, 16.1952, 0, -207.167, 0, -15.541, -48.1043, -1.18749, -988.792)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Water"]
+transform = Transform3D(-123.335, 0, 46.9788, 0, 16.1952, 0, -176.384, 0, -32.8497, -134.352, -1.18749, -1170.52)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Water"]
+transform = Transform3D(-215.182, 0, -1.18151, 0, 16.1952, 0, 4.436, 0, -57.3124, -276.388, -1.18749, -1240.28)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Water"]
+transform = Transform3D(-259.459, 0, 19.0644, 0, 16.1952, 0, -90.0994, 0, -54.8998, -494.002, -1.18746, -1282.25)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Water"]
+transform = Transform3D(53.6057, 0, 166.892, 0, 15.9358, 0, 190.326, 0, -47.0056, 431.392, -1.1875, -947.995)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Water"]
+transform = Transform3D(179.786, 0, -66.2107, 0, 15.9358, 0, -130.771, 0, -91.0276, 342.584, -1.18744, -1034.45)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Water"]
+transform = Transform3D(201.533, 0, -20.1214, 0, 16.1952, 0, 75.5466, 0, 53.6772, 395.201, -0.96563, -653.647)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Water"]
+transform = Transform3D(213.645, 0, -6.93844, 0, 16.1952, 0, 26.0506, 0, 56.9032, 594.488, -0.96563, -605.944)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Water"]
+transform = Transform3D(90.2502, 0, -52.0413, 0, 16.1952, 0, 195.391, 0, 24.0377, 198.208, -0.96563, -476.997)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Water"]
+transform = Transform3D(158.938, 0, -38.6534, 0, 16.1952, 0, 145.125, 0, 42.3323, 307.327, -0.96563, -314.601)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Water"]
+transform = Transform3D(90.2502, 0, -52.0413, 0, 16.1952, 0, 195.391, 0, 24.0377, 421.334, -0.96563, -155.215)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Water"]
+transform = Transform3D(-115.061, 0, -48.4452, 0, 16.1952, 0, 181.889, 0, -30.6459, 404.874, -0.96563, 2.10188)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Water"]
+transform = Transform3D(28.2547, 0, 189.122, 0, 15.9358, 0, 100.318, 0, -53.2666, 15.3351, -1.1875, -1376.05)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Water"]
+transform = Transform3D(21.1718, 0, 195.333, 0, 15.9358, 0, 75.1701, 0, -55.0159, -382.858, -1.1875, -431.496)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Water"]
+transform = Transform3D(-64.7908, 0, 67.9925, 0, 15.9358, 0, 131.701, 0, 33.4491, -321.551, -1.1875, -378.928)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Water"]
+transform = Transform3D(-83.8467, 0, -72.9591, 0, 15.9358, 0, -297.696, 0, 20.5491, 12.2104, -1.1875, -1363.83)
+material = ExtResource("1_lke2v")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1195.53, 0, 0, 0, 0.0465454, 0, 0, 0, 1709.45, -0.15509, -0.867065, -799.274)
+material = SubResource("ORMMaterial3D_3ri0g")
+
+[node name="CSGWall" type="CSGBox3D" parent="."]
+transform = Transform3D(1200.27, 0, 0, 0, 141.275, 0, 0, 0, 1, 0, 70.8531, 56.5184)
+
+[node name="CSGWall2" type="CSGBox3D" parent="."]
+transform = Transform3D(1200.27, 0, 0, 0, 141.275, 0, 0, 0, 1, 0, 70.8531, -1647.48)
+
+[node name="CSGWall3" type="CSGBox3D" parent="."]
+transform = Transform3D(3.85649, 0, -1.00108, 0, 141.275, 0, 1811.17, 0, 0.00213158, 593.37, 70.8531, -806.304)
+
+[node name="CSGWall4" type="CSGBox3D" parent="."]
+transform = Transform3D(3.85649, 0, -1.00108, 0, 141.275, 0, 1811.17, 0, 0.00213158, -591.365, 70.8531, -806.304)
+
+[node name="Fruit Props" type="Node3D" parent="."]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Fruit Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -373.459, 87.878, -379.487)
+radius = 3.87975
+material = ExtResource("2_3ri0g")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Fruit Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.437, 6.67483, -516.445)
+radius = 3.87975
+material = ExtResource("2_3ri0g")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Fruit Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7263, 4.55202, -148.679)
+radius = 3.87975
+material = ExtResource("2_3ri0g")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="Fruit Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.331, 87.4255, -969.373)
+radius = 3.87975
+material = ExtResource("2_3ri0g")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="Fruit Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.243, 87.878, -1374.2)
+radius = 3.87975
+material = ExtResource("2_3ri0g")
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="Fruit Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -455.393, 46.1958, -1034.02)
+radius = 3.87975
+material = ExtResource("2_3ri0g")
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="Fruit Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 520.123, 4.17604, -255.123)
+radius = 3.87975
+material = ExtResource("2_3ri0g")
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="Fruit Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -424.19, 1.0408, -96.7158)
+radius = 3.87975
+material = ExtResource("2_3ri0g")
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="Fruit Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6674, 58.1965, -774.191)
+radius = 3.87975
+material = ExtResource("2_3ri0g")
