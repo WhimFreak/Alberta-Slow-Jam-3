@@ -1,0 +1,70 @@
+~ intro
+Squirrel: Hey, hey! Are you a monkey?
+- What if I am?
+	=> thankgod
+- What else coud I be?
+	Squirrel: In this forest? Anything. I've seen things you woudln't believe.
+	Squirrel: So, are you a monkey?
+	- I am, why?
+		=> thankgod
+
+~ thankgod
+Squirrel: Thank God. You have no idea how long I've been waiting for you.
+Squirrel: Listen, I'm an ape like you. A human, to be precise. I'm trapped inside a squirrel body. I need you to--
+- Sorry, but I don't care. I just need to get bananas for the winter.
+Squirrel: ...What?
+Squirrel: Come on man, I really need your help.
+- I just don't have the time.
+Squirrel: Well, what if I had bananas?
+- Do you?
+Squirrel: ...No.
+- I should get going.
+Squirrel: Wait! I know how to get you some.
+- How?
+Squirrel: Here, trade me your acorns.
+do Global.current_interacting_npc.start_trading()
+do hide()
+- What are these?
+Squirrel: Fish chunks. I know someone deeper in the forest who will want them.
+- Will they give me bananas?
+Squirrel: No, but tell them I sent you, and they'll point you in the right direction.
+- Guess I don't have any better options.
+Squirrel: When you're finished, come back. I can take more acorns off your hands.
+=> END!
+
+~ secondaffinity
+Squirrel: Hey, did you find the fish?
+- Yes. Did you know he was dead?
+Squirrel: Yeah. I mean they wouldn't shut up abou tit. 
+- How'd she get her hands on so many bananas?
+Squirrel: Don't tell anyone, but I'm pretty sure she has a deal with the great horned owl of the woods.
+Squirrel: I'd tell you more, but I don't think that information came with into this squirrel body.
+- You weren't lying about being a human?
+Squirrel: Of course I wasn't! Why would I?
+- Huh.
+Squirrel: Speaking of, since you're no longer in a rush, maybe you could help me out.
+- Hmm. No promises, but what do you need?
+Squirrel: Can you get me more acorns? I'll pay you in fish chunks, of course.
+- How will that help you turn back into a human?
+Squirrel: Trust me, as a fellow ape, you don't want to know.
+- I kind of do though.
+Squirrel: Believe me, I'm doing this for your own good. 
+Squirrel: Anyways, let me know when you have stuff to trade?
+=> END!
+~ thirdaffinity
+Squirrel: Beautiful, beautiful! This is just what I need. Thank you!
+- You're welcome. So what's the plan now?
+Squirrel: Well, I'll bury these acorns, survive the winter, and use the leftovers to become a human again next spring.
+- Still won't tell me how that works?
+Squirrel: Nope. But again, thank you. I couldn't have done it without you.
+- No problem.
+Squirrel: If you happen to come across any other acorns while you're out, bring them to me. Now that I have some acorns to spare, I'll give you a better rate.
+- Sounds like a deal.
+=> END!
+
+~ trade
+Squirrel: Got any acorns?
+do Global.current_interacting_npc.start_trading()
+do hide()
+Squirrel: Thank you very much.
+=> END

@@ -1,0 +1,637 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_wtsgj"]
+
+[resource]
+script = ExtResource("1_wtsgj")
+using_states = PackedStringArray()
+titles = {
+"intro": "1",
+"secondaffinity": "35",
+"thankgod": "11",
+"thirdaffinity": "54",
+"trade": "65"
+}
+character_names = PackedStringArray("Squirrel")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"character": "Squirrel",
+&"id": "1",
+&"next_id": "2",
+&"text": "Hey, hey! Are you a monkey?",
+&"type": "dialogue"
+},
+"10": {
+&"id": "10",
+&"next_id": "11",
+&"type": "title"
+},
+"11": {
+&"character": "Squirrel",
+&"id": "11",
+&"next_id": "12",
+&"text": "Thank God. You have no idea how long I've been waiting for you.",
+&"type": "dialogue"
+},
+"12": {
+&"character": "Squirrel",
+&"id": "12",
+&"next_id": "13",
+&"text": "Listen, I'm an ape like you. A human, to be precise. I'm trapped inside a squirrel body. I need you to--",
+&"type": "dialogue"
+},
+"13": {
+&"id": "13",
+&"next_id": "14",
+&"responses": PackedStringArray("13"),
+&"text": "Sorry, but I don't care. I just need to get bananas for the winter.",
+&"type": "response"
+},
+"14": {
+&"character": "Squirrel",
+&"id": "14",
+&"next_id": "15",
+&"text": "...What?",
+&"type": "dialogue"
+},
+"15": {
+&"character": "Squirrel",
+&"id": "15",
+&"next_id": "16",
+&"text": "Come on man, I really need your help.",
+&"type": "dialogue"
+},
+"16": {
+&"id": "16",
+&"next_id": "17",
+&"responses": PackedStringArray("16"),
+&"text": "I just don't have the time.",
+&"type": "response"
+},
+"17": {
+&"character": "Squirrel",
+&"id": "17",
+&"next_id": "18",
+&"text": "Well, what if I had bananas?",
+&"type": "dialogue"
+},
+"18": {
+&"id": "18",
+&"next_id": "19",
+&"responses": PackedStringArray("18"),
+&"text": "Do you?",
+&"type": "response"
+},
+"19": {
+&"character": "Squirrel",
+&"id": "19",
+&"next_id": "20",
+&"text": "...No.",
+&"type": "dialogue"
+},
+"2": {
+&"id": "2",
+&"next_id": "3",
+&"responses": PackedStringArray("2", "4"),
+&"text": "What if I am?",
+&"type": "response"
+},
+"20": {
+&"id": "20",
+&"next_id": "21",
+&"responses": PackedStringArray("20"),
+&"text": "I should get going.",
+&"type": "response"
+},
+"21": {
+&"character": "Squirrel",
+&"id": "21",
+&"next_id": "22",
+&"text": "Wait! I know how to get you some.",
+&"type": "dialogue"
+},
+"22": {
+&"id": "22",
+&"next_id": "23",
+&"responses": PackedStringArray("22"),
+&"text": "How?",
+&"type": "response"
+},
+"23": {
+&"character": "Squirrel",
+&"id": "23",
+&"next_id": "24",
+&"text": "Here, trade me your acorns.",
+&"type": "dialogue"
+},
+"24": {
+&"id": "24",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "Global"
+}, {
+&"i": 9,
+&"type": &"dot"
+}, {
+&"i": 10,
+&"type": &"variable",
+&"value": "current_interacting_npc"
+}, {
+&"i": 33,
+&"type": &"dot"
+}, {
+&"function": "start_trading",
+&"i": 34,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 48,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "25",
+&"type": "mutation"
+},
+"25": {
+&"id": "25",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "hide",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 8,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "26",
+&"type": "mutation"
+},
+"26": {
+&"id": "26",
+&"next_id": "27",
+&"responses": PackedStringArray("26"),
+&"text": "What are these?",
+&"type": "response"
+},
+"27": {
+&"character": "Squirrel",
+&"id": "27",
+&"next_id": "28",
+&"text": "Fish chunks. I know someone deeper in the forest who will want them.",
+&"type": "dialogue"
+},
+"28": {
+&"id": "28",
+&"next_id": "29",
+&"responses": PackedStringArray("28"),
+&"text": "Will they give me bananas?",
+&"type": "response"
+},
+"29": {
+&"character": "Squirrel",
+&"id": "29",
+&"next_id": "30",
+&"text": "No, but tell them I sent you, and they'll point you in the right direction.",
+&"type": "dialogue"
+},
+"3": {
+&"id": "3",
+&"is_snippet": false,
+&"next_id": "11",
+&"next_id_after": "",
+&"type": "goto"
+},
+"30": {
+&"id": "30",
+&"next_id": "31",
+&"responses": PackedStringArray("30"),
+&"text": "Guess I don't have any better options.",
+&"type": "response"
+},
+"31": {
+&"character": "Squirrel",
+&"id": "31",
+&"next_id": "32",
+&"text": "When you're finished, come back. I can take more acorns off your hands.",
+&"type": "dialogue"
+},
+"32": {
+&"id": "32",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"33": {
+&"id": "33",
+&"next_id": "34",
+&"type": ""
+},
+"34": {
+&"id": "34",
+&"next_id": "35",
+&"type": "title"
+},
+"35": {
+&"character": "Squirrel",
+&"id": "35",
+&"next_id": "36",
+&"text": "Hey, did you find the fish?",
+&"type": "dialogue"
+},
+"36": {
+&"id": "36",
+&"next_id": "37",
+&"responses": PackedStringArray("36"),
+&"text": "Yes. Did you know he was dead?",
+&"type": "response"
+},
+"37": {
+&"character": "Squirrel",
+&"id": "37",
+&"next_id": "38",
+&"text": "Yeah. I mean they wouldn't shut up abou tit.",
+&"type": "dialogue"
+},
+"38": {
+&"id": "38",
+&"next_id": "39",
+&"responses": PackedStringArray("38"),
+&"text": "How'd she get her hands on so many bananas?",
+&"type": "response"
+},
+"39": {
+&"character": "Squirrel",
+&"id": "39",
+&"next_id": "40",
+&"text": "Don't tell anyone, but I'm pretty sure she has a deal with the great horned owl of the woods.",
+&"type": "dialogue"
+},
+"4": {
+&"id": "4",
+&"next_id": "5",
+&"text": "What else coud I be?",
+&"type": "response"
+},
+"40": {
+&"character": "Squirrel",
+&"id": "40",
+&"next_id": "41",
+&"text": "I'd tell you more, but I don't think that information came with into this squirrel body.",
+&"type": "dialogue"
+},
+"41": {
+&"id": "41",
+&"next_id": "42",
+&"responses": PackedStringArray("41"),
+&"text": "You weren't lying about being a human?",
+&"type": "response"
+},
+"42": {
+&"character": "Squirrel",
+&"id": "42",
+&"next_id": "43",
+&"text": "Of course I wasn't! Why would I?",
+&"type": "dialogue"
+},
+"43": {
+&"id": "43",
+&"next_id": "44",
+&"responses": PackedStringArray("43"),
+&"text": "Huh.",
+&"type": "response"
+},
+"44": {
+&"character": "Squirrel",
+&"id": "44",
+&"next_id": "45",
+&"text": "Speaking of, since you're no longer in a rush, maybe you could help me out.",
+&"type": "dialogue"
+},
+"45": {
+&"id": "45",
+&"next_id": "46",
+&"responses": PackedStringArray("45"),
+&"text": "Hmm. No promises, but what do you need?",
+&"type": "response"
+},
+"46": {
+&"character": "Squirrel",
+&"id": "46",
+&"next_id": "47",
+&"text": "Can you get me more acorns? I'll pay you in fish chunks, of course.",
+&"type": "dialogue"
+},
+"47": {
+&"id": "47",
+&"next_id": "48",
+&"responses": PackedStringArray("47"),
+&"text": "How will that help you turn back into a human?",
+&"type": "response"
+},
+"48": {
+&"character": "Squirrel",
+&"id": "48",
+&"next_id": "49",
+&"text": "Trust me, as a fellow ape, you don't want to know.",
+&"type": "dialogue"
+},
+"49": {
+&"id": "49",
+&"next_id": "50",
+&"responses": PackedStringArray("49"),
+&"text": "I kind of do though.",
+&"type": "response"
+},
+"5": {
+&"character": "Squirrel",
+&"id": "5",
+&"next_id": "6",
+&"text": "In this forest? Anything. I've seen things you woudln't believe.",
+&"type": "dialogue"
+},
+"50": {
+&"character": "Squirrel",
+&"id": "50",
+&"next_id": "51",
+&"text": "Believe me, I'm doing this for your own good.",
+&"type": "dialogue"
+},
+"51": {
+&"character": "Squirrel",
+&"id": "51",
+&"next_id": "52",
+&"text": "Anyways, let me know when you have stuff to trade?",
+&"type": "dialogue"
+},
+"52": {
+&"id": "52",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"53": {
+&"id": "53",
+&"next_id": "54",
+&"type": "title"
+},
+"54": {
+&"character": "Squirrel",
+&"id": "54",
+&"next_id": "55",
+&"text": "Beautiful, beautiful! This is just what I need. Thank you!",
+&"type": "dialogue"
+},
+"55": {
+&"id": "55",
+&"next_id": "56",
+&"responses": PackedStringArray("55"),
+&"text": "You're welcome. So what's the plan now?",
+&"type": "response"
+},
+"56": {
+&"character": "Squirrel",
+&"id": "56",
+&"next_id": "57",
+&"text": "Well, I'll bury these acorns, survive the winter, and use the leftovers to become a human again next spring.",
+&"type": "dialogue"
+},
+"57": {
+&"id": "57",
+&"next_id": "58",
+&"responses": PackedStringArray("57"),
+&"text": "Still won't tell me how that works?",
+&"type": "response"
+},
+"58": {
+&"character": "Squirrel",
+&"id": "58",
+&"next_id": "59",
+&"text": "Nope. But again, thank you. I couldn't have done it without you.",
+&"type": "dialogue"
+},
+"59": {
+&"id": "59",
+&"next_id": "60",
+&"responses": PackedStringArray("59"),
+&"text": "No problem.",
+&"type": "response"
+},
+"6": {
+&"character": "Squirrel",
+&"id": "6",
+&"next_id": "7",
+&"text": "So, are you a monkey?",
+&"type": "dialogue"
+},
+"60": {
+&"character": "Squirrel",
+&"id": "60",
+&"next_id": "61",
+&"text": "If you happen to come across any other acorns while you're out, bring them to me. Now that I have some acorns to spare, I'll give you a better rate.",
+&"type": "dialogue"
+},
+"61": {
+&"id": "61",
+&"next_id": "62",
+&"responses": PackedStringArray("61"),
+&"text": "Sounds like a deal.",
+&"type": "response"
+},
+"62": {
+&"id": "62",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"63": {
+&"id": "63",
+&"next_id": "64",
+&"type": ""
+},
+"64": {
+&"id": "64",
+&"next_id": "65",
+&"type": "title"
+},
+"65": {
+&"character": "Squirrel",
+&"id": "65",
+&"next_id": "66",
+&"text": "Got any acorns?",
+&"type": "dialogue"
+},
+"66": {
+&"id": "66",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "Global"
+}, {
+&"i": 9,
+&"type": &"dot"
+}, {
+&"i": 10,
+&"type": &"variable",
+&"value": "current_interacting_npc"
+}, {
+&"i": 33,
+&"type": &"dot"
+}, {
+&"function": "start_trading",
+&"i": 34,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 48,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "67",
+&"type": "mutation"
+},
+"67": {
+&"id": "67",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "hide",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 8,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "68",
+&"type": "mutation"
+},
+"68": {
+&"character": "Squirrel",
+&"id": "68",
+&"next_id": "69",
+&"text": "Thank you very much.",
+&"type": "dialogue"
+},
+"69": {
+&"id": "69",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"7": {
+&"id": "7",
+&"next_id": "8",
+&"responses": PackedStringArray("7"),
+&"text": "I am, why?",
+&"type": "response"
+},
+"70": {
+&"id": "70",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"8": {
+&"id": "8",
+&"is_snippet": false,
+&"next_id": "11",
+&"next_id_after": "",
+&"type": "goto"
+},
+"9": {
+&"id": "9",
+&"next_id": "10",
+&"type": ""
+}
+}
+raw_text = "~ intro
+Squirrel: Hey, hey! Are you a monkey?
+- What if I am?
+	=> thankgod
+- What else coud I be?
+	Squirrel: In this forest? Anything. I've seen things you woudln't believe.
+	Squirrel: So, are you a monkey?
+	- I am, why?
+		=> thankgod
+
+~ thankgod
+Squirrel: Thank God. You have no idea how long I've been waiting for you.
+Squirrel: Listen, I'm an ape like you. A human, to be precise. I'm trapped inside a squirrel body. I need you to--
+- Sorry, but I don't care. I just need to get bananas for the winter.
+Squirrel: ...What?
+Squirrel: Come on man, I really need your help.
+- I just don't have the time.
+Squirrel: Well, what if I had bananas?
+- Do you?
+Squirrel: ...No.
+- I should get going.
+Squirrel: Wait! I know how to get you some.
+- How?
+Squirrel: Here, trade me your acorns.
+do Global.current_interacting_npc.start_trading()
+do hide()
+- What are these?
+Squirrel: Fish chunks. I know someone deeper in the forest who will want them.
+- Will they give me bananas?
+Squirrel: No, but tell them I sent you, and they'll point you in the right direction.
+- Guess I don't have any better options.
+Squirrel: When you're finished, come back. I can take more acorns off your hands.
+=> END!
+
+~ secondaffinity
+Squirrel: Hey, did you find the fish?
+- Yes. Did you know he was dead?
+Squirrel: Yeah. I mean they wouldn't shut up abou tit. 
+- How'd she get her hands on so many bananas?
+Squirrel: Don't tell anyone, but I'm pretty sure she has a deal with the great horned owl of the woods.
+Squirrel: I'd tell you more, but I don't think that information came with into this squirrel body.
+- You weren't lying about being a human?
+Squirrel: Of course I wasn't! Why would I?
+- Huh.
+Squirrel: Speaking of, since you're no longer in a rush, maybe you could help me out.
+- Hmm. No promises, but what do you need?
+Squirrel: Can you get me more acorns? I'll pay you in fish chunks, of course.
+- How will that help you turn back into a human?
+Squirrel: Trust me, as a fellow ape, you don't want to know.
+- I kind of do though.
+Squirrel: Believe me, I'm doing this for your own good. 
+Squirrel: Anyways, let me know when you have stuff to trade?
+=> END!
+~ thirdaffinity
+Squirrel: Beautiful, beautiful! This is just what I need. Thank you!
+- You're welcome. So what's the plan now?
+Squirrel: Well, I'll bury these acorns, survive the winter, and use the leftovers to become a human again next spring.
+- Still won't tell me how that works?
+Squirrel: Nope. But again, thank you. I couldn't have done it without you.
+- No problem.
+Squirrel: If you happen to come across any other acorns while you're out, bring them to me. Now that I have some acorns to spare, I'll give you a better rate.
+- Sounds like a deal.
+=> END!
+
+~ trade
+Squirrel: Got any acorns?
+do Global.current_interacting_npc.start_trading()
+do hide()
+Squirrel: Thank you very much.
+=> END"
+metadata/dialogue_manager_version = "3.6.3"

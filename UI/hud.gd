@@ -124,6 +124,7 @@ func on_inventory_item_click(item: ItemButton, is_left_click: bool):
 
 func start_trading(trade_table: TradeTable):
 	current_trade_table = trade_table
+	Global.current_trade_table = trade_table
 	trading = true
 	update_relationship()
 	

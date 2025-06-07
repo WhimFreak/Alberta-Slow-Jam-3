@@ -9,6 +9,10 @@ var sfx_volume : float = 100
 var mouse_sens : float = 0.25
 var resource: DialogueResource = preload("res://Assets/Dialogue/test.dialogue")
 var current_interacting_npc = null
+var next_squirrel_dialogue : String = "intro"
+var next_alligator_dialogue : String = "intro"
+var next_fish_dialogue : String = "intro"
+var current_trade_table : TradeTable
 signal trading_stopped
 
 @export var animals_met_goal: int = 1
@@ -41,5 +45,12 @@ func check_goals():
 		win_screen.on_win()
 
 func start_dialogue(dialogue_resource):
+	var title : String
+	match dialogue_resource.resource_path:
+		"res://Assets/Dialogue/squirrel.dialogue":
+			title = next_squirrel_dialogue
+			DialogueManager.show_dialogue_balloon(dialogue_resource, title)
+			next_squirrel_dialogue = "trade"
+	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_resource.first_title)
+	

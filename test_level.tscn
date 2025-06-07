@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dia6eamau7x8t"]
+[gd_scene load_steps=15 format=3 uid="uid://dia6eamau7x8t"]
 
 [ext_resource type="PackedScene" uid="uid://bk7toec6nc6vh" path="res://UI/HUD.tscn" id="1_1c2mv"]
 [ext_resource type="PackedScene" uid="uid://jjbfuydf4hki" path="res://Player/player.tscn" id="1_gojnm"]
 [ext_resource type="PackedScene" uid="uid://ymfnakgwxbmr" path="res://Environment/day_night_cycle.tscn" id="1_sb12i"]
 [ext_resource type="PackedScene" uid="uid://cxubuiyr6ceb8" path="res://NPCs/npc_base.tscn" id="3_f7g2b"]
+[ext_resource type="Resource" uid="uid://bhp6fjcxn4p8g" path="res://Assets/Dialogue/squirrel.dialogue" id="4_58smv"]
 [ext_resource type="Script" uid="uid://b2cs0xhm8krq0" path="res://UI/ItemResource.gd" id="5_6emce"]
 [ext_resource type="PackedScene" uid="uid://ccgm7gfo2n33i" path="res://Environment/tree_model.tscn" id="6_gbhdq"]
 [ext_resource type="Resource" uid="uid://rhupc66qg010" path="res://UI/apple.tres" id="6_lowby"]
@@ -403,6 +404,7 @@ material = SubResource("StandardMaterial3D_gojnm")
 
 [node name="NpcBase" parent="." instance=ExtResource("3_f7g2b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -1)
+dialogue_file = ExtResource("4_58smv")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
