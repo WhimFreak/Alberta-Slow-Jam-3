@@ -7,10 +7,4 @@ res://UI/item_button.tscn
 res://addons/dialogue_manager/example_balloon/example_balloon.tscn
 res://addons/dialogue_manager/test_scene.tscn
 res://UI/custom_balloon.tscn
-res://NPCs/npc_base.gd
-res://Player/player.gd
 res://NPCs/npc_base.tscn
-res://global.gd
-res://UI/hud.gd
-res://UI/custom_balloon.gd
-res://addons/dialogue_manager/example_balloon/example_balloon.gd
