@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqsf6li5hocku"]
+[gd_scene load_steps=8 format=3 uid="uid://dqsf6li5hocku"]
 
 [ext_resource type="PackedScene" uid="uid://bk7toec6nc6vh" path="res://UI/HUD.tscn" id="1_1c2mv"]
 [ext_resource type="PackedScene" uid="uid://jjbfuydf4hki" path="res://Player/player.tscn" id="1_gojnm"]
 [ext_resource type="PackedScene" uid="uid://ymfnakgwxbmr" path="res://Environment/day_night_cycle.tscn" id="1_sb12i"]
-[ext_resource type="Script" uid="uid://bbhfrqdcuwl7g" path="res://Environment/day_night_cycle.gd" id="2_gbhdq"]
 [ext_resource type="PackedScene" uid="uid://cxubuiyr6ceb8" path="res://NPCs/npc_base.tscn" id="3_f7g2b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsoxx"]
@@ -18,7 +17,6 @@ albedo_color = Color(0.239228, 0.123589, 0.134716, 1)
 [node name="TestLevel" type="Node3D"]
 
 [node name="DayNightCycle" parent="." instance=ExtResource("1_sb12i")]
-script = ExtResource("2_gbhdq")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.283419, 0)

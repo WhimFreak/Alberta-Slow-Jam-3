@@ -1,10 +1,1 @@
 res://test_level.tscn
-res://UI/main_menu.tscn
-res://UI/options_menu.tscn
-res://UI/pause_menu.tscn
-res://UI/HUD.tscn
-res://UI/item_button.tscn
-res://addons/dialogue_manager/example_balloon/example_balloon.tscn
-res://addons/dialogue_manager/test_scene.tscn
-res://UI/custom_balloon.tscn
-res://NPCs/npc_base.tscn
