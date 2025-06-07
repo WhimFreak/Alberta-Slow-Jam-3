@@ -1,4 +1,64 @@
 ~ intro
+Dead Fish: Rotten acorns, are you a monkey?
+- ...Are you dead?
+Dead Fish: Am I--Good heavens, no! Could a dead fish talk?
+- Apparently.
+Dead Fish: Ugh, you primates. Always so 'wise'.
+Dead Fish: What do you want?
+- An alligator told me I could get bananas here.
+Dead Fish: Oh she did, did she?
+Dead Fish: Why don't you go back, and tell her to stick it where the sun doesn't shine?
+- Aren't you friends?
+Dead Fish: Friends!? Is that what she said?
+- Yes.
+Dead Fish: That $#@^!
+- ...So, you're not!
+Dead Fish: No! Why do you think I look like this? She ate me!
+Dead Fish: My scales, my organs, my eyes--she ate it all! Now she says we're friends?
+- Okay, to be honest, I don't care. I have apples. Can I get bananas?
+Dead Fish: You don't care? She ate me and you don't--apples? You have apples?
+- Yes.
+Dead Fish: Give me. I'll trade you for all the bananas you want.
+do Global.current_interacting_npc.start_trading()
+do hide()
+Dead Fish: Perfect, perfect. You've done me a great service, ape.
+Dead Fish: If you could bring me more apples, I would be forever in your debt.
+- I'll see what I can do. What do you want the apples for anyways?
+Dead Fish: Oh, I'm going to throw them at that alligator. That's the least I can do for all the trouble she's caused me.
+- ...Best of luck.
+=> END!
+
+~ secondaffinity
+Dead Fish: Have you seen the fruits of my labour, ape?
+- No.
+Dead Fish: Exactly. For as many apples as I have thrown, they are still ineffective. I require more.
+- Do you really think more will help?
+Dead Fish: Shush. Given my great need, I am prepared to reward you accordingly.
+- Well, I won't say no to more bananas.
+Dead Fish: Exactly. Isn't this such a productive partnership?
+Dead Fish: You know, me and the alligator used to be partners. She would trade me the bones of her victims, and I would give her the worms I dug from the dirt.
+Dead Fish: If only I knew she would one day betray me...
+Dead Fish: Be wary of her. You never know when she'll strike.
+- I'll keep that in mind.
+=> END!
+
+~ thirdaffinity
+Dead Fish: Welcome back, ape. Thank you for all your hard work. You'll be pleased to know I'm putting these apples to good use.
+Dead Fish: And that I've figured out my greatest error.
+- ...Oh?
+Dead Fish: So far, my efforts have failed. That alligator is not vulnerable to indvidual apples. 
+Dead Fish: But a combined bushelful may just work.
+Dead Fish: Friend, I have gathered the greatest stash of bananas yet. Bring me as many apples as you please, and I will reward you handsomely.
+Dead Fish: In time, we will slay that great beast together, and stand side by side as champions.
+- Just make sure you have enough for winter. It's going to be harsh this year.
+Dead Fish: Fret not, I have plans in play.
+Dead Fish: If she survives my next attack, I will see you next spring. We will have beautiful work ahead of us.
+- ...If you say so.
+=> END!
 
 ~ trade
+Dead Fish: Do you bring sweet gifts?
+do Global.current_interacting_npc.start_trading()
+do hide()
+Dead Fish: Delightful. Delightful.
 => END

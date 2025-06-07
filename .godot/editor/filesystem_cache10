@@ -98,9 +98,9 @@ Apple.glb::PackedScene/PackedScene::3831508782281703050::1749301227::1749304316:
 Banana.glb::PackedScene/PackedScene::6643659822267619083::1749301227::1749304314::1::::<><><>0<>0<>93024a5b3bf2fdbd35654abceabd4ad5<>res://.godot/imported/Banana.glb-071da033c108d35435b94146638c34f5.scn::
 Fish chunk.glb::PackedScene/PackedScene::2253974652523626112::1749301227::1749304314::1::::<><><>0<>0<>ef5c89f97b534e198344d14add8884fc<>res://.godot/imported/Fish chunk.glb-ee69d32acbad08cc243ba094dced2419.scn::
 Tree.glb::PackedScene/PackedScene::1867649575891600674::1749301227::1749304314::1::::<><><>0<>0<>d4a3d6d9d2f1056d2d5b8c5f00e00016<>res://.godot/imported/Tree.glb-ea1ef2a0d23c26917570b12e2c862015.scn::
-::res://Assets/Dialogue/::1749308249
+::res://Assets/Dialogue/::1749309499
 alligator.dialogue::Resource/Resource::5378534512043140465::1749308249::1749308249::1::::<><><>0<>0<>f52b407637ca6582a8ce59dd2fd1cd09<>res://.godot/imported/alligator.dialogue-9245b649bfe0950a6e53df41f6f17708.tres::uid://dbs4435dsf3ry::::res://addons/dialogue_manager/dialogue_resource.gd
-dead_fish.dialogue::Resource/Resource::657513283955962489::1749304386::1749304468::1::::<><><>0<>0<>ca3c27d7e2805304cf79fac844742c38<>res://.godot/imported/dead_fish.dialogue-c96fb6a175dfbc0bbd0701d7b00d8709.tres::uid://dbs4435dsf3ry::::res://addons/dialogue_manager/dialogue_resource.gd
+dead_fish.dialogue::Resource/Resource::657513283955962489::1749309499::1749309499::1::::<><><>0<>0<>ca3c27d7e2805304cf79fac844742c38<>res://.godot/imported/dead_fish.dialogue-c96fb6a175dfbc0bbd0701d7b00d8709.tres::uid://dbs4435dsf3ry::::res://addons/dialogue_manager/dialogue_resource.gd
 squirrel.dialogue::Resource/Resource::2910599888078814780::1749304926::1749304926::1::::<><><>0<>0<>c14e559ca43ede786185bc2b4918eedf<>res://.godot/imported/squirrel.dialogue-c73d48deca9c6ebf6f8f64833254dddd.tres::uid://dbs4435dsf3ry::::res://addons/dialogue_manager/dialogue_resource.gd
 test.dialogue::Resource/Resource::2304110975295855837::1748800721::1749301327::1::::<><><>0<>0<>3638c8835b5299d07c949b4cc3bf2e13<>res://.godot/imported/test.dialogue-3390f642ea5290b4b5860923d79421ca.tres::uid://dbs4435dsf3ry::::res://addons/dialogue_manager/dialogue_resource.gd
 ::res://Assets/textures/::1749304314
