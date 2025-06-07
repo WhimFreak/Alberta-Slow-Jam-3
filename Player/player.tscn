@@ -15,10 +15,10 @@ size = Vector3(3, 2, 5)
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gwnis"]
-size = Vector3(2.5, 1, 5)
+size = Vector3(3, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k53q1"]
-size = Vector3(2.5, 1, 5)
+size = Vector3(3, 1, 5)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -104,7 +104,6 @@ arm_extend_speed = 160.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02731, 2.43175, -0.346158)
 
 [node name="LeftArmCast" type="ShapeCast3D" parent="SwingController/LeftMarker"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_gwnis")
 target_position = Vector3(0, 0, 0)
 collision_mask = 5

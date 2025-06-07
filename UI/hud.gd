@@ -3,7 +3,7 @@ extends Control
 
 const ITEM_BUTTON = preload("res://UI/item_button.tscn")
 
-@export var inventory: Dictionary[ItemResource, int]
+@export var start_inventory: Dictionary[ItemResource, int]
 
 @onready var inventory_container: HBoxContainer = $InventoryContainer
 @onready var trading_container: HBoxContainer = $TradingContainer
@@ -61,7 +61,8 @@ var output_amount: int:
 	set(value):
 		output_amount = value
 		output_panel.item_number = output_amount
-			
+
+var inventory: Dictionary[ItemResource, int]
 var current_trade_table: TradeTable
 var selected_resource_max_amount: int = 0
 		
@@ -76,6 +77,9 @@ var trading: bool = false:
 			relationship_ui.hide()
 
 func _ready() -> void:
+	Global.animals_met.clear()
+	Global.animals_befriended.clear()
+	inventory = start_inventory.duplicate()
 	update_inventory()
 	trading = false
 	
@@ -157,6 +161,9 @@ func _on_confirm_button_pressed() -> void:
 func gain_exp(amount: float):
 	if current_trade_table.gain_exp(amount):
 		add_to_notification_queue("[wave][rainbow]+50%[/rainbow] Trade Value[/wave]")
+		if current_trade_table.current_relationship >= 3 and not Global.animals_befriended.has(current_trade_table):
+			Global.animals_befriended.append(current_trade_table)
+			Global.check_goals()
 		gain_exp(0)
 	
 func add_to_inventory(item: ItemResource, amount: int):
@@ -165,6 +172,7 @@ func add_to_inventory(item: ItemResource, amount: int):
 	else:
 		inventory[item] = amount
 	update_inventory()
+	Global.check_goals()
 
 func add_to_notification_queue(text: String = ""):
 	event_popup.add_notification(text)

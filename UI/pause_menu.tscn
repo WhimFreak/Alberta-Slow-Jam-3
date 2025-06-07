@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://2ujuw25k5mmm"]
+[gd_scene load_steps=3 format=3 uid="uid://2ujuw25k5mmm"]
 
 [ext_resource type="Script" uid="uid://cc6qfxsao5tdg" path="res://UI/pause_menu.gd" id="1_ltd3m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltd3m"]
+bg_color = Color(0.363134, 0.35424, 1.92523e-07, 0.760784)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.364706, 0.352941, 0, 1)
+border_blend = true
 
 [node name="PauseLayer" type="CanvasLayer"]
 layer = 3
@@ -23,27 +32,87 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+[node name="HBoxContainer" type="VBoxContainer" parent="PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -250.0
+offset_top = -143.0
+offset_right = 250.0
+offset_bottom = 143.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 40
 
-[node name="MainMenuButton" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="QuestLog" type="PanelContainer" parent="PauseMenu/HBoxContainer"]
+custom_minimum_size = Vector2(400, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltd3m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/HBoxContainer/QuestLog"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="PauseMenu/HBoxContainer/QuestLog/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "To Do"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/HBoxContainer/QuestLog/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MeetLabel" type="RichTextLabel" parent="PauseMenu/HBoxContainer/QuestLog/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=red][s]Meet 3 animals (3/3)[/s][/color]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BefriendLabel" type="RichTextLabel" parent="PauseMenu/HBoxContainer/QuestLog/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Befriend 3 animals (2/3)"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BananaLabel" type="RichTextLabel" parent="PauseMenu/HBoxContainer/QuestLog/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Gather 100 bananas (74/100)"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "MAIN MENU"
 
-[node name="OptionsButton" type="Button" parent="PauseMenu/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "OPTIONS"
 
-[connection signal="pressed" from="PauseMenu/VBoxContainer/MainMenuButton" to="PauseMenu" method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsButton" to="PauseMenu" method="_on_options_button_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/VBoxContainer/MainMenuButton" to="PauseMenu" method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/VBoxContainer/OptionsButton" to="PauseMenu" method="_on_options_button_pressed"]

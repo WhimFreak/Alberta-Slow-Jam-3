@@ -4,12 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://jjbfuydf4hki" path="res://Player/player.tscn" id="1_gojnm"]
 [ext_resource type="PackedScene" uid="uid://ymfnakgwxbmr" path="res://Environment/day_night_cycle.tscn" id="1_sb12i"]
 [ext_resource type="PackedScene" uid="uid://cxubuiyr6ceb8" path="res://NPCs/npc_base.tscn" id="3_f7g2b"]
+[ext_resource type="Resource" uid="uid://bauyjg6sid8s" path="res://UI/fishbone.tres" id="4_lnbra"]
 [ext_resource type="Script" uid="uid://b2cs0xhm8krq0" path="res://UI/ItemResource.gd" id="5_6emce"]
-[ext_resource type="PackedScene" uid="uid://ccgm7gfo2n33i" path="res://Environment/tree_model.tscn" id="6_gbhdq"]
-[ext_resource type="Resource" uid="uid://rhupc66qg010" path="res://UI/apple.tres" id="6_lowby"]
-[ext_resource type="Resource" uid="uid://bookakbwnn7be" path="res://UI/banana.tres" id="7_58smv"]
-[ext_resource type="Resource" uid="uid://cvevh31ogvoc4" path="res://UI/acorn.tres" id="8_a25ih"]
-[ext_resource type="PackedScene" uid="uid://dhoep7xjxhk3u" path="res://UI/win_screen.tscn" id="9_lowby"]
+[ext_resource type="Resource" uid="uid://cvevh31ogvoc4" path="res://UI/acorn.tres" id="6_lowby"]
+[ext_resource type="Resource" uid="uid://rhupc66qg010" path="res://UI/apple.tres" id="7_58smv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsoxx"]
 albedo_color = Color(0.262745, 1, 0.254902, 1)
@@ -19,6 +17,59 @@ albedo_color = Color(0.447289, 0.254204, 0.272399, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gojnm"]
 albedo_color = Color(0.239228, 0.123589, 0.134716, 1)
+
+[sub_resource type="GDScript" id="GDScript_a25ih"]
+resource_local_to_scene = true
+script/source = "class_name TradeTabl
+extends Resource
+
+var relationship_levels: Dictionary = {1: {\"Output Multiplier\": 1.0, \"Exp Required For Level\": 15, \"Icon\": preload(\"res://Assets/bored.png\")},
+2: {\"Output Multiplier\": 1.5, \"Exp Required For Level\": 25, \"Icon\": preload(\"res://Assets/meh.png\")},
+3: {\"Output Multiplier\": 2, \"Exp Required For Level\": 0, \"Icon\": preload(\"res://Assets/happi.png\")}}
+
+@export var resource_output: ItemResource
+@export var trade_rate_dict: Dictionary[ItemResource, float]
+@export var relationship_exp: float = 0
+var current_relationship: int = 1:
+	set(value):
+		current_relationship = clamp(value, 0, relationship_levels.size())
+
+func get_conversion(item: ItemResource, amount: int) -> int:
+	if not trade_rate_dict.has(item):
+		return 0
+	
+	var multi: float = relationship_levels[current_relationship][\"Output Multiplier\"]
+	var output: int = round((amount * trade_rate_dict[item]) * multi)
+	return output
+	
+func get_exp_req() -> float:
+	return relationship_levels[current_relationship][\"Exp Required For Level\"]
+	
+func get_icon() -> Texture2D:
+	return relationship_levels[current_relationship][\"Icon\"]
+
+func gain_exp(value: float) -> bool:
+	relationship_exp += value
+
+	var exp_req: float = relationship_levels[current_relationship][\"Exp Required For Level\"]
+	if exp_req <= relationship_exp and current_relationship != relationship_levels.size():
+		relationship_exp -= exp_req
+		current_relationship += 1
+		return true
+		
+	return false
+"
+
+[sub_resource type="Resource" id="Resource_38et7"]
+resource_local_to_scene = true
+script = SubResource("GDScript_a25ih")
+resource_output = ExtResource("4_lnbra")
+trade_rate_dict = Dictionary[ExtResource("5_6emce"), float]({
+ExtResource("6_lowby"): 1.5,
+ExtResource("7_58smv"): 2.0
+})
+relationship_exp = 0.0
+metadata/_custom_type_script = "uid://bn6tnnpvlj63x"
 
 [node name="TestLevel" type="Node3D"]
 
@@ -403,18 +454,8 @@ material = SubResource("StandardMaterial3D_gojnm")
 
 [node name="NpcBase" parent="." instance=ExtResource("3_f7g2b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -1)
+trade_table = SubResource("Resource_38et7")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="UI" groups=["hud"] instance=ExtResource("1_1c2mv")]
-start_inventory = Dictionary[ExtResource("5_6emce"), int]({
-ExtResource("6_lowby"): 5,
-ExtResource("7_58smv"): 7,
-ExtResource("8_a25ih"): 40
-})
-
-[node name="WinScreen" parent="UI" groups=["win_screen"] instance=ExtResource("9_lowby")]
-visible = false
-
-[node name="TreeModel" parent="." instance=ExtResource("6_gbhdq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9214, 105.058, 98.1396)
