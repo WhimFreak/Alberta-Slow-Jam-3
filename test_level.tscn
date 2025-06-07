@@ -1,20 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqsf6li5hocku"]
+[gd_scene load_steps=9 format=3 uid="uid://dqsf6li5hocku"]
 
 [ext_resource type="PackedScene" uid="uid://bk7toec6nc6vh" path="res://UI/HUD.tscn" id="1_1c2mv"]
 [ext_resource type="PackedScene" uid="uid://jjbfuydf4hki" path="res://Player/player.tscn" id="1_gojnm"]
+[ext_resource type="PackedScene" uid="uid://ymfnakgwxbmr" path="res://Environment/day_night_cycle.tscn" id="1_sb12i"]
+[ext_resource type="Script" uid="uid://bbhfrqdcuwl7g" path="res://Environment/day_night_cycle.gd" id="2_gbhdq"]
 [ext_resource type="PackedScene" uid="uid://cxubuiyr6ceb8" path="res://NPCs/npc_base.tscn" id="3_f7g2b"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gojnm"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-
-[sub_resource type="Sky" id="Sky_1c2mv"]
-sky_material = SubResource("ProceduralSkyMaterial_gojnm")
-
-[sub_resource type="Environment" id="Environment_f7g2b"]
-background_mode = 2
-sky = SubResource("Sky_1c2mv")
-tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsoxx"]
 albedo_color = Color(0.262745, 1, 0.254902, 1)
@@ -27,12 +17,8 @@ albedo_color = Color(0.239228, 0.123589, 0.134716, 1)
 
 [node name="TestLevel" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_f7g2b")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-shadow_enabled = true
+[node name="DayNightCycle" parent="." instance=ExtResource("1_sb12i")]
+script = ExtResource("2_gbhdq")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.283419, 0)

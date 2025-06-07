@@ -1,55 +1,68 @@
-[gd_scene load_steps=9 format=3 uid="uid://jjbfuydf4hki"]
+[gd_scene load_steps=10 format=3 uid="uid://jjbfuydf4hki"]
 
 [ext_resource type="Script" uid="uid://b2dv4h1fw8hlw" path="res://Player/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://lvpsligqs7so" path="res://Player/monke.tscn" id="2_btcbx"]
 [ext_resource type="Script" uid="uid://dcuy4es408t82" path="res://Player/grapple_controller.gd" id="2_onrkg"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ntmi"]
+size = Vector3(2.5, 2.5, 2.5)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_btcbx"]
 size = Vector3(3, 2, 5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_onrkg"]
-top_radius = 0.15
-bottom_radius = 0.15
-height = 1.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwnis"]
+size = Vector3(2.5, 1, 5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4ntmi"]
-size = Vector3(0.8, 0.8, 0.15)
+[sub_resource type="BoxShape3D" id="BoxShape3D_k53q1"]
+size = Vector3(2.5, 1, 5)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_4flbx")
 
+[node name="Model_Monke_Marker3D#LeftArmCast" type="ShapeCast3D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_4ntmi")
+target_position = Vector3(0, 0, 0)
+collision_mask = 5
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
 [node name="ClimbCooldown" type="Timer" parent="."]
 wait_time = 0.6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04686, 0)
 shape = SubResource("CapsuleShape3D_sh265")
 
 [node name="Model" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
-mesh = SubResource("CapsuleMesh_sh265")
-skeleton = NodePath("../..")
+[node name="Monke" parent="Model" instance=ExtResource("2_btcbx")]
+
+[node name="LeftWristIK" parent="Model/Monke/Armature/Skeleton3D" index="0"]
+target_node = NodePath("../../../../../SwingController/LeftMarker")
+
+[node name="RightWristIK" parent="Model/Monke/Armature/Skeleton3D" index="1"]
+target_node = NodePath("../../../../../SwingController/RightMarker")
 
 [node name="ClimbChecks" type="Node3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06612, 0)
 
 [node name="ClimbCast" type="RayCast3D" parent="Model/ClimbChecks"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111683, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -2)
 debug_shape_custom_color = Color(0, 0, 1, 1)
 debug_shape_thickness = 5
 
 [node name="PullUpCast" type="RayCast3D" parent="Model/ClimbChecks"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.549827, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -2)
 debug_shape_custom_color = Color(0, 0, 1, 1)
 debug_shape_thickness = 5
 
@@ -62,6 +75,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 
 [node name="InteractableCheck" type="Node3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38012, 0)
 
 [node name="InteractCast" type="ShapeCast3D" parent="Model/InteractableCheck"]
 shape = SubResource("BoxShape3D_btcbx")
@@ -72,67 +86,38 @@ debug_shape_custom_color = Color(0, 1, 0, 1)
 [node name="CameraPivot" type="Node3D" parent="."]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1.6, 0)
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 1.70801, 0.532)
+visible = false
 shape = SubResource("SphereShape3D_4flbx")
 spring_length = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 5)
-
-[node name="SwingRaycast" type="RayCast3D" parent="CameraPivot/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 0.984807, -0.173648, 0, 0.173648, 0.984807, -0.00307333, -1.47558, -0.710667)
-visible = false
-target_position = Vector3(0, 0, -2)
-debug_shape_custom_color = Color(0.607843, 0, 0, 1)
-debug_shape_thickness = 5
+transform = Transform3D(1, 0, 0, 0, 0.907778, -0.419452, 0, 0.419452, 0.907778, 0, -0.392915, 5.8177)
 
 [node name="SwingController" type="Node3D" parent="."]
 script = ExtResource("2_onrkg")
 arm_max_length = 70.0
 arm_extend_speed = 160.0
 
-[node name="Arms" type="Node3D" parent="SwingController"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0.35, 0)
+[node name="LeftMarker" type="Marker3D" parent="SwingController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02731, 2.43175, -0.346158)
 
-[node name="LeftArmMarker" type="Marker3D" parent="SwingController/Arms"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, -0.3, 0, 0)
-
-[node name="RightArmMarker" type="Marker3D" parent="SwingController/Arms"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, -0.3, 0, 0)
-
-[node name="LeftArm" type="Node3D" parent="SwingController/Arms"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.001, -0.3, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SwingController/Arms/LeftArm"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.000999987, 0, -0.5)
-mesh = SubResource("CylinderMesh_onrkg")
-
-[node name="LeftArmCast" type="ShapeCast3D" parent="SwingController/Arms/LeftArm"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0.014, -0.05)
-shape = SubResource("BoxShape3D_4ntmi")
-target_position = Vector3(0, 0, -1)
+[node name="LeftArmCast" type="ShapeCast3D" parent="SwingController/LeftMarker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_gwnis")
+target_position = Vector3(0, 0, 0)
 collision_mask = 5
+debug_shape_custom_color = Color(1, 0, 0, 1)
 
-[node name="RightArm" type="Node3D" parent="SwingController/Arms"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.001, 0.3, 0, 0)
+[node name="RightMarker" type="Marker3D" parent="SwingController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30725, 2.43175, -0.346158)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SwingController/Arms/RightArm"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.001, 0, -0.5)
-mesh = SubResource("CylinderMesh_onrkg")
-
-[node name="RightArmCast" type="ShapeCast3D" parent="SwingController/Arms/RightArm"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 3.04878e-05, 0, -3.0525e-05, 1, 0, 0.022, -0.05)
-shape = SubResource("BoxShape3D_4ntmi")
-target_position = Vector3(0, 0, -1)
+[node name="RightArmCast" type="ShapeCast3D" parent="SwingController/RightMarker"]
+shape = SubResource("BoxShape3D_k53q1")
+target_position = Vector3(0, 0, 0)
 collision_mask = 5
+debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [node name="InteractUI" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 80)
@@ -158,3 +143,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="timeout" from="ClimbCooldown" to="." method="_on_climb_cooldown_timeout"]
+
+[editable path="Model/Monke"]

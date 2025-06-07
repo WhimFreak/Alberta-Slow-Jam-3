@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var walk_speed: float = 13
 @export var acceleration: float = 70
 @export var launched_deceleration: float = 15
-@export var rotation_speed: float = 8
+@export var rotation_speed: float = 10
 @export var jump_height: float = 14
 @export var gravity: float = -35
 @export var momentum_drag: float = 0.98
@@ -16,7 +16,6 @@ extends CharacterBody3D
 @onready var camera_3d: Camera3D = %Camera3D
 @onready var model: Node3D = $Model
 @onready var swing_controller: Node3D = $SwingController
-@onready var arms: Node3D = %Arms
 @onready var climb_cast: RayCast3D = %ClimbCast
 @onready var pull_up_cast: RayCast3D = %PullUpCast
 @onready var climb_cooldown: Timer = $ClimbCooldown
@@ -24,6 +23,7 @@ extends CharacterBody3D
 @onready var stick_point: Marker3D = %StickPoint
 @onready var interact_cast: ShapeCast3D = $Model/InteractableCheck/InteractCast
 @onready var interact_label: Label = $InteractUI/InteractLabel
+@onready var skeleton_3d: Skeleton3D = $Model/Monke/Armature/Skeleton3D
 
 var camera_direction: Vector3 = Vector3.ZERO
 var last_move_direction: Vector3 = Vector3.ZERO
@@ -42,7 +42,9 @@ func _unhandled_input(event: InputEvent) -> void: # Camera controls
 			stop_interacting()
 		else:
 			Global.pause()
-		
+	if Input.is_action_just_pressed("interact"):
+		pass
+	
 	if interact_cast.is_colliding():
 		if Input.is_action_just_pressed("interact"):
 			is_interacting = true
@@ -63,9 +65,8 @@ func _unhandled_input(event: InputEvent) -> void: # Camera controls
 		camera_pivot.rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		camera_pivot.rotation_degrees.x -= event.relative.y * mouse_sensitivity
 		camera_pivot.rotation_degrees.x = clamp(camera_pivot.rotation_degrees.x, -80, 90)
-		arms.rotation_degrees = camera_pivot.rotation_degrees
 		
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
 	camera_direction = Vector3.ZERO
 	var input := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	
@@ -87,8 +88,6 @@ func _physics_process(delta: float) -> void:
 		camera_pivot.global_rotation.y = lerp_angle(camera_pivot.global_rotation.y, atan2(target_dir.x, target_dir.z), 5 * delta)
 		camera_pivot.global_rotation.x = lerp_angle(camera_pivot.global_rotation.x, 0, 5 * delta)
 		model.global_rotation.y = lerp_angle(camera_pivot.global_rotation.y, atan2(target_dir.x, target_dir.z), 5 * delta)
-		arms.global_rotation.y = lerp_angle(camera_pivot.global_rotation.y, atan2(target_dir.x, target_dir.z), 5 * delta)
-		arms.global_rotation.x = lerp_angle(camera_pivot.global_rotation.x, 0, 5 * delta)
 		
 		velocity.x = move_toward(velocity.x, 0, acceleration * delta)
 		velocity.z = move_toward(velocity.z, 0, acceleration * delta)
@@ -119,6 +118,9 @@ func swinging_movement(move_dir: Vector3, delta: float):
 		swing_controller.retract(true)
 		swing_controller.retract(false)
 		
+	var facing_angle = Vector3.FORWARD.signed_angle_to(last_move_direction, Vector3.UP)	
+	model.global_rotation.y = lerp_angle(model.global_rotation.y, facing_angle, rotation_speed * delta)
+		
 func normal_movement(move_dir: Vector3, delta: float):
 	velocity.x = move_toward(velocity.x, move_dir.x * walk_speed, acceleration * delta)
 	velocity.z = move_toward(velocity.z, move_dir.z * walk_speed, acceleration * delta)
@@ -128,7 +130,10 @@ func normal_movement(move_dir: Vector3, delta: float):
 		velocity.y += jump_height
 	
 	# Player rotates to face movement direction
-	var facing_angle := Vector3.FORWARD.signed_angle_to(last_move_direction, Vector3.UP)	
+	if swing_controller.left_arm_launched or swing_controller.right_arm_launched:
+		last_move_direction = swing_controller.camera_z_basis
+		
+	var facing_angle = Vector3.FORWARD.signed_angle_to(last_move_direction, Vector3.UP)	
 	model.global_rotation.y = lerp_angle(model.global_rotation.y, facing_angle, rotation_speed * delta)
 
 func post_swing_movement(move_dir: Vector3, delta: float):
@@ -141,6 +146,9 @@ func post_swing_movement(move_dir: Vector3, delta: float):
 	velocity.y += gravity * delta
 	
 	var facing_angle := Vector3.FORWARD.signed_angle_to(last_move_direction, Vector3.UP)	
+	if swing_controller.left_arm_launched or swing_controller.right_arm_launched:
+		last_move_direction = swing_controller.camera_z_basis
+		
 	model.global_rotation.y = lerp_angle(model.global_rotation.y, facing_angle, rotation_speed * delta)
 	
 func climb(delta: float):

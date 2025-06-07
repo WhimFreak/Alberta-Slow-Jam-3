@@ -1,3 +1,9 @@
+DirectionalLight3D
+Node3D
+Marker3D
+SkeletonIK3D
+AnimationPlayer
+AnimationTree
 VBoxContainer
 Control
 OptionButton
@@ -7,6 +13,3 @@ Button
 TextureRect
 HBoxContainer
 RichTextLabel
-MarginContainer
-PanelContainer
-Panel
