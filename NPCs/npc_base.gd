@@ -14,7 +14,7 @@ func on_interact():
 	if not Global.animals_met.has(self):
 		Global.animals_met.append(self)
 		Global.check_goals()
-		
+	Global.current_trade_table = trade_table	
 	Global.start_dialogue(dialogue_file)
 	
 func start_trading():

@@ -9,8 +9,8 @@ titles = {
 "intro": "1",
 "secondaffinity": "35",
 "thankgod": "11",
-"thirdaffinity": "54",
-"trade": "65"
+"thirdaffinity": "55",
+"trade": "66"
 }
 character_names = PackedStringArray("Squirrel")
 first_title = "0"
@@ -386,49 +386,47 @@ lines = {
 "53": {
 &"id": "53",
 &"next_id": "54",
-&"type": "title"
+&"type": ""
 },
 "54": {
-&"character": "Squirrel",
 &"id": "54",
 &"next_id": "55",
+&"type": "title"
+},
+"55": {
+&"character": "Squirrel",
+&"id": "55",
+&"next_id": "56",
 &"text": "Beautiful, beautiful! This is just what I need. Thank you!",
 &"type": "dialogue"
 },
-"55": {
-&"id": "55",
-&"next_id": "56",
-&"responses": PackedStringArray("55"),
+"56": {
+&"id": "56",
+&"next_id": "57",
+&"responses": PackedStringArray("56"),
 &"text": "You're welcome. So what's the plan now?",
 &"type": "response"
 },
-"56": {
+"57": {
 &"character": "Squirrel",
-&"id": "56",
-&"next_id": "57",
+&"id": "57",
+&"next_id": "58",
 &"text": "Well, I'll bury these acorns, survive the winter, and use the leftovers to become a human again next spring.",
 &"type": "dialogue"
 },
-"57": {
-&"id": "57",
-&"next_id": "58",
-&"responses": PackedStringArray("57"),
+"58": {
+&"id": "58",
+&"next_id": "59",
+&"responses": PackedStringArray("58"),
 &"text": "Still won't tell me how that works?",
 &"type": "response"
 },
-"58": {
-&"character": "Squirrel",
-&"id": "58",
-&"next_id": "59",
-&"text": "Nope. But again, thank you. I couldn't have done it without you.",
-&"type": "dialogue"
-},
 "59": {
+&"character": "Squirrel",
 &"id": "59",
 &"next_id": "60",
-&"responses": PackedStringArray("59"),
-&"text": "No problem.",
-&"type": "response"
+&"text": "Nope. But again, thank you. I couldn't have done it without you.",
+&"type": "dialogue"
 },
 "6": {
 &"character": "Squirrel",
@@ -438,45 +436,52 @@ lines = {
 &"type": "dialogue"
 },
 "60": {
-&"character": "Squirrel",
 &"id": "60",
 &"next_id": "61",
+&"responses": PackedStringArray("60"),
+&"text": "No problem.",
+&"type": "response"
+},
+"61": {
+&"character": "Squirrel",
+&"id": "61",
+&"next_id": "62",
 &"text": "If you happen to come across any other acorns while you're out, bring them to me. Now that I have some acorns to spare, I'll give you a better rate.",
 &"type": "dialogue"
 },
-"61": {
-&"id": "61",
-&"next_id": "62",
-&"responses": PackedStringArray("61"),
+"62": {
+&"id": "62",
+&"next_id": "63",
+&"responses": PackedStringArray("62"),
 &"text": "Sounds like a deal.",
 &"type": "response"
 },
-"62": {
-&"id": "62",
+"63": {
+&"id": "63",
 &"is_snippet": false,
 &"next_id": "end!",
 &"next_id_after": "",
 &"type": "goto"
 },
-"63": {
-&"id": "63",
-&"next_id": "64",
-&"type": ""
-},
 "64": {
 &"id": "64",
 &"next_id": "65",
-&"type": "title"
+&"type": ""
 },
 "65": {
-&"character": "Squirrel",
 &"id": "65",
 &"next_id": "66",
+&"type": "title"
+},
+"66": {
+&"character": "Squirrel",
+&"id": "66",
+&"next_id": "67",
 &"text": "Got any acorns?",
 &"type": "dialogue"
 },
-"66": {
-&"id": "66",
+"67": {
+&"id": "67",
 &"mutation": {
 &"expression": Array[Dictionary]([{
 &"i": 3,
@@ -503,11 +508,11 @@ lines = {
 }]),
 &"is_blocking": true
 },
-&"next_id": "67",
+&"next_id": "68",
 &"type": "mutation"
 },
-"67": {
-&"id": "67",
+"68": {
+&"id": "68",
 &"mutation": {
 &"expression": Array[Dictionary]([{
 &"function": "hide",
@@ -520,22 +525,15 @@ lines = {
 }]),
 &"is_blocking": true
 },
-&"next_id": "68",
+&"next_id": "69",
 &"type": "mutation"
 },
-"68": {
+"69": {
 &"character": "Squirrel",
-&"id": "68",
-&"next_id": "69",
+&"id": "69",
+&"next_id": "70",
 &"text": "Thank you very much.",
 &"type": "dialogue"
-},
-"69": {
-&"id": "69",
-&"is_snippet": false,
-&"next_id": "end",
-&"next_id_after": "",
-&"type": "goto"
 },
 "7": {
 &"id": "7",
@@ -546,6 +544,13 @@ lines = {
 },
 "70": {
 &"id": "70",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"71": {
+&"id": "71",
 &"is_snippet": false,
 &"next_id": "end",
 &"next_id_after": "",
@@ -617,6 +622,7 @@ Squirrel: Trust me, as a fellow ape, you don't want to know.
 Squirrel: Believe me, I'm doing this for your own good. 
 Squirrel: Anyways, let me know when you have stuff to trade?
 => END!
+
 ~ thirdaffinity
 Squirrel: Beautiful, beautiful! This is just what I need. Thank you!
 - You're welcome. So what's the plan now?

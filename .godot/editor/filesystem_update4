@@ -10,3 +10,5 @@ res://Player/player.tscn
 res://Environment/tree_model.tscn
 res://UI/main_menu.tscn
 res://UI/win_screen.tscn
+res://NPCs/npc_base.gd
+res://NPCs/trade_table.gd

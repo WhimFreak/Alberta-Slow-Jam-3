@@ -1,5 +1,63 @@
 ~ intro
+Alligator: My my, is that a fresh fish flesh I smell?
+- It might be.
+Alligator: I do hope it is. What brings you here, my furry friend?
+- The squirrel sent me.
+Alligator: Clarence? And why would he do that?
+- He said you knew how to get me some bananas.
+Alligator: Ohoh! I might. But what's in it for me?
+- Other than the fish flesh?
+Alligator: Oh, you're willing to part with it, are you? Truly delectable things. I wouldn't, if I were you.
+Alligator: Then again, I suppose I'm no monkey.
+Alligator: Hand them over, will you?
+- Hold on. How do I get the bananas?
+Alligator: Tsk tsk. So impatient.
+Alligator: Tell you what: take these apples for your time. I have a friend deeper in the forest always needs them.
+Alligator: And she happens to have a lot of bananas.
+- Okay.
+do Global.current_interacting_npc.start_trading()
+do hide()
+Alligator: Thank you, thank you.
+Alligator: Now, you should get going. Toodaloo!
+=> END!
 
+~ secondaffinity
+Alligator: Ah, you're back. How was your trip?
+- I met your 'friend'. She didn't seem to like you very much.
+Alligator: Well, you know what they say. The best friendships are hostile ones.
+- ...Right.
+Alligator: Were you able to trade with them?
+- I was. They gave me bananas for apples.
+Alligator: Splendid. Splendid.
+- Are you really going to eat all this fish flesh?
+Alligator: Oh, not at all.
+- What're you doing with it then?
+Alligator: Curious, are you? 
+Alligator: Tell you what: get me more fish flesh, and as a token of our friendship. I'll show you.
+- Our friendship?
+Alligator: All good trading relationships are friendships, my dear.
+Alligator: Now go on. Get me some meat.
+=> END!
+
+~ thirdaffinity
+Alligator: Ah, perfect! You've done it.
+- So, what did you want the flesh for?
+Alligator: At the base of the tree, you will find a little monument. I've been gathering the materials to build our friend a family.
+Alligator: With the right magics, that flesh can come alive. Our friend may prattle about how I ate their flesh, but that's just an illusion. Soon, I'll make an entire family for them.
+- ...You know magic?
+Alligator: Of course I do. Did you think I was a regular alligator?
+- I guess not.
+Alligator: Don't worry, I get it often. I understand.
+Alligator: Thank you again for the flesh. If you give me more, I'll put it to good use.
+Alligator: And as a token of our friendship, I'll reward you handsomely.
+- Well, I won't say no to that. See you later.
+Alligator: Toodaloo!
+=> END!
 
 ~ trade
+Alligator: Have some flesh for me, do you?
+- Trade.
+do Global.current_interacting_npc.start_trading()
+do hide()
+Alligator: Good doing business with you.
 => END

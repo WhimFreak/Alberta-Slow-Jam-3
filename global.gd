@@ -12,6 +12,7 @@ var current_interacting_npc = null
 var next_squirrel_dialogue : String = "intro"
 var next_alligator_dialogue : String = "intro"
 var next_fish_dialogue : String = "intro"
+var already_seen_dialogue : Dictionary
 var current_trade_table : TradeTable
 signal trading_stopped
 
@@ -48,9 +49,26 @@ func start_dialogue(dialogue_resource):
 	var title : String
 	match dialogue_resource.resource_path:
 		"res://Assets/Dialogue/squirrel.dialogue":
+			if current_trade_table.current_relationship == 2 and already_seen_dialogue["secondaffinity"] == false:
+				next_squirrel_dialogue = "secondaffinity"
+				already_seen_dialogue["secondaffinity"] = true
+			elif current_trade_table.current_relationship == 3 and already_seen_dialogue["thirdaffinity"] == false:
+				next_squirrel_dialogue = "thirdaffinity"
+				already_seen_dialogue["thirdaffinity"] = true
 			title = next_squirrel_dialogue
 			DialogueManager.show_dialogue_balloon(dialogue_resource, title)
 			next_squirrel_dialogue = "trade"
+		"res://Assets/Dialogue/alligator.dialogue":
+			if current_trade_table.current_relationship == 2 and already_seen_dialogue["secondaffinity"] == false:
+				next_alligator_dialogue = "secondaffinity"
+				already_seen_dialogue["secondaffinity"] = true
+			elif current_trade_table.current_relationship == 3 and already_seen_dialogue["thirdaffinity"] == false:
+				next_alligator_dialogue = "thirdaffinity"
+				already_seen_dialogue["thirdaffinity"] = true
+			title = next_alligator_dialogue
+			DialogueManager.show_dialogue_balloon(dialogue_resource, title)
+			next_alligator_dialogue = "trade"
 	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	

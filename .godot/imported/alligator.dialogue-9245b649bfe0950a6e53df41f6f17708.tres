@@ -6,45 +6,578 @@
 script = ExtResource("1_p6xbr")
 using_states = PackedStringArray()
 titles = {
-"intro": "3",
-"trade": "4"
+"intro": "1",
+"secondaffinity": "24",
+"thirdaffinity": "42",
+"trade": "57"
 }
-character_names = PackedStringArray()
+character_names = PackedStringArray("Alligator")
 first_title = "0"
 lines = {
 "0": {
 &"id": "0",
-&"next_id": "3",
+&"next_id": "1",
 &"type": "title"
+},
+"1": {
+&"character": "Alligator",
+&"id": "1",
+&"next_id": "2",
+&"text": "My my, is that a fresh fish flesh I smell?",
+&"type": "dialogue"
+},
+"10": {
+&"character": "Alligator",
+&"id": "10",
+&"next_id": "11",
+&"text": "Then again, I suppose I'm no monkey.",
+&"type": "dialogue"
+},
+"11": {
+&"character": "Alligator",
+&"id": "11",
+&"next_id": "12",
+&"text": "Hand them over, will you?",
+&"type": "dialogue"
+},
+"12": {
+&"id": "12",
+&"next_id": "13",
+&"responses": PackedStringArray("12"),
+&"text": "Hold on. How do I get the bananas?",
+&"type": "response"
+},
+"13": {
+&"character": "Alligator",
+&"id": "13",
+&"next_id": "14",
+&"text": "Tsk tsk. So impatient.",
+&"type": "dialogue"
+},
+"14": {
+&"character": "Alligator",
+&"id": "14",
+&"next_id": "15",
+&"text": "Tell you what: take these apples for your time. I have a friend deeper in the forest always needs them.",
+&"type": "dialogue"
+},
+"15": {
+&"character": "Alligator",
+&"id": "15",
+&"next_id": "16",
+&"text": "And she happens to have a lot of bananas.",
+&"type": "dialogue"
+},
+"16": {
+&"id": "16",
+&"next_id": "17",
+&"responses": PackedStringArray("16"),
+&"text": "Okay.",
+&"type": "response"
+},
+"17": {
+&"id": "17",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "Global"
+}, {
+&"i": 9,
+&"type": &"dot"
+}, {
+&"i": 10,
+&"type": &"variable",
+&"value": "current_interacting_npc"
+}, {
+&"i": 33,
+&"type": &"dot"
+}, {
+&"function": "start_trading",
+&"i": 34,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 48,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "18",
+&"type": "mutation"
+},
+"18": {
+&"id": "18",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "hide",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 8,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "19",
+&"type": "mutation"
+},
+"19": {
+&"character": "Alligator",
+&"id": "19",
+&"next_id": "20",
+&"text": "Thank you, thank you.",
+&"type": "dialogue"
 },
 "2": {
 &"id": "2",
 &"next_id": "3",
+&"responses": PackedStringArray("2"),
+&"text": "It might be.",
+&"type": "response"
+},
+"20": {
+&"character": "Alligator",
+&"id": "20",
+&"next_id": "21",
+&"text": "Now, you should get going. Toodaloo!",
+&"type": "dialogue"
+},
+"21": {
+&"id": "21",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"22": {
+&"id": "22",
+&"next_id": "23",
 &"type": ""
 },
+"23": {
+&"id": "23",
+&"next_id": "24",
+&"type": "title"
+},
+"24": {
+&"character": "Alligator",
+&"id": "24",
+&"next_id": "25",
+&"text": "Ah, you're back. How was your trip?",
+&"type": "dialogue"
+},
+"25": {
+&"id": "25",
+&"next_id": "26",
+&"responses": PackedStringArray("25"),
+&"text": "I met your 'friend'. She didn't seem to like you very much.",
+&"type": "response"
+},
+"26": {
+&"character": "Alligator",
+&"id": "26",
+&"next_id": "27",
+&"text": "Well, you know what they say. The best friendships are hostile ones.",
+&"type": "dialogue"
+},
+"27": {
+&"id": "27",
+&"next_id": "28",
+&"responses": PackedStringArray("27"),
+&"text": "...Right.",
+&"type": "response"
+},
+"28": {
+&"character": "Alligator",
+&"id": "28",
+&"next_id": "29",
+&"text": "Were you able to trade with them?",
+&"type": "dialogue"
+},
+"29": {
+&"id": "29",
+&"next_id": "30",
+&"responses": PackedStringArray("29"),
+&"text": "I was. They gave me bananas for apples.",
+&"type": "response"
+},
 "3": {
+&"character": "Alligator",
 &"id": "3",
 &"next_id": "4",
-&"type": "title"
+&"text": "I do hope it is. What brings you here, my furry friend?",
+&"type": "dialogue"
+},
+"30": {
+&"character": "Alligator",
+&"id": "30",
+&"next_id": "31",
+&"text": "Splendid. Splendid.",
+&"type": "dialogue"
+},
+"31": {
+&"id": "31",
+&"next_id": "32",
+&"responses": PackedStringArray("31"),
+&"text": "Are you really going to eat all this fish flesh?",
+&"type": "response"
+},
+"32": {
+&"character": "Alligator",
+&"id": "32",
+&"next_id": "33",
+&"text": "Oh, not at all.",
+&"type": "dialogue"
+},
+"33": {
+&"id": "33",
+&"next_id": "34",
+&"responses": PackedStringArray("33"),
+&"text": "What're you doing with it then?",
+&"type": "response"
+},
+"34": {
+&"character": "Alligator",
+&"id": "34",
+&"next_id": "35",
+&"text": "Curious, are you?",
+&"type": "dialogue"
+},
+"35": {
+&"character": "Alligator",
+&"id": "35",
+&"next_id": "36",
+&"text": "Tell you what: get me more fish flesh, and as a token of our friendship. I'll show you.",
+&"type": "dialogue"
+},
+"36": {
+&"id": "36",
+&"next_id": "37",
+&"responses": PackedStringArray("36"),
+&"text": "Our friendship?",
+&"type": "response"
+},
+"37": {
+&"character": "Alligator",
+&"id": "37",
+&"next_id": "38",
+&"text": "All good trading relationships are friendships, my dear.",
+&"type": "dialogue"
+},
+"38": {
+&"character": "Alligator",
+&"id": "38",
+&"next_id": "39",
+&"text": "Now go on. Get me some meat.",
+&"type": "dialogue"
+},
+"39": {
+&"id": "39",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
 },
 "4": {
 &"id": "4",
+&"next_id": "5",
+&"responses": PackedStringArray("4"),
+&"text": "The squirrel sent me.",
+&"type": "response"
+},
+"40": {
+&"id": "40",
+&"next_id": "41",
+&"type": ""
+},
+"41": {
+&"id": "41",
+&"next_id": "42",
+&"type": "title"
+},
+"42": {
+&"character": "Alligator",
+&"id": "42",
+&"next_id": "43",
+&"text": "Ah, perfect! You've done it.",
+&"type": "dialogue"
+},
+"43": {
+&"id": "43",
+&"next_id": "44",
+&"responses": PackedStringArray("43"),
+&"text": "So, what did you want the flesh for?",
+&"type": "response"
+},
+"44": {
+&"character": "Alligator",
+&"id": "44",
+&"next_id": "45",
+&"text": "At the base of the tree, you will find a little monument. I've been gathering the materials to build our friend a family.",
+&"type": "dialogue"
+},
+"45": {
+&"character": "Alligator",
+&"id": "45",
+&"next_id": "46",
+&"text": "With the right magics, that flesh can come alive. Our friend may prattle about how I ate their flesh, but that's just an illusion. Soon, I'll make an entire family for them.",
+&"type": "dialogue"
+},
+"46": {
+&"id": "46",
+&"next_id": "47",
+&"responses": PackedStringArray("46"),
+&"text": "...You know magic?",
+&"type": "response"
+},
+"47": {
+&"character": "Alligator",
+&"id": "47",
+&"next_id": "48",
+&"text": "Of course I do. Did you think I was a regular alligator?",
+&"type": "dialogue"
+},
+"48": {
+&"id": "48",
+&"next_id": "49",
+&"responses": PackedStringArray("48"),
+&"text": "I guess not.",
+&"type": "response"
+},
+"49": {
+&"character": "Alligator",
+&"id": "49",
+&"next_id": "50",
+&"text": "Don't worry, I get it often. I understand.",
+&"type": "dialogue"
+},
+"5": {
+&"character": "Alligator",
+&"id": "5",
+&"next_id": "6",
+&"text": "Clarence? And why would he do that?",
+&"type": "dialogue"
+},
+"50": {
+&"character": "Alligator",
+&"id": "50",
+&"next_id": "51",
+&"text": "Thank you again for the flesh. If you give me more, I'll put it to good use.",
+&"type": "dialogue"
+},
+"51": {
+&"character": "Alligator",
+&"id": "51",
+&"next_id": "52",
+&"text": "And as a token of our friendship, I'll reward you handsomely.",
+&"type": "dialogue"
+},
+"52": {
+&"id": "52",
+&"next_id": "53",
+&"responses": PackedStringArray("52"),
+&"text": "Well, I won't say no to that. See you later.",
+&"type": "response"
+},
+"53": {
+&"character": "Alligator",
+&"id": "53",
+&"next_id": "54",
+&"text": "Toodaloo!",
+&"type": "dialogue"
+},
+"54": {
+&"id": "54",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"55": {
+&"id": "55",
+&"next_id": "56",
+&"type": ""
+},
+"56": {
+&"id": "56",
+&"next_id": "57",
+&"type": "title"
+},
+"57": {
+&"character": "Alligator",
+&"id": "57",
+&"next_id": "58",
+&"text": "Have some flesh for me, do you?",
+&"type": "dialogue"
+},
+"58": {
+&"id": "58",
+&"next_id": "59",
+&"responses": PackedStringArray("58"),
+&"text": "Trade.",
+&"type": "response"
+},
+"59": {
+&"id": "59",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "Global"
+}, {
+&"i": 9,
+&"type": &"dot"
+}, {
+&"i": 10,
+&"type": &"variable",
+&"value": "current_interacting_npc"
+}, {
+&"i": 33,
+&"type": &"dot"
+}, {
+&"function": "start_trading",
+&"i": 34,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 48,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "60",
+&"type": "mutation"
+},
+"6": {
+&"id": "6",
+&"next_id": "7",
+&"responses": PackedStringArray("6"),
+&"text": "He said you knew how to get me some bananas.",
+&"type": "response"
+},
+"60": {
+&"id": "60",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "hide",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 8,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "61",
+&"type": "mutation"
+},
+"61": {
+&"character": "Alligator",
+&"id": "61",
+&"next_id": "62",
+&"text": "Good doing business with you.",
+&"type": "dialogue"
+},
+"62": {
+&"id": "62",
 &"is_snippet": false,
 &"next_id": "end",
 &"next_id_after": "",
 &"type": "goto"
 },
-"5": {
-&"id": "5",
+"63": {
+&"id": "63",
 &"is_snippet": false,
 &"next_id": "end",
 &"next_id_after": "",
 &"type": "goto"
+},
+"7": {
+&"character": "Alligator",
+&"id": "7",
+&"next_id": "8",
+&"text": "Ohoh! I might. But what's in it for me?",
+&"type": "dialogue"
+},
+"8": {
+&"id": "8",
+&"next_id": "9",
+&"responses": PackedStringArray("8"),
+&"text": "Other than the fish flesh?",
+&"type": "response"
+},
+"9": {
+&"character": "Alligator",
+&"id": "9",
+&"next_id": "10",
+&"text": "Oh, you're willing to part with it, are you? Truly delectable things. I wouldn't, if I were you.",
+&"type": "dialogue"
 }
 }
 raw_text = "~ intro
+Alligator: My my, is that a fresh fish flesh I smell?
+- It might be.
+Alligator: I do hope it is. What brings you here, my furry friend?
+- The squirrel sent me.
+Alligator: Clarence? And why would he do that?
+- He said you knew how to get me some bananas.
+Alligator: Ohoh! I might. But what's in it for me?
+- Other than the fish flesh?
+Alligator: Oh, you're willing to part with it, are you? Truly delectable things. I wouldn't, if I were you.
+Alligator: Then again, I suppose I'm no monkey.
+Alligator: Hand them over, will you?
+- Hold on. How do I get the bananas?
+Alligator: Tsk tsk. So impatient.
+Alligator: Tell you what: take these apples for your time. I have a friend deeper in the forest always needs them.
+Alligator: And she happens to have a lot of bananas.
+- Okay.
+do Global.current_interacting_npc.start_trading()
+do hide()
+Alligator: Thank you, thank you.
+Alligator: Now, you should get going. Toodaloo!
+=> END!
 
+~ secondaffinity
+Alligator: Ah, you're back. How was your trip?
+- I met your 'friend'. She didn't seem to like you very much.
+Alligator: Well, you know what they say. The best friendships are hostile ones.
+- ...Right.
+Alligator: Were you able to trade with them?
+- I was. They gave me bananas for apples.
+Alligator: Splendid. Splendid.
+- Are you really going to eat all this fish flesh?
+Alligator: Oh, not at all.
+- What're you doing with it then?
+Alligator: Curious, are you? 
+Alligator: Tell you what: get me more fish flesh, and as a token of our friendship. I'll show you.
+- Our friendship?
+Alligator: All good trading relationships are friendships, my dear.
+Alligator: Now go on. Get me some meat.
+=> END!
+
+~ thirdaffinity
+Alligator: Ah, perfect! You've done it.
+- So, what did you want the flesh for?
+Alligator: At the base of the tree, you will find a little monument. I've been gathering the materials to build our friend a family.
+Alligator: With the right magics, that flesh can come alive. Our friend may prattle about how I ate their flesh, but that's just an illusion. Soon, I'll make an entire family for them.
+- ...You know magic?
+Alligator: Of course I do. Did you think I was a regular alligator?
+- I guess not.
+Alligator: Don't worry, I get it often. I understand.
+Alligator: Thank you again for the flesh. If you give me more, I'll put it to good use.
+Alligator: And as a token of our friendship, I'll reward you handsomely.
+- Well, I won't say no to that. See you later.
+Alligator: Toodaloo!
+=> END!
 
 ~ trade
+Alligator: Have some flesh for me, do you?
+- Trade.
+do Global.current_interacting_npc.start_trading()
+do hide()
+Alligator: Good doing business with you.
 => END"
 metadata/dialogue_manager_version = "3.6.3"
