@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://civnxbkm1hg86"
+path="res://.godot/imported/alligator.dialogue-9245b649bfe0950a6e53df41f6f17708.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/alligator.dialogue"
+dest_files=["res://.godot/imported/alligator.dialogue-9245b649bfe0950a6e53df41f6f17708.tres"]
+
+[params]
+
+defaults=true

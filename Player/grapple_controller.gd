@@ -5,7 +5,7 @@ extends Node3D
 @export var damping: float = 3 # Force lost over time
 
 @export var arm_max_length: float = 100
-@export var arm_extend_speed: float = 200
+@export var arm_extend_speed: float = 230
 @onready var skeleton_3d: Skeleton3D = $"../Model/Monke/Armature/Skeleton3D"
 
 @onready var player: CharacterBody3D = get_parent()

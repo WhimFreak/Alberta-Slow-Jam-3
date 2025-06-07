@@ -1,0 +1,461 @@
+[gd_scene load_steps=14 format=3 uid="uid://dqsf6li5hocku"]
+
+[ext_resource type="PackedScene" uid="uid://bk7toec6nc6vh" path="res://UI/HUD.tscn" id="1_1c2mv"]
+[ext_resource type="PackedScene" uid="uid://jjbfuydf4hki" path="res://Player/player.tscn" id="1_gojnm"]
+[ext_resource type="PackedScene" uid="uid://ymfnakgwxbmr" path="res://Environment/day_night_cycle.tscn" id="1_sb12i"]
+[ext_resource type="PackedScene" uid="uid://cxubuiyr6ceb8" path="res://NPCs/npc_base.tscn" id="3_f7g2b"]
+[ext_resource type="Resource" uid="uid://bauyjg6sid8s" path="res://UI/fishbone.tres" id="4_lnbra"]
+[ext_resource type="Script" uid="uid://b2cs0xhm8krq0" path="res://UI/ItemResource.gd" id="5_6emce"]
+[ext_resource type="Resource" uid="uid://cvevh31ogvoc4" path="res://UI/acorn.tres" id="6_lowby"]
+[ext_resource type="Resource" uid="uid://rhupc66qg010" path="res://UI/apple.tres" id="7_58smv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsoxx"]
+albedo_color = Color(0.262745, 1, 0.254902, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1c2mv"]
+albedo_color = Color(0.447289, 0.254204, 0.272399, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gojnm"]
+albedo_color = Color(0.239228, 0.123589, 0.134716, 1)
+
+[sub_resource type="GDScript" id="GDScript_a25ih"]
+resource_local_to_scene = true
+script/source = "class_name TradeTabl
+extends Resource
+
+var relationship_levels: Dictionary = {1: {\"Output Multiplier\": 1.0, \"Exp Required For Level\": 15, \"Icon\": preload(\"res://Assets/bored.png\")},
+2: {\"Output Multiplier\": 1.5, \"Exp Required For Level\": 25, \"Icon\": preload(\"res://Assets/meh.png\")},
+3: {\"Output Multiplier\": 2, \"Exp Required For Level\": 0, \"Icon\": preload(\"res://Assets/happi.png\")}}
+
+@export var resource_output: ItemResource
+@export var trade_rate_dict: Dictionary[ItemResource, float]
+@export var relationship_exp: float = 0
+var current_relationship: int = 1:
+	set(value):
+		current_relationship = clamp(value, 0, relationship_levels.size())
+
+func get_conversion(item: ItemResource, amount: int) -> int:
+	if not trade_rate_dict.has(item):
+		return 0
+	
+	var multi: float = relationship_levels[current_relationship][\"Output Multiplier\"]
+	var output: int = round((amount * trade_rate_dict[item]) * multi)
+	return output
+	
+func get_exp_req() -> float:
+	return relationship_levels[current_relationship][\"Exp Required For Level\"]
+	
+func get_icon() -> Texture2D:
+	return relationship_levels[current_relationship][\"Icon\"]
+
+func gain_exp(value: float) -> bool:
+	relationship_exp += value
+
+	var exp_req: float = relationship_levels[current_relationship][\"Exp Required For Level\"]
+	if exp_req <= relationship_exp and current_relationship != relationship_levels.size():
+		relationship_exp -= exp_req
+		current_relationship += 1
+		return true
+		
+	return false
+"
+
+[sub_resource type="Resource" id="Resource_38et7"]
+resource_local_to_scene = true
+script = SubResource("GDScript_a25ih")
+resource_output = ExtResource("4_lnbra")
+trade_rate_dict = Dictionary[ExtResource("5_6emce"), float]({
+ExtResource("6_lowby"): 1.5,
+ExtResource("7_58smv"): 2.0
+})
+relationship_exp = 0.0
+metadata/_custom_type_script = "uid://bn6tnnpvlj63x"
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="DayNightCycle" parent="." instance=ExtResource("1_sb12i")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.283419, 0)
+use_collision = true
+size = Vector3(300, 5, 300)
+material = SubResource("StandardMaterial3D_hsoxx")
+
+[node name="Player" parent="." instance=ExtResource("1_gojnm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.011, 6.43624, 4.027)
+
+[node name="Tree" type="Node3D" parent="."]
+transform = Transform3D(-0.976152, 0, -0.217087, 0, 1, 0, 0.217087, 0, -0.976152, 0, 0, -96.7067)
+
+[node name="Branch" type="CSGBox3D" parent="Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 114.015, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.639, 0, 113.094)
+
+[node name="Branch" type="CSGBox3D" parent="Tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 139.303, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 95.7801, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.1584, 0, 105.284)
+
+[node name="Branch" type="CSGBox3D" parent="Tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 32.6535, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 98.6095, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree4" type="Node3D" parent="."]
+transform = Transform3D(0.851462, 0, 0.524417, 0, 1, 0, -0.524417, 0, 0.851462, 30.1532, 0, 72.3111)
+
+[node name="Branch" type="CSGBox3D" parent="Tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 114.015, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree5" type="Node3D" parent="."]
+transform = Transform3D(-0.570456, 0, -0.821329, 0, 1, 0, 0.821329, 0, -0.570456, -69.2692, 0, 0.326859)
+
+[node name="Branch" type="CSGBox3D" parent="Tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 114.015, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree6" type="Node3D" parent="."]
+transform = Transform3D(-0.255564, 0, -0.966792, 0, 1, 0, 0.966792, 0, -0.255564, 80.1102, 0, 3.88083)
+
+[node name="Branch" type="CSGBox3D" parent="Tree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 114.015, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree7" type="Node3D" parent="."]
+transform = Transform3D(-0.255564, 0, -0.966792, 0, 1, 0, 0.966792, 0, -0.255564, 23.9125, 0, 3.88083)
+
+[node name="Branch" type="CSGBox3D" parent="Tree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 114.015, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree8" type="Node3D" parent="."]
+transform = Transform3D(-0.255564, 0, -0.966792, 0, 1, 0, 0.966792, 0, -0.255564, -100.878, 0, -70.8772)
+
+[node name="Branch" type="CSGBox3D" parent="Tree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 114.015, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree9" type="Node3D" parent="."]
+transform = Transform3D(-0.65623, 0, -0.754561, 0, 1, 0, 0.754561, 0, -0.65623, -141.677, 0, 28.3265)
+
+[node name="Branch" type="CSGBox3D" parent="Tree9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 114.015, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree10" type="Node3D" parent="."]
+transform = Transform3D(-0.797205, 0, -0.603709, 0, 1, 0, 0.603709, 0, -0.797205, 65.3261, 0, -108.914)
+
+[node name="Branch" type="CSGBox3D" parent="Tree10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 114.015, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree11" type="Node3D" parent="."]
+transform = Transform3D(-0.741882, 0, -0.67053, 0, 1, 0, 0.67053, 0, -0.741882, -71.74, 0, -67.993)
+
+[node name="Branch" type="CSGBox3D" parent="Tree11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 114.015, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree12" type="Node3D" parent="."]
+transform = Transform3D(0.809017, 0, -0.587785, 0, 1, 0, 0.587785, 0, 0.809017, 26.6881, -4.6276, 147.419)
+
+[node name="Branch" type="CSGBox3D" parent="Tree12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7188, 114.015, -25.8146)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree13" type="Node3D" parent="."]
+transform = Transform3D(-0.741882, 0, -0.67053, 0, 1, 0, 0.67053, 0, -0.741882, 29.8432, 0, 45.7254)
+
+[node name="Branch" type="CSGBox3D" parent="Tree13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 123.252, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree14" type="Node3D" parent="."]
+transform = Transform3D(-0.741882, 0, -0.67053, 0, 1, 0, 0.67053, 0, -0.741882, -22.144, 0, 36.2413)
+
+[node name="Branch" type="CSGBox3D" parent="Tree14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 123.252, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree15" type="Node3D" parent="."]
+transform = Transform3D(-0.741882, 0, -0.67053, 0, 1, 0, 0.67053, 0, -0.741882, -116.245, 0, -17.4052)
+
+[node name="Branch" type="CSGBox3D" parent="Tree15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 123.252, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="Tree16" type="Node3D" parent="."]
+transform = Transform3D(0.310776, 0, -0.950483, 0, 1, 0, 0.950483, 0, 0.310776, 3.05612, 0, 13.93)
+
+[node name="Branch" type="CSGBox3D" parent="Tree16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2601, 50.2731, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(20, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="Branch2" type="CSGBox3D" parent="Tree16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5844, 123.252, -25.4521)
+use_collision = true
+collision_layer = 5
+size = Vector3(30, 5, 5)
+material = SubResource("StandardMaterial3D_1c2mv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Tree16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.933, 76.576, -25.452)
+use_collision = true
+size = Vector3(10, 150, 10)
+material = SubResource("StandardMaterial3D_gojnm")
+
+[node name="NpcBase" parent="." instance=ExtResource("3_f7g2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -1)
+trade_table = SubResource("Resource_38et7")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="UI" groups=["hud"] instance=ExtResource("1_1c2mv")]

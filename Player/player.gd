@@ -42,8 +42,6 @@ func _unhandled_input(event: InputEvent) -> void: # Camera controls
 			stop_interacting()
 		else:
 			Global.pause()
-	if Input.is_action_just_pressed("interact"):
-		pass
 	
 	if interact_cast.is_colliding():
 		if Input.is_action_just_pressed("interact"):
@@ -182,6 +180,7 @@ func stop_interacting():
 		hud.stop_trading()
 	var cam_tween := create_tween()
 	cam_tween.tween_property(camera_3d, "fov", 75, 0.2)
+	Global.check_goals()
 	
 func start_interaction(interactable):
 	if interactable.has_method("on_interact"):

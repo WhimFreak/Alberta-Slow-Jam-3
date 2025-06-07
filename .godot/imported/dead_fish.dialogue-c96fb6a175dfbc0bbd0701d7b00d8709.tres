@@ -1,0 +1,591 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_vkouh"]
+
+[resource]
+script = ExtResource("1_vkouh")
+using_states = PackedStringArray()
+titles = {
+"intro": "1",
+"secondaffinity": "31",
+"thirdaffinity": "45",
+"trade": "59"
+}
+character_names = PackedStringArray("Dead Fish")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"character": "Dead Fish",
+&"id": "1",
+&"next_id": "2",
+&"text": "Rotten acorns, are you a monkey?",
+&"type": "dialogue"
+},
+"10": {
+&"id": "10",
+&"next_id": "11",
+&"responses": PackedStringArray("10"),
+&"text": "Aren't you friends?",
+&"type": "response"
+},
+"11": {
+&"character": "Dead Fish",
+&"id": "11",
+&"next_id": "12",
+&"text": "Friends!? Is that what she said?",
+&"type": "dialogue"
+},
+"12": {
+&"id": "12",
+&"next_id": "13",
+&"responses": PackedStringArray("12"),
+&"text": "Yes.",
+&"type": "response"
+},
+"13": {
+&"character": "Dead Fish",
+&"id": "13",
+&"next_id": "14",
+&"text": "That $#@^!",
+&"type": "dialogue"
+},
+"14": {
+&"id": "14",
+&"next_id": "15",
+&"responses": PackedStringArray("14"),
+&"text": "...So, you're not!",
+&"type": "response"
+},
+"15": {
+&"character": "Dead Fish",
+&"id": "15",
+&"next_id": "16",
+&"text": "No! Why do you think I look like this? She ate me!",
+&"type": "dialogue"
+},
+"16": {
+&"character": "Dead Fish",
+&"id": "16",
+&"next_id": "17",
+&"text": "My scales, my organs, my eyes--she ate it all! Now she says we're friends?",
+&"type": "dialogue"
+},
+"17": {
+&"id": "17",
+&"next_id": "18",
+&"responses": PackedStringArray("17"),
+&"text": "Okay, to be honest, I don't care. I have apples. Can I get bananas?",
+&"type": "response"
+},
+"18": {
+&"character": "Dead Fish",
+&"id": "18",
+&"next_id": "19",
+&"text": "You don't care? She ate me and you don't--apples? You have apples?",
+&"type": "dialogue"
+},
+"19": {
+&"id": "19",
+&"next_id": "20",
+&"responses": PackedStringArray("19"),
+&"text": "Yes.",
+&"type": "response"
+},
+"2": {
+&"id": "2",
+&"next_id": "3",
+&"responses": PackedStringArray("2"),
+&"text": "...Are you dead?",
+&"type": "response"
+},
+"20": {
+&"character": "Dead Fish",
+&"id": "20",
+&"next_id": "21",
+&"text": "Give me. I'll trade you for all the bananas you want.",
+&"type": "dialogue"
+},
+"21": {
+&"id": "21",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "Global"
+}, {
+&"i": 9,
+&"type": &"dot"
+}, {
+&"i": 10,
+&"type": &"variable",
+&"value": "current_interacting_npc"
+}, {
+&"i": 33,
+&"type": &"dot"
+}, {
+&"function": "start_trading",
+&"i": 34,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 48,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "22",
+&"type": "mutation"
+},
+"22": {
+&"id": "22",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "hide",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 8,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "23",
+&"type": "mutation"
+},
+"23": {
+&"character": "Dead Fish",
+&"id": "23",
+&"next_id": "24",
+&"text": "Perfect, perfect. You've done me a great service, ape.",
+&"type": "dialogue"
+},
+"24": {
+&"character": "Dead Fish",
+&"id": "24",
+&"next_id": "25",
+&"text": "If you could bring me more apples, I would be forever in your debt.",
+&"type": "dialogue"
+},
+"25": {
+&"id": "25",
+&"next_id": "26",
+&"responses": PackedStringArray("25"),
+&"text": "I'll see what I can do. What do you want the apples for anyways?",
+&"type": "response"
+},
+"26": {
+&"character": "Dead Fish",
+&"id": "26",
+&"next_id": "27",
+&"text": "Oh, I'm going to throw them at that alligator. That's the least I can do for all the trouble she's caused me.",
+&"type": "dialogue"
+},
+"27": {
+&"id": "27",
+&"next_id": "28",
+&"responses": PackedStringArray("27"),
+&"text": "...Best of luck.",
+&"type": "response"
+},
+"28": {
+&"id": "28",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"29": {
+&"id": "29",
+&"next_id": "30",
+&"type": ""
+},
+"3": {
+&"character": "Dead Fish",
+&"id": "3",
+&"next_id": "4",
+&"text": "Am I--Good heavens, no! Could a dead fish talk?",
+&"type": "dialogue"
+},
+"30": {
+&"id": "30",
+&"next_id": "31",
+&"type": "title"
+},
+"31": {
+&"character": "Dead Fish",
+&"id": "31",
+&"next_id": "32",
+&"text": "Have you seen the fruits of my labour, ape?",
+&"type": "dialogue"
+},
+"32": {
+&"id": "32",
+&"next_id": "33",
+&"responses": PackedStringArray("32"),
+&"text": "No.",
+&"type": "response"
+},
+"33": {
+&"character": "Dead Fish",
+&"id": "33",
+&"next_id": "34",
+&"text": "Exactly. For as many apples as I have thrown, they are still ineffective. I require more.",
+&"type": "dialogue"
+},
+"34": {
+&"id": "34",
+&"next_id": "35",
+&"responses": PackedStringArray("34"),
+&"text": "Do you really think more will help?",
+&"type": "response"
+},
+"35": {
+&"character": "Dead Fish",
+&"id": "35",
+&"next_id": "36",
+&"text": "Shush. Given my great need, I am prepared to reward you accordingly.",
+&"type": "dialogue"
+},
+"36": {
+&"id": "36",
+&"next_id": "37",
+&"responses": PackedStringArray("36"),
+&"text": "Well, I won't say no to more bananas.",
+&"type": "response"
+},
+"37": {
+&"character": "Dead Fish",
+&"id": "37",
+&"next_id": "38",
+&"text": "Exactly. Isn't this such a productive partnership?",
+&"type": "dialogue"
+},
+"38": {
+&"character": "Dead Fish",
+&"id": "38",
+&"next_id": "39",
+&"text": "You know, me and the alligator used to be partners. She would trade me the bones of her victims, and I would give her the worms I dug from the dirt.",
+&"type": "dialogue"
+},
+"39": {
+&"character": "Dead Fish",
+&"id": "39",
+&"next_id": "40",
+&"text": "If only I knew she would one day betray me...",
+&"type": "dialogue"
+},
+"4": {
+&"id": "4",
+&"next_id": "5",
+&"responses": PackedStringArray("4"),
+&"text": "Apparently.",
+&"type": "response"
+},
+"40": {
+&"character": "Dead Fish",
+&"id": "40",
+&"next_id": "41",
+&"text": "Be wary of her. You never know when she'll strike.",
+&"type": "dialogue"
+},
+"41": {
+&"id": "41",
+&"next_id": "42",
+&"responses": PackedStringArray("41"),
+&"text": "I'll keep that in mind.",
+&"type": "response"
+},
+"42": {
+&"id": "42",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"43": {
+&"id": "43",
+&"next_id": "44",
+&"type": ""
+},
+"44": {
+&"id": "44",
+&"next_id": "45",
+&"type": "title"
+},
+"45": {
+&"character": "Dead Fish",
+&"id": "45",
+&"next_id": "46",
+&"text": "Welcome back, ape. Thank you for all your hard work. You'll be pleased to know I'm putting these apples to good use.",
+&"type": "dialogue"
+},
+"46": {
+&"character": "Dead Fish",
+&"id": "46",
+&"next_id": "47",
+&"text": "And that I've figured out my greatest error.",
+&"type": "dialogue"
+},
+"47": {
+&"id": "47",
+&"next_id": "48",
+&"responses": PackedStringArray("47"),
+&"text": "...Oh?",
+&"type": "response"
+},
+"48": {
+&"character": "Dead Fish",
+&"id": "48",
+&"next_id": "49",
+&"text": "So far, my efforts have failed. That alligator is not vulnerable to indvidual apples.",
+&"type": "dialogue"
+},
+"49": {
+&"character": "Dead Fish",
+&"id": "49",
+&"next_id": "50",
+&"text": "But a combined bushelful may just work.",
+&"type": "dialogue"
+},
+"5": {
+&"character": "Dead Fish",
+&"id": "5",
+&"next_id": "6",
+&"text": "Ugh, you primates. Always so 'wise'.",
+&"type": "dialogue"
+},
+"50": {
+&"character": "Dead Fish",
+&"id": "50",
+&"next_id": "51",
+&"text": "Friend, I have gathered the greatest stash of bananas yet. Bring me as many apples as you please, and I will reward you handsomely.",
+&"type": "dialogue"
+},
+"51": {
+&"character": "Dead Fish",
+&"id": "51",
+&"next_id": "52",
+&"text": "In time, we will slay that great beast together, and stand side by side as champions.",
+&"type": "dialogue"
+},
+"52": {
+&"id": "52",
+&"next_id": "53",
+&"responses": PackedStringArray("52"),
+&"text": "Just make sure you have enough for winter. It's going to be harsh this year.",
+&"type": "response"
+},
+"53": {
+&"character": "Dead Fish",
+&"id": "53",
+&"next_id": "54",
+&"text": "Fret not, I have plans in play.",
+&"type": "dialogue"
+},
+"54": {
+&"character": "Dead Fish",
+&"id": "54",
+&"next_id": "55",
+&"text": "If she survives my next attack, I will see you next spring. We will have beautiful work ahead of us.",
+&"type": "dialogue"
+},
+"55": {
+&"id": "55",
+&"next_id": "56",
+&"responses": PackedStringArray("55"),
+&"text": "...If you say so.",
+&"type": "response"
+},
+"56": {
+&"id": "56",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"57": {
+&"id": "57",
+&"next_id": "58",
+&"type": ""
+},
+"58": {
+&"id": "58",
+&"next_id": "59",
+&"type": "title"
+},
+"59": {
+&"character": "Dead Fish",
+&"id": "59",
+&"next_id": "60",
+&"text": "Do you bring sweet gifts?",
+&"type": "dialogue"
+},
+"6": {
+&"character": "Dead Fish",
+&"id": "6",
+&"next_id": "7",
+&"text": "What do you want?",
+&"type": "dialogue"
+},
+"60": {
+&"id": "60",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "Global"
+}, {
+&"i": 9,
+&"type": &"dot"
+}, {
+&"i": 10,
+&"type": &"variable",
+&"value": "current_interacting_npc"
+}, {
+&"i": 33,
+&"type": &"dot"
+}, {
+&"function": "start_trading",
+&"i": 34,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 48,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "61",
+&"type": "mutation"
+},
+"61": {
+&"id": "61",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"function": "hide",
+&"i": 3,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 8,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "62",
+&"type": "mutation"
+},
+"62": {
+&"character": "Dead Fish",
+&"id": "62",
+&"next_id": "63",
+&"text": "Delightful. Delightful.",
+&"type": "dialogue"
+},
+"63": {
+&"id": "63",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"64": {
+&"id": "64",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"7": {
+&"id": "7",
+&"next_id": "8",
+&"responses": PackedStringArray("7"),
+&"text": "An alligator told me I could get bananas here.",
+&"type": "response"
+},
+"8": {
+&"character": "Dead Fish",
+&"id": "8",
+&"next_id": "9",
+&"text": "Oh she did, did she?",
+&"type": "dialogue"
+},
+"9": {
+&"character": "Dead Fish",
+&"id": "9",
+&"next_id": "10",
+&"text": "Why don't you go back, and tell her to stick it where the sun doesn't shine?",
+&"type": "dialogue"
+}
+}
+raw_text = "~ intro
+Dead Fish: Rotten acorns, are you a monkey?
+- ...Are you dead?
+Dead Fish: Am I--Good heavens, no! Could a dead fish talk?
+- Apparently.
+Dead Fish: Ugh, you primates. Always so 'wise'.
+Dead Fish: What do you want?
+- An alligator told me I could get bananas here.
+Dead Fish: Oh she did, did she?
+Dead Fish: Why don't you go back, and tell her to stick it where the sun doesn't shine?
+- Aren't you friends?
+Dead Fish: Friends!? Is that what she said?
+- Yes.
+Dead Fish: That $#@^!
+- ...So, you're not!
+Dead Fish: No! Why do you think I look like this? She ate me!
+Dead Fish: My scales, my organs, my eyes--she ate it all! Now she says we're friends?
+- Okay, to be honest, I don't care. I have apples. Can I get bananas?
+Dead Fish: You don't care? She ate me and you don't--apples? You have apples?
+- Yes.
+Dead Fish: Give me. I'll trade you for all the bananas you want.
+do Global.current_interacting_npc.start_trading()
+do hide()
+Dead Fish: Perfect, perfect. You've done me a great service, ape.
+Dead Fish: If you could bring me more apples, I would be forever in your debt.
+- I'll see what I can do. What do you want the apples for anyways?
+Dead Fish: Oh, I'm going to throw them at that alligator. That's the least I can do for all the trouble she's caused me.
+- ...Best of luck.
+=> END!
+
+~ secondaffinity
+Dead Fish: Have you seen the fruits of my labour, ape?
+- No.
+Dead Fish: Exactly. For as many apples as I have thrown, they are still ineffective. I require more.
+- Do you really think more will help?
+Dead Fish: Shush. Given my great need, I am prepared to reward you accordingly.
+- Well, I won't say no to more bananas.
+Dead Fish: Exactly. Isn't this such a productive partnership?
+Dead Fish: You know, me and the alligator used to be partners. She would trade me the bones of her victims, and I would give her the worms I dug from the dirt.
+Dead Fish: If only I knew she would one day betray me...
+Dead Fish: Be wary of her. You never know when she'll strike.
+- I'll keep that in mind.
+=> END!
+
+~ thirdaffinity
+Dead Fish: Welcome back, ape. Thank you for all your hard work. You'll be pleased to know I'm putting these apples to good use.
+Dead Fish: And that I've figured out my greatest error.
+- ...Oh?
+Dead Fish: So far, my efforts have failed. That alligator is not vulnerable to indvidual apples. 
+Dead Fish: But a combined bushelful may just work.
+Dead Fish: Friend, I have gathered the greatest stash of bananas yet. Bring me as many apples as you please, and I will reward you handsomely.
+Dead Fish: In time, we will slay that great beast together, and stand side by side as champions.
+- Just make sure you have enough for winter. It's going to be harsh this year.
+Dead Fish: Fret not, I have plans in play.
+Dead Fish: If she survives my next attack, I will see you next spring. We will have beautiful work ahead of us.
+- ...If you say so.
+=> END!
+
+~ trade
+Dead Fish: Do you bring sweet gifts?
+do Global.current_interacting_npc.start_trading()
+do hide()
+Dead Fish: Delightful. Delightful.
+=> END"
+metadata/dialogue_manager_version = "3.6.3"

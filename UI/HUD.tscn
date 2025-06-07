@@ -1,12 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bk7toec6nc6vh"]
+[gd_scene load_steps=9 format=3 uid="uid://bk7toec6nc6vh"]
 
 [ext_resource type="Script" uid="uid://bnjhfi7ji5uig" path="res://UI/hud.gd" id="1_4n7mi"]
 [ext_resource type="PackedScene" uid="uid://ckunp41lu06su" path="res://UI/item_button.tscn" id="1_yixhe"]
-[ext_resource type="Texture2D" uid="uid://yo1d15wkyjx1" path="res://icon.svg" id="2_ijstf"]
-[ext_resource type="Script" uid="uid://b2cs0xhm8krq0" path="res://UI/ItemResource.gd" id="2_md4fy"]
-[ext_resource type="Resource" uid="uid://cvevh31ogvoc4" path="res://UI/acorn.tres" id="3_2ptjp"]
-[ext_resource type="Resource" uid="uid://rhupc66qg010" path="res://UI/apple.tres" id="3_gppie"]
-[ext_resource type="Resource" uid="uid://bookakbwnn7be" path="res://UI/banana.tres" id="5_md4fy"]
 [ext_resource type="Texture2D" uid="uid://bj3yaaiprus8a" path="res://Assets/bored.png" id="8_md4fy"]
 [ext_resource type="PackedScene" uid="uid://l3gabhmaetni" path="res://UI/event_popup.tscn" id="9_7i7fj"]
 
@@ -38,11 +33,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_4n7mi")
-inventory = Dictionary[ExtResource("2_md4fy"), int]({
-ExtResource("3_gppie"): 2,
-ExtResource("5_md4fy"): 5,
-ExtResource("3_2ptjp"): 40
-})
 
 [node name="InventoryContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -77,18 +67,6 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 4
 text = "Confirm"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -64.0
-offset_right = 64.0
-offset_bottom = 128.0
-grow_horizontal = 2
-texture = ExtResource("2_ijstf")
 
 [node name="RelationshipUI" type="HBoxContainer" parent="."]
 unique_name_in_owner = true

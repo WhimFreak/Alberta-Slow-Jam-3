@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://jmrfa1dm4cdd"
+path="res://.godot/imported/dead_fish.dialogue-c96fb6a175dfbc0bbd0701d7b00d8709.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/dead_fish.dialogue"
+dest_files=["res://.godot/imported/dead_fish.dialogue-c96fb6a175dfbc0bbd0701d7b00d8709.tres"]
+
+[params]
+
+defaults=true
