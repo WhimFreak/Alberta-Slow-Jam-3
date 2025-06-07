@@ -1,3 +1,4 @@
+TextureRect
 AnimationPlayer
 Node2D
 CPUParticles2D
@@ -12,4 +13,3 @@ CollisionPolygon3D
 CollisionShape3D
 StaticBody3D
 HBoxContainer
-Control

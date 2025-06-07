@@ -163,7 +163,6 @@ func gain_exp(amount: float):
 		add_to_notification_queue("[wave][rainbow]+50%[/rainbow] Trade Value[/wave]")
 		if current_trade_table.current_relationship >= 3 and not Global.animals_befriended.has(current_trade_table):
 			Global.animals_befriended.append(current_trade_table)
-			Global.check_goals()
 		gain_exp(0)
 	
 func add_to_inventory(item: ItemResource, amount: int):
@@ -172,7 +171,6 @@ func add_to_inventory(item: ItemResource, amount: int):
 	else:
 		inventory[item] = amount
 	update_inventory()
-	Global.check_goals()
 
 func add_to_notification_queue(text: String = ""):
 	event_popup.add_notification(text)

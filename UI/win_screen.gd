@@ -4,9 +4,11 @@ extends Control
 var main_menu_scene = preload("res://UI/main_menu.tscn")
 
 func _ready() -> void:
+	remove_from_group("nonpausablemenus")
 	hide()
 
 func on_win():
+	add_to_group("nonpausablemenus")
 	show()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	animation_player.play("popup")

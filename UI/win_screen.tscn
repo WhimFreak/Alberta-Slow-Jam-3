@@ -128,7 +128,7 @@ _data = {
 &"popup": SubResource("Animation_w024j")
 }
 
-[node name="WinScreen" type="Control" groups=["nonpausablemenus"]]
+[node name="WinScreen" type="Control"]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
