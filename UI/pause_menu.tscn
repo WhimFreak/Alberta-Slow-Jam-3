@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://2ujuw25k5mmm"]
+[gd_scene load_steps=6 format=3 uid="uid://2ujuw25k5mmm"]
 
 [ext_resource type="Script" uid="uid://cc6qfxsao5tdg" path="res://UI/pause_menu.gd" id="1_ltd3m"]
+[ext_resource type="FontFile" uid="uid://detq4thh7cx5s" path="res://Assets/Peralta-Regular.ttf" id="2_jfm1e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltd3m"]
-bg_color = Color(0.363134, 0.35424, 1.92523e-07, 0.760784)
+bg_color = Color(0.323408, 0.314337, 0.0724118, 0.760784)
 border_width_left = 15
 border_width_top = 15
 border_width_right = 15
 border_width_bottom = 15
 border_color = Color(0.364706, 0.352941, 0, 1)
 border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03fe5"]
+bg_color = Color(0.397743, 0.322803, 0.14766, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0b5ob"]
+bg_color = Color(0.397743, 0.322803, 0.14766, 1)
 
 [node name="PauseLayer" type="CanvasLayer"]
 layer = 3
@@ -61,6 +68,7 @@ theme_override_constants/separation = 25
 [node name="Label" type="Label" parent="PauseMenu/HBoxContainer/QuestLog/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_jfm1e")
 theme_override_font_sizes/font_size = 20
 text = "To Do"
 
@@ -72,6 +80,7 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("2_jfm1e")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[color=red][s]Meet 3 animals (3/3)[/s][/color]"
@@ -83,6 +92,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("2_jfm1e")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "Befriend 3 animals (2/3)"
@@ -94,6 +104,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("2_jfm1e")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "Gather 100 bananas (74/100)"
@@ -107,11 +118,24 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="MainMenuButton" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jfm1e")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_03fe5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_03fe5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_03fe5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_03fe5")
 text = "MAIN MENU"
 
 [node name="OptionsButton" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jfm1e")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0b5ob")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0b5ob")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0b5ob")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0b5ob")
 text = "OPTIONS"
 
 [connection signal="pressed" from="PauseMenu/HBoxContainer/VBoxContainer/MainMenuButton" to="PauseMenu" method="_on_main_menu_button_pressed"]

@@ -1,1 +1,3 @@
+CanvasItemMaterial
+StandardMaterial3D
 ItemResource

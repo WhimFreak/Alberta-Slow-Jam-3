@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk7toec6nc6vh"]
+[gd_scene load_steps=11 format=3 uid="uid://bk7toec6nc6vh"]
 
 [ext_resource type="Script" uid="uid://bnjhfi7ji5uig" path="res://UI/hud.gd" id="1_4n7mi"]
 [ext_resource type="PackedScene" uid="uid://ckunp41lu06su" path="res://UI/item_button.tscn" id="1_yixhe"]
+[ext_resource type="Script" uid="uid://b2cs0xhm8krq0" path="res://UI/ItemResource.gd" id="2_gppie"]
+[ext_resource type="Resource" uid="uid://cvevh31ogvoc4" path="res://UI/acorn.tres" id="3_2ptjp"]
 [ext_resource type="Texture2D" uid="uid://bj3yaaiprus8a" path="res://Assets/bored.png" id="8_md4fy"]
 [ext_resource type="PackedScene" uid="uid://l3gabhmaetni" path="res://UI/event_popup.tscn" id="9_7i7fj"]
 
@@ -33,6 +35,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_4n7mi")
+start_inventory = Dictionary[ExtResource("2_gppie"), int]({
+ExtResource("3_2ptjp"): 10
+})
 
 [node name="InventoryContainer" type="HBoxContainer" parent="."]
 layout_mode = 0

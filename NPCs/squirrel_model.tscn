@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bulpipxki4kay"]
+
+[ext_resource type="PackedScene" uid="uid://61qicykxqq06" path="res://Assets/3D Models/squirrel01.glb" id="1_12pkg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12pkg"]
+albedo_color = Color(1, 0.376471, 0.207843, 1)
+
+[node name="SquirrelModel" instance=ExtResource("1_12pkg")]
+
+[node name="Cube" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_12pkg")

@@ -1833,6 +1833,11 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 }
+},
+"materials": {
+"@MATERIAL:0": {
+"use_external/path": "uid://hradshbvach6"
+}
 }
 }
 gltf/naming_version=1

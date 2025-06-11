@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var day_length: float = 360 # in seconds
-@export var start_time: float = 0.4
+@export var start_time: float = 0.25
 @export var sun_color: Gradient
 @export var sun_intensity: Curve
 @export var moon_color: Gradient
@@ -17,6 +17,7 @@ extends Node3D
 var time: float = 0.0
 var time_rate: float = 0.0
 var time_offset: float = 90
+var day_passed: bool = false
 
 func _ready() -> void:
 	time_rate = 1 / day_length
@@ -24,8 +25,14 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	time += time_rate * delta
+	
+	if time >= 0.3 and not day_passed:
+		Global.new_day.emit()
+		day_passed = true
+		
 	if time >= 1:
 		time = 0
+		day_passed = false
 	
 	sun.rotation_degrees.x = time * 360 + time_offset
 	visual_sun.rotation_degrees.x = sun.rotation_degrees.x

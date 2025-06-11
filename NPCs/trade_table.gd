@@ -7,7 +7,7 @@ var relationship_levels: Dictionary = {1: {"Output Multiplier": 1.0, "Exp Requir
 
 @export var resource_output: ItemResource
 @export var trade_rate_dict: Dictionary[ItemResource, float]
-@export var relationship_exp: float = 0
+var relationship_exp: float = 0
 var current_relationship: int = 1:
 	set(value):
 		current_relationship = clamp(value, 0, relationship_levels.size())

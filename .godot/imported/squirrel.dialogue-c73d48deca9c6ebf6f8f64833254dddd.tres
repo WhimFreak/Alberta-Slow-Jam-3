@@ -9,8 +9,8 @@ titles = {
 "intro": "1",
 "secondaffinity": "35",
 "thankgod": "11",
-"thirdaffinity": "55",
-"trade": "66"
+"thirdaffinity": "56",
+"trade": "68"
 }
 character_names = PackedStringArray("Squirrel")
 first_title = "0"
@@ -262,7 +262,7 @@ lines = {
 &"character": "Squirrel",
 &"id": "37",
 &"next_id": "38",
-&"text": "Yeah. I mean they wouldn't shut up abou tit.",
+&"text": "Yeah. I mean they wouldn't shut up about it.",
 &"type": "dialogue"
 },
 "38": {
@@ -359,7 +359,7 @@ lines = {
 &"character": "Squirrel",
 &"id": "5",
 &"next_id": "6",
-&"text": "In this forest? Anything. I've seen things you woudln't believe.",
+&"text": "In this forest? Anything. I've seen things you wouldn't believe.",
 &"type": "dialogue"
 },
 "50": {
@@ -378,110 +378,6 @@ lines = {
 },
 "52": {
 &"id": "52",
-&"is_snippet": false,
-&"next_id": "end!",
-&"next_id_after": "",
-&"type": "goto"
-},
-"53": {
-&"id": "53",
-&"next_id": "54",
-&"type": ""
-},
-"54": {
-&"id": "54",
-&"next_id": "55",
-&"type": "title"
-},
-"55": {
-&"character": "Squirrel",
-&"id": "55",
-&"next_id": "56",
-&"text": "Beautiful, beautiful! This is just what I need. Thank you!",
-&"type": "dialogue"
-},
-"56": {
-&"id": "56",
-&"next_id": "57",
-&"responses": PackedStringArray("56"),
-&"text": "You're welcome. So what's the plan now?",
-&"type": "response"
-},
-"57": {
-&"character": "Squirrel",
-&"id": "57",
-&"next_id": "58",
-&"text": "Well, I'll bury these acorns, survive the winter, and use the leftovers to become a human again next spring.",
-&"type": "dialogue"
-},
-"58": {
-&"id": "58",
-&"next_id": "59",
-&"responses": PackedStringArray("58"),
-&"text": "Still won't tell me how that works?",
-&"type": "response"
-},
-"59": {
-&"character": "Squirrel",
-&"id": "59",
-&"next_id": "60",
-&"text": "Nope. But again, thank you. I couldn't have done it without you.",
-&"type": "dialogue"
-},
-"6": {
-&"character": "Squirrel",
-&"id": "6",
-&"next_id": "7",
-&"text": "So, are you a monkey?",
-&"type": "dialogue"
-},
-"60": {
-&"id": "60",
-&"next_id": "61",
-&"responses": PackedStringArray("60"),
-&"text": "No problem.",
-&"type": "response"
-},
-"61": {
-&"character": "Squirrel",
-&"id": "61",
-&"next_id": "62",
-&"text": "If you happen to come across any other acorns while you're out, bring them to me. Now that I have some acorns to spare, I'll give you a better rate.",
-&"type": "dialogue"
-},
-"62": {
-&"id": "62",
-&"next_id": "63",
-&"responses": PackedStringArray("62"),
-&"text": "Sounds like a deal.",
-&"type": "response"
-},
-"63": {
-&"id": "63",
-&"is_snippet": false,
-&"next_id": "end!",
-&"next_id_after": "",
-&"type": "goto"
-},
-"64": {
-&"id": "64",
-&"next_id": "65",
-&"type": ""
-},
-"65": {
-&"id": "65",
-&"next_id": "66",
-&"type": "title"
-},
-"66": {
-&"character": "Squirrel",
-&"id": "66",
-&"next_id": "67",
-&"text": "Got any acorns?",
-&"type": "dialogue"
-},
-"67": {
-&"id": "67",
 &"mutation": {
 &"expression": Array[Dictionary]([{
 &"i": 3,
@@ -508,11 +404,184 @@ lines = {
 }]),
 &"is_blocking": true
 },
-&"next_id": "68",
+&"next_id": "53",
 &"type": "mutation"
 },
+"53": {
+&"id": "53",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"54": {
+&"id": "54",
+&"next_id": "55",
+&"type": ""
+},
+"55": {
+&"id": "55",
+&"next_id": "56",
+&"type": "title"
+},
+"56": {
+&"character": "Squirrel",
+&"id": "56",
+&"next_id": "57",
+&"text": "Beautiful, beautiful! This is just what I need. Thank you!",
+&"type": "dialogue"
+},
+"57": {
+&"id": "57",
+&"next_id": "58",
+&"responses": PackedStringArray("57"),
+&"text": "You're welcome. So what's the plan now?",
+&"type": "response"
+},
+"58": {
+&"character": "Squirrel",
+&"id": "58",
+&"next_id": "59",
+&"text": "Well, I'll bury these acorns, survive the winter, and use the leftovers to become a human again next spring.",
+&"type": "dialogue"
+},
+"59": {
+&"id": "59",
+&"next_id": "60",
+&"responses": PackedStringArray("59"),
+&"text": "Still won't tell me how that works?",
+&"type": "response"
+},
+"6": {
+&"character": "Squirrel",
+&"id": "6",
+&"next_id": "7",
+&"text": "So, are you a monkey?",
+&"type": "dialogue"
+},
+"60": {
+&"character": "Squirrel",
+&"id": "60",
+&"next_id": "61",
+&"text": "Nope. But again, thank you. I couldn't have done it without you.",
+&"type": "dialogue"
+},
+"61": {
+&"id": "61",
+&"next_id": "62",
+&"responses": PackedStringArray("61"),
+&"text": "No problem.",
+&"type": "response"
+},
+"62": {
+&"character": "Squirrel",
+&"id": "62",
+&"next_id": "63",
+&"text": "If you happen to come across any other acorns while you're out, bring them to me. Now that I have some acorns to spare, I'll give you a better rate.",
+&"type": "dialogue"
+},
+"63": {
+&"id": "63",
+&"next_id": "64",
+&"responses": PackedStringArray("63"),
+&"text": "Sounds like a deal.",
+&"type": "response"
+},
+"64": {
+&"id": "64",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "Global"
+}, {
+&"i": 9,
+&"type": &"dot"
+}, {
+&"i": 10,
+&"type": &"variable",
+&"value": "current_interacting_npc"
+}, {
+&"i": 33,
+&"type": &"dot"
+}, {
+&"function": "start_trading",
+&"i": 34,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 48,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "65",
+&"type": "mutation"
+},
+"65": {
+&"id": "65",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"66": {
+&"id": "66",
+&"next_id": "67",
+&"type": ""
+},
+"67": {
+&"id": "67",
+&"next_id": "68",
+&"type": "title"
+},
 "68": {
+&"character": "Squirrel",
 &"id": "68",
+&"next_id": "69",
+&"text": "Got any acorns?",
+&"type": "dialogue"
+},
+"69": {
+&"id": "69",
+&"mutation": {
+&"expression": Array[Dictionary]([{
+&"i": 3,
+&"type": &"variable",
+&"value": "Global"
+}, {
+&"i": 9,
+&"type": &"dot"
+}, {
+&"i": 10,
+&"type": &"variable",
+&"value": "current_interacting_npc"
+}, {
+&"i": 33,
+&"type": &"dot"
+}, {
+&"function": "start_trading",
+&"i": 34,
+&"type": &"function",
+&"value": Array[Array]([Array[Dictionary]([{
+&"i": 48,
+&"type": &"parens_close"
+}])])
+}]),
+&"is_blocking": true
+},
+&"next_id": "70",
+&"type": "mutation"
+},
+"7": {
+&"id": "7",
+&"next_id": "8",
+&"responses": PackedStringArray("7"),
+&"text": "I am, why?",
+&"type": "response"
+},
+"70": {
+&"id": "70",
 &"mutation": {
 &"expression": Array[Dictionary]([{
 &"function": "hide",
@@ -525,32 +594,25 @@ lines = {
 }]),
 &"is_blocking": true
 },
-&"next_id": "69",
+&"next_id": "71",
 &"type": "mutation"
 },
-"69": {
+"71": {
 &"character": "Squirrel",
-&"id": "69",
-&"next_id": "70",
+&"id": "71",
+&"next_id": "72",
 &"text": "Thank you very much.",
 &"type": "dialogue"
 },
-"7": {
-&"id": "7",
-&"next_id": "8",
-&"responses": PackedStringArray("7"),
-&"text": "I am, why?",
-&"type": "response"
-},
-"70": {
-&"id": "70",
+"72": {
+&"id": "72",
 &"is_snippet": false,
 &"next_id": "end",
 &"next_id_after": "",
 &"type": "goto"
 },
-"71": {
-&"id": "71",
+"73": {
+&"id": "73",
 &"is_snippet": false,
 &"next_id": "end",
 &"next_id_after": "",
@@ -574,7 +636,7 @@ Squirrel: Hey, hey! Are you a monkey?
 - What if I am?
 	=> thankgod
 - What else coud I be?
-	Squirrel: In this forest? Anything. I've seen things you woudln't believe.
+	Squirrel: In this forest? Anything. I've seen things you wouldn't believe.
 	Squirrel: So, are you a monkey?
 	- I am, why?
 		=> thankgod
@@ -606,7 +668,7 @@ Squirrel: When you're finished, come back. I can take more acorns off your hands
 ~ secondaffinity
 Squirrel: Hey, did you find the fish?
 - Yes. Did you know he was dead?
-Squirrel: Yeah. I mean they wouldn't shut up abou tit. 
+Squirrel: Yeah. I mean they wouldn't shut up about it. 
 - How'd she get her hands on so many bananas?
 Squirrel: Don't tell anyone, but I'm pretty sure she has a deal with the great horned owl of the woods.
 Squirrel: I'd tell you more, but I don't think that information came with into this squirrel body.
@@ -621,6 +683,7 @@ Squirrel: Trust me, as a fellow ape, you don't want to know.
 - I kind of do though.
 Squirrel: Believe me, I'm doing this for your own good. 
 Squirrel: Anyways, let me know when you have stuff to trade?
+do Global.current_interacting_npc.start_trading()
 => END!
 
 ~ thirdaffinity
@@ -632,6 +695,7 @@ Squirrel: Nope. But again, thank you. I couldn't have done it without you.
 - No problem.
 Squirrel: If you happen to come across any other acorns while you're out, bring them to me. Now that I have some acorns to spare, I'll give you a better rate.
 - Sounds like a deal.
+do Global.current_interacting_npc.start_trading()
 => END!
 
 ~ trade

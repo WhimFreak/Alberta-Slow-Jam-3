@@ -3,7 +3,7 @@ Squirrel: Hey, hey! Are you a monkey?
 - What if I am?
 	=> thankgod
 - What else coud I be?
-	Squirrel: In this forest? Anything. I've seen things you woudln't believe.
+	Squirrel: In this forest? Anything. I've seen things you wouldn't believe.
 	Squirrel: So, are you a monkey?
 	- I am, why?
 		=> thankgod
@@ -35,7 +35,7 @@ Squirrel: When you're finished, come back. I can take more acorns off your hands
 ~ secondaffinity
 Squirrel: Hey, did you find the fish?
 - Yes. Did you know he was dead?
-Squirrel: Yeah. I mean they wouldn't shut up abou tit. 
+Squirrel: Yeah. I mean they wouldn't shut up about it. 
 - How'd she get her hands on so many bananas?
 Squirrel: Don't tell anyone, but I'm pretty sure she has a deal with the great horned owl of the woods.
 Squirrel: I'd tell you more, but I don't think that information came with into this squirrel body.
@@ -50,6 +50,7 @@ Squirrel: Trust me, as a fellow ape, you don't want to know.
 - I kind of do though.
 Squirrel: Believe me, I'm doing this for your own good. 
 Squirrel: Anyways, let me know when you have stuff to trade?
+do Global.current_interacting_npc.start_trading()
 => END!
 
 ~ thirdaffinity
@@ -61,6 +62,7 @@ Squirrel: Nope. But again, thank you. I couldn't have done it without you.
 - No problem.
 Squirrel: If you happen to come across any other acorns while you're out, bring them to me. Now that I have some acorns to spare, I'll give you a better rate.
 - Sounds like a deal.
+do Global.current_interacting_npc.start_trading()
 => END!
 
 ~ trade

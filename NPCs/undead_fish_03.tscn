@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsg0irc44ebhn"]
+
+[ext_resource type="PackedScene" uid="uid://c88s6eixqenih" path="res://Assets/3D Models/UndeadFish03.glb" id="1_iqvf2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6r2k0"]
+albedo_color = Color(1, 1, 0.435294, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d102"]
+albedo_color = Color(1, 1, 0.435294, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d64jp"]
+albedo_color = Color(0.392157, 1, 1, 1)
+
+[node name="UndeadFish03" instance=ExtResource("1_iqvf2")]
+
+[node name="Eye_01" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6r2k0")
+
+[node name="Eye_02" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6d102")
+
+[node name="UndeadFish" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_d64jp")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bidaj3k27igyj" path="res://NPCs/npc_base.gd" id="1_32r8c"]
 [ext_resource type="Resource" uid="uid://d3aa0ovvrrdly" path="res://NPCs/test_table.tres" id="2_hta5i"]
-[ext_resource type="Resource" uid="uid://73emva3dq8i0" path="res://Assets/Dialogue/test.dialogue" id="3_u2ash"]
+[ext_resource type="Resource" uid="uid://bhp6fjcxn4p8g" path="res://Assets/Dialogue/squirrel.dialogue" id="3_u2ash"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_qh4cs"]
 top_radius = 1.0

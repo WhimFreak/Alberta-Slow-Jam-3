@@ -1,8 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://qalwrnryrhu0"]
-
-[ext_resource type="Material" uid="uid://56218r1rk0jc" path="res://Hub.tres" id="1_3sms2"]
-[ext_resource type="Material" uid="uid://hmi406a5vn0a" path="res://Water.tres" id="1_lke2v"]
-[ext_resource type="Material" uid="uid://duwvw3cxulbcp" path="res://Props.tres" id="2_3ri0g"]
+[gd_scene load_steps=2 format=3 uid="uid://qalwrnryrhu0"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3ri0g"]
 
@@ -207,11 +203,9 @@ transform = Transform3D(-7.45385, 0, 9.73831, 0, 47.7926, 0, -9.73831, 0, -7.453
 
 [node name="CSGBase1" type="CSGCylinder3D" parent="Trees"]
 transform = Transform3D(60.1487, 0, 0, 0, 29.0593, 0, 0, 0, 60.1487, 0, 26.6989, 49.9798)
-material = ExtResource("1_3sms2")
 
 [node name="CSGBase4" type="CSGCylinder3D" parent="Trees"]
 transform = Transform3D(36.0669, 0, 0, 0, 13.0587, 0, 0, 0, 36.0669, -245.385, 12.7609, -1153.59)
-material = ExtResource("1_3sms2")
 
 [node name="CSGTree67" type="CSGCylinder3D" parent="Trees"]
 transform = Transform3D(2.9051, 0, 11.9145, 0, 47.7926, 0, -11.9145, 0, 2.9051, -162.055, 47.3632, -483.017)
@@ -434,91 +428,69 @@ transform = Transform3D(-7.45385, 0, 9.73831, 0, 47.7926, 0, -9.73831, 0, -7.453
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Water"]
 transform = Transform3D(322.866, 0, -33.5712, 0, 16.1952, 0, 134.482, 0, 80.5981, -450.556, -3.05176e-05, -851.224)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Water"]
 transform = Transform3D(198.681, 0, -22.0416, 0, 16.1952, 0, 82.7559, 0, 52.9177, -198.642, -0.96563, -722.338)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Water"]
 transform = Transform3D(209.289, 0, 13.3724, 0, 16.1952, 0, -50.2073, 0, 55.7431, -0.982285, -0.96563, -699.129)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Water"]
 transform = Transform3D(158.938, 0, -38.6534, 0, 16.1952, 0, 145.125, 0, 42.3323, 81.98, -0.96563, -627.462)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Water"]
 transform = Transform3D(213.645, 0, -6.93844, 0, 16.1952, 0, 26.0506, 0, 56.9032, 198.512, -0.96563, -705.507)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Water"]
 transform = Transform3D(68.257, 0, 54.3655, 0, 16.1952, 0, -204.117, 0, 18.1799, -55.1455, -1.18749, -796.2)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Water"]
 transform = Transform3D(-58.3491, 0, 55.1778, 0, 16.1952, 0, -207.167, 0, -15.541, -48.1043, -1.18749, -988.792)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Water"]
 transform = Transform3D(-123.335, 0, 46.9788, 0, 16.1952, 0, -176.384, 0, -32.8497, -134.352, -1.18749, -1170.52)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Water"]
 transform = Transform3D(-215.182, 0, -1.18151, 0, 16.1952, 0, 4.436, 0, -57.3124, -276.388, -1.18749, -1240.28)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Water"]
 transform = Transform3D(-259.459, 0, 19.0644, 0, 16.1952, 0, -90.0994, 0, -54.8998, -494.002, -1.18746, -1282.25)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="Water"]
 transform = Transform3D(53.6057, 0, 166.892, 0, 15.9358, 0, 190.326, 0, -47.0056, 431.392, -1.1875, -947.995)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="Water"]
 transform = Transform3D(179.786, 0, -66.2107, 0, 15.9358, 0, -130.771, 0, -91.0276, 342.584, -1.18744, -1034.45)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="Water"]
 transform = Transform3D(201.533, 0, -20.1214, 0, 16.1952, 0, 75.5466, 0, 53.6772, 395.201, -0.96563, -653.647)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="Water"]
 transform = Transform3D(213.645, 0, -6.93844, 0, 16.1952, 0, 26.0506, 0, 56.9032, 594.488, -0.96563, -605.944)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="Water"]
 transform = Transform3D(90.2502, 0, -52.0413, 0, 16.1952, 0, 195.391, 0, 24.0377, 198.208, -0.96563, -476.997)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="Water"]
 transform = Transform3D(158.938, 0, -38.6534, 0, 16.1952, 0, 145.125, 0, 42.3323, 307.327, -0.96563, -314.601)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="Water"]
 transform = Transform3D(90.2502, 0, -52.0413, 0, 16.1952, 0, 195.391, 0, 24.0377, 421.334, -0.96563, -155.215)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="Water"]
 transform = Transform3D(-115.061, 0, -48.4452, 0, 16.1952, 0, 181.889, 0, -30.6459, 404.874, -0.96563, 2.10188)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="Water"]
 transform = Transform3D(28.2547, 0, 189.122, 0, 15.9358, 0, 100.318, 0, -53.2666, 15.3351, -1.1875, -1376.05)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="Water"]
 transform = Transform3D(21.1718, 0, 195.333, 0, 15.9358, 0, 75.1701, 0, -55.0159, -382.858, -1.1875, -431.496)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="Water"]
 transform = Transform3D(-64.7908, 0, 67.9925, 0, 15.9358, 0, 131.701, 0, 33.4491, -321.551, -1.1875, -378.928)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="Water"]
 transform = Transform3D(-83.8467, 0, -72.9591, 0, 15.9358, 0, -297.696, 0, 20.5491, 12.2104, -1.1875, -1363.83)
-material = ExtResource("1_lke2v")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1195.53, 0, 0, 0, 0.0465454, 0, 0, 0, 1709.45, -0.15509, -0.867065, -799.274)
@@ -541,44 +513,35 @@ transform = Transform3D(3.85649, 0, -1.00108, 0, 141.275, 0, 1811.17, 0, 0.00213
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Fruit Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -373.459, 87.878, -379.487)
 radius = 3.87975
-material = ExtResource("2_3ri0g")
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="Fruit Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.437, 6.67483, -516.445)
 radius = 3.87975
-material = ExtResource("2_3ri0g")
 
 [node name="CSGSphere3D3" type="CSGSphere3D" parent="Fruit Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7263, 4.55202, -148.679)
 radius = 3.87975
-material = ExtResource("2_3ri0g")
 
 [node name="CSGSphere3D4" type="CSGSphere3D" parent="Fruit Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.331, 87.4255, -969.373)
 radius = 3.87975
-material = ExtResource("2_3ri0g")
 
 [node name="CSGSphere3D5" type="CSGSphere3D" parent="Fruit Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.243, 87.878, -1374.2)
 radius = 3.87975
-material = ExtResource("2_3ri0g")
 
 [node name="CSGSphere3D6" type="CSGSphere3D" parent="Fruit Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -455.393, 46.1958, -1034.02)
 radius = 3.87975
-material = ExtResource("2_3ri0g")
 
 [node name="CSGSphere3D7" type="CSGSphere3D" parent="Fruit Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 520.123, 4.17604, -255.123)
 radius = 3.87975
-material = ExtResource("2_3ri0g")
 
 [node name="CSGSphere3D8" type="CSGSphere3D" parent="Fruit Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -424.19, 1.0408, -96.7158)
 radius = 3.87975
-material = ExtResource("2_3ri0g")
 
 [node name="CSGSphere3D9" type="CSGSphere3D" parent="Fruit Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6674, 58.1965, -774.191)
 radius = 3.87975
-material = ExtResource("2_3ri0g")

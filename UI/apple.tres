@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://rhupc66qg010"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://rhupc66qg010"]
 
 [ext_resource type="Script" uid="uid://b2cs0xhm8krq0" path="res://UI/ItemResource.gd" id="1_kjwbi"]
+[ext_resource type="PackedScene" uid="uid://buuaniw2ual3g" path="res://Assets/3D Models/Apple.glb" id="1_o8tbr"]
 [ext_resource type="Texture2D" uid="uid://ckixv27bh288a" path="res://Assets/appleicon.png" id="2_vri2b"]
 
 [resource]
 script = ExtResource("1_kjwbi")
 name = "Apple"
 texture = ExtResource("2_vri2b")
+model = ExtResource("1_o8tbr")
 metadata/_custom_type_script = "uid://b2cs0xhm8krq0"

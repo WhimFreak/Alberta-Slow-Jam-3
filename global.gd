@@ -22,10 +22,11 @@ var already_seen_dialogue : Dictionary = {
 }
 var current_trade_table : TradeTable
 signal trading_stopped
+signal new_day
 
-@export var animals_met_goal: int = 1
-@export var animals_befriended_goal: int = 1
-@export var bananas_goal: int = 10
+@export var animals_met_goal: int = 2
+@export var animals_befriended_goal: int = 2
+@export var bananas_goal: int = 30
 
 var animals_met: Array[NPC] = []
 var animals_befriended: Array[TradeTable] = []

@@ -38,7 +38,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
-alignment = 2
+alignment = 1
 
 [node name="Control3" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 52)
@@ -107,6 +107,7 @@ text = "Resolution"
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 
@@ -133,6 +134,7 @@ text = "Music Volume"
 horizontal_alignment = 1
 
 [node name="Control2" type="Control" parent="VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 

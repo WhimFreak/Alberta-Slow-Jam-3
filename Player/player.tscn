@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://jjbfuydf4hki"]
+[gd_scene load_steps=13 format=3 uid="uid://jjbfuydf4hki"]
 
 [ext_resource type="Script" uid="uid://b2dv4h1fw8hlw" path="res://Player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://lvpsligqs7so" path="res://Player/monke.tscn" id="2_btcbx"]
 [ext_resource type="Script" uid="uid://dcuy4es408t82" path="res://Player/grapple_controller.gd" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://blk36bu05qxx6" path="res://Assets/crosshair.png" id="4_gwnis"]
+[ext_resource type="FontFile" uid="uid://detq4thh7cx5s" path="res://Assets/Peralta-Regular.ttf" id="4_k53q1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ntmi"]
 size = Vector3(2.5, 2.5, 2.5)
@@ -20,6 +21,9 @@ size = Vector3(3, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k53q1"]
 size = Vector3(3, 1, 5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k53q1"]
+radius = 5.0
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -44,76 +48,6 @@ shape = SubResource("CapsuleShape3D_sh265")
 
 [node name="Monke" parent="Model" instance=ExtResource("2_btcbx")]
 
-[node name="Skeleton3D" parent="Model/Monke/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.0136978, -0.0577561, -0.0164388, 0.998101)
-bones/1/rotation = Quaternion(0.262893, 0.0369517, -0.00869596, 0.964078)
-bones/2/rotation = Quaternion(0.11125, -0.00023845, -0.0127397, 0.993711)
-bones/3/rotation = Quaternion(0.184004, -0.017209, 0.0210606, 0.982549)
-bones/4/rotation = Quaternion(-0.404325, 0.0623617, -0.0402352, 0.9116)
-bones/5/rotation = Quaternion(0.0252306, 0.068924, -0.776177, 0.626228)
-bones/6/rotation = Quaternion(0.345432, 0.00215912, -0.242042, 0.906691)
-bones/7/rotation = Quaternion(0.587848, 0.060342, 0.13516, 0.795315)
-bones/8/rotation = Quaternion(-0.266524, 2.56325e-06, -0.296033, 0.91724)
-bones/9/rotation = Quaternion(0.0678164, 0.0756474, -0.0261378, 0.994482)
-bones/10/rotation = Quaternion(-0.13166, -0.0172699, -0.614379, 0.777757)
-bones/11/rotation = Quaternion(0.215255, 0.141474, -0.442856, 0.858795)
-bones/12/rotation = Quaternion(0.284251, 0.297099, -0.584925, 0.69914)
-bones/13/rotation = Quaternion(-0.0197661, -0.0120067, -0.00914076, 0.999691)
-bones/14/rotation = Quaternion(-0.165744, 0.00796546, -0.625021, 0.762767)
-bones/15/rotation = Quaternion(0.0963572, 0.148276, -0.461913, 0.869118)
-bones/16/rotation = Quaternion(0.136954, 0.213377, -0.645659, 0.720304)
-bones/17/rotation = Quaternion(-0.0924176, -0.00348322, -0.00830591, 0.99568)
-bones/18/rotation = Quaternion(-0.120593, 0.062269, -0.599353, 0.788895)
-bones/19/rotation = Quaternion(0.13349, 0.139943, -0.497926, 0.845379)
-bones/20/rotation = Quaternion(0.156904, 0.26908, -0.599178, 0.737538)
-bones/21/rotation = Quaternion(-0.170273, 0.030037, -0.0108277, 0.984879)
-bones/22/rotation = Quaternion(-0.0482028, 0.107198, -0.565206, 0.816534)
-bones/23/rotation = Quaternion(0.137374, 0.15774, -0.513906, 0.831954)
-bones/24/rotation = Quaternion(0.175383, 0.282112, -0.64836, 0.685043)
-bones/25/rotation = Quaternion(0.304543, 0.176295, -0.212678, 0.91156)
-bones/26/rotation = Quaternion(-0.189061, 0.0172126, 0.186249, 0.963987)
-bones/27/rotation = Quaternion(-0.368605, 0.047444, 0.10733, 0.92215)
-bones/29/rotation = Quaternion(0.395964, 0.247411, 0.104357, 0.878129)
-bones/30/rotation = Quaternion(0.567205, -0.096514, -0.120862, 0.808923)
-bones/31/rotation = Quaternion(-0.246082, 0.00473338, 0.304226, 0.920254)
-bones/32/rotation = Quaternion(0.0678163, -0.0756474, 0.0261378, 0.994482)
-bones/33/rotation = Quaternion(-0.0571097, 0.0450351, 0.61109, 0.788213)
-bones/34/rotation = Quaternion(0.15889, -0.00165618, 0.51184, 0.844258)
-bones/35/rotation = Quaternion(0.18696, -0.0723326, 0.659095, 0.72485)
-bones/36/rotation = Quaternion(-0.0197661, 0.0120067, 0.00914071, 0.999691)
-bones/37/rotation = Quaternion(-0.0909995, 0.0182489, 0.638159, 0.76429)
-bones/38/rotation = Quaternion(0.0354537, -0.0039464, 0.516436, 0.855583)
-bones/39/rotation = Quaternion(0.0301957, 0.017511, 0.682293, 0.730245)
-bones/40/rotation = Quaternion(-0.0924176, 0.0034832, 0.00830589, 0.99568)
-bones/41/rotation = Quaternion(-0.0466867, -0.0348903, 0.614591, 0.78669)
-bones/42/rotation = Quaternion(0.0681645, 0.00303984, 0.550848, 0.831812)
-bones/43/rotation = Quaternion(0.0445948, -0.0432745, 0.642057, 0.764134)
-bones/44/rotation = Quaternion(-0.170273, -0.030037, 0.0108276, 0.984879)
-bones/45/rotation = Quaternion(0.0250703, -0.0787037, 0.5803, 0.810203)
-bones/46/rotation = Quaternion(0.0670459, -0.0211044, 0.575447, 0.814813)
-bones/47/rotation = Quaternion(0.0788268, -0.0501186, 0.696237, 0.711708)
-bones/48/rotation = Quaternion(0.321812, 0.0077503, 0.209605, 0.923278)
-bones/49/rotation = Quaternion(-0.290216, 0.0213801, -0.134009, 0.947291)
-bones/50/rotation = Quaternion(-0.276404, 0.00294936, -0.0710608, 0.958406)
-bones/51/rotation = Quaternion(-0.839731, 9.49372e-09, -2.00929e-07, 0.543003)
-bones/52/rotation = Quaternion(-0.295038, -0.0289463, -0.0924881, 0.950558)
-bones/53/rotation = Quaternion(0.0901827, -0.00798422, 0.0972234, 0.991136)
-bones/54/rotation = Quaternion(0.102165, -0.0441842, 0.122149, 0.98625)
-bones/55/rotation = Quaternion(0.22957, -0.0655753, 0.159233, 0.957937)
-bones/56/rotation = Quaternion(0.11495, 0.104118, -0.146151, 0.977029)
-bones/57/rotation = Quaternion(0.424694, 0.546663, 0.546143, -0.471723)
-bones/58/rotation = Quaternion(-0.6323, -0.405857, -0.188889, 0.632296)
-bones/59/rotation = Quaternion(-0.0909797, 0.0467556, 0.797798, 0.594184)
-bones/60/rotation = Quaternion(-0.206625, -0.0737768, 0.916411, -0.334744)
-bones/61/rotation = Quaternion(-0.430154, 0.585, 0.526157, 0.442607)
-bones/62/rotation = Quaternion(-0.646565, 0.332157, 0.212896, 0.652917)
-bones/63/rotation = Quaternion(0.0151109, 0.122135, -0.796764, 0.591627)
-bones/64/rotation = Quaternion(-0.0357928, -0.0424275, 0.937613, 0.343221)
-bones/65/rotation = Quaternion(0.505868, 0.493261, 0.479104, 0.520817)
-bones/66/rotation = Quaternion(0.505868, -0.493262, -0.479104, 0.520817)
-bones/67/rotation = Quaternion(-0.0289847, 0.544466, 0.815986, 0.192049)
-bones/68/rotation = Quaternion(0.161605, 0.716192, 0.480838, 0.479319)
-
 [node name="LeftWristIK" parent="Model/Monke/Armature/Skeleton3D" index="0"]
 target_node = NodePath("../../../../../SwingController/LeftMarker")
 
@@ -125,25 +59,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06612, 0)
 
 [node name="ClimbCast" type="RayCast3D" parent="Model/ClimbChecks"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111683, 0)
-target_position = Vector3(0, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20304, 0)
+target_position = Vector3(0, 0, -1.5)
 debug_shape_custom_color = Color(0, 0, 1, 1)
 debug_shape_thickness = 5
 
 [node name="PullUpCast" type="RayCast3D" parent="Model/ClimbChecks"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.549827, 0)
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -1.5)
 debug_shape_custom_color = Color(0, 0, 1, 1)
 debug_shape_thickness = 5
 
 [node name="StickHolder" type="Marker3D" parent="Model/ClimbChecks"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225324, -1.00826)
 
 [node name="StickPoint" type="Marker3D" parent="Model/ClimbChecks/StickHolder"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.936965)
 
 [node name="InteractableCheck" type="Node3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38012, 0)
@@ -168,8 +102,6 @@ transform = Transform3D(1, 0, 0, 0, 0.907778, -0.419452, 0, 0.419452, 0.907778, 
 
 [node name="SwingController" type="Node3D" parent="."]
 script = ExtResource("2_onrkg")
-arm_max_length = 70.0
-arm_extend_speed = 160.0
 
 [node name="LeftMarker" type="Marker3D" parent="SwingController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02731, 2.43175, -0.346158)
@@ -207,6 +139,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_k53q1")
 theme_override_font_sizes/font_size = 30
 text = "[E] to interact"
 horizontal_alignment = 1
@@ -228,6 +161,15 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_gwnis")
 
+[node name="Collection" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32709, 0)
+shape = SubResource("SphereShape3D_k53q1")
+
 [connection signal="timeout" from="ClimbCooldown" to="." method="_on_climb_cooldown_timeout"]
+[connection signal="body_entered" from="Collection" to="." method="_on_collection_body_entered"]
 
 [editable path="Model/Monke"]

@@ -60,8 +60,8 @@ func _unhandled_input(event: InputEvent) -> void: # Camera controls
 				)
 			
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and not is_interacting:
-		camera_pivot.rotation_degrees.y -= event.relative.x * mouse_sensitivity
-		camera_pivot.rotation_degrees.x -= event.relative.y * mouse_sensitivity
+		camera_pivot.rotation_degrees.y -= event.relative.x * Global.mouse_sens
+		camera_pivot.rotation_degrees.x -= event.relative.y * Global.mouse_sens
 		camera_pivot.rotation_degrees.x = clamp(camera_pivot.rotation_degrees.x, -80, 90)
 		
 func _physics_process(delta: float) -> void:	
@@ -184,4 +184,8 @@ func stop_interacting():
 	
 func start_interaction(interactable):
 	if interactable.has_method("on_interact"):
-		interactable.on_interact()
+		interactable.on_interact(self)
+
+
+func _on_collection_body_entered(body: Node3D) -> void:
+	body.on_collect()

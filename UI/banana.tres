@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://bookakbwnn7be"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://bookakbwnn7be"]
 
 [ext_resource type="Script" uid="uid://b2cs0xhm8krq0" path="res://UI/ItemResource.gd" id="1_bhy2e"]
+[ext_resource type="PackedScene" uid="uid://c1widviwxh5i2" path="res://Assets/3D Models/Banana.glb" id="1_maqt4"]
 [ext_resource type="Texture2D" uid="uid://cwr3pafv8lyo0" path="res://Assets/banana.png" id="2_v0ika"]
 
 [resource]
 script = ExtResource("1_bhy2e")
 name = "banana"
 texture = ExtResource("2_v0ika")
+model = ExtResource("1_maqt4")
 metadata/_custom_type_script = "uid://b2cs0xhm8krq0"

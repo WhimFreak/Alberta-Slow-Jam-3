@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ou6w75rar81a"]
+
+[ext_resource type="Script" uid="uid://bw73ludvob0rl" path="res://Environment/resource.gd" id="1_lmlml"]
+[ext_resource type="Resource" uid="uid://cvevh31ogvoc4" path="res://UI/acorn.tres" id="2_lmlml"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c2pg3"]
+friction = 0.26
+bounce = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bxylx"]
+radius = 1.25861
+
+[node name="Resource" type="RigidBody3D"]
+collision_layer = 32
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_c2pg3")
+script = ExtResource("1_lmlml")
+item = ExtResource("2_lmlml")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503797, 0)
+shape = SubResource("SphereShape3D_bxylx")

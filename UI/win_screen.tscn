@@ -129,6 +129,7 @@ _data = {
 }
 
 [node name="WinScreen" type="Control"]
+process_mode = 3
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -210,6 +211,15 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 
+[node name="KeepPlayingButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7c84e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w024j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7c84e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7c84e")
+text = "KEEP PLAYING"
+
 [node name="MenuButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -225,4 +235,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_7c84e")
 }
 
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/KeepPlayingButton" to="." method="_on_keep_playing_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

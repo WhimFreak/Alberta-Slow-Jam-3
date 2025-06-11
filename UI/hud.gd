@@ -79,6 +79,9 @@ var trading: bool = false:
 func _ready() -> void:
 	Global.animals_met.clear()
 	Global.animals_befriended.clear()
+	
+	start_inventory.clear()
+	start_inventory[preload("res://UI/acorn.tres")] = 10
 	inventory = start_inventory.duplicate()
 	update_inventory()
 	trading = false
